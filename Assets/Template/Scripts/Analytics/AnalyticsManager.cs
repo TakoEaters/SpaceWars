@@ -1,7 +1,7 @@
 ﻿using _Project.Scripts.Core.LocatorServices;
 using UnityEngine;
 
-namespace _Project.Scripts.Core.Analytics
+namespace Template.Scripts.Analytics
 {
     public class AnalyticsManager : MonoBehaviour, IAnalytics
     {

@@ -2,7 +2,7 @@
 using _Project.Scripts.Core.LocatorServices;
 using UnityEngine;
 
-namespace _Project.Scripts.Core.Ads
+namespace Template.Scripts.Ads
 {
     public class AdsManager : MonoBehaviour, IAdsManager 
     {

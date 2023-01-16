@@ -43,6 +43,7 @@ public class MovementInput : MonoBehaviour
 
 	private void Awake()
 	{
+		Application.targetFrameRate = 60;
 		_inputs = GetComponent<PlayerInputs>();
 	}
 

@@ -48,9 +48,8 @@ namespace _Project.Scripts.Core.InputManager
         {
             _baseRect = GetComponent<RectTransform>();
             _canvas = GetComponentInParent<Canvas>();
-            if (_canvas == null)
-                Debug.LogError("The Joystick is not placed inside a canvas");
-            var center = new Vector2(0.5f, 0.5f);
+            if (_canvas == null) Debug.LogError("The Joystick is not placed inside a canvas");
+            Vector2 center = new Vector2(0.5f, 0.5f);
             background.pivot = center;
             handle.anchorMin = center;
             handle.anchorMax = center;

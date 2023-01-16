@@ -3,228 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Skies.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Skies/Sky_8.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Skies/Sky_8.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Back_Tex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Back_Tex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Down_Tex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Down_Tex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Front_Tex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Front_Tex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Left_Tex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Left_Tex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Right_Tex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Right_Tex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Up_Tex.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ColorSkies/Textures/Skybox_8/Up_Tex.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/AnimatorController_Jamo.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/AnimatorController_Jamo.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/Jammo_LowPoly@Idle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/Jammo_LowPoly@Idle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/Jammo_LowPoly@Running.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/Jammo_LowPoly@Running.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Battle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Battle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Happy.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Happy.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Relaxed.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Relaxed.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Scared.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Idle_Scared.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Running.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Running.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Walking.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Default/a_Walking.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Falling To Landing.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Falling To Landing.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Fist Pump.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Fist Pump.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Jump.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Jump.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Aim Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Aim Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Backwards.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Backwards.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Forward.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Forward.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Left.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Left.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Right.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Run Right.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Walk Forward.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Mixamo-Gun/Rifle Walk Forward.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Standing.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Standing.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Victory Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Animations/Victory Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Files.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Files/eyes_vector.ai" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Files/eyes_vector.ai.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/Skybox.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/Skybox.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/m_ground.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/m_ground.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/m_jammo_eyes.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/m_jammo_eyes.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/m_jammo_metal.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Materials/m_jammo_metal.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Models/Jammo_LowPoly.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Models/Jammo_LowPoly.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Prefabs/Jammo_Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Prefabs/Jammo_Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/LightingData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/LightingData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-0_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-0_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-0_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-0_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-0_comp_shadowmask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-0_comp_shadowmask.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-1_comp_dir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-1_comp_dir.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-1_comp_light.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-1_comp_light.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-1_comp_shadowmask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/Lightmap-1_comp_shadowmask.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/ReflectionProbe-0.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/ReflectionProbe-0.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/ReflectionProbe-1.exr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene/ReflectionProbe-1.exr.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene_Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene_Profiles/GameObject Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scenes/JammoScene_Profiles/GameObject Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scripts/MovementInput.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Scripts/MovementInput.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates/t_jammo_black.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates/t_jammo_black.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates/t_jammo_blue.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates/t_jammo_blue.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates/t_jammo_yellow.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/Alternates/t_jammo_yellow.psd.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/jammo_eyes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/jammo_eyes.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot1.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_AO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_AO.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_AlbedoTransparency.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_AlbedoTransparency.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_MetallicSmoothness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_MetallicSmoothness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jammo-Character/Textures/mixbot_low_mixamo_edit1_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/ExtendIslands.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/ExtendIslands.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Paintable.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/Paintable.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/TexturePainter.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/TexturePainter.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/base.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/base.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/handle.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/handle.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/model.dae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/model.dae.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/nozzle.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/nozzle.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/pump.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/pump.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/tank.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/tank.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_albedo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_albedo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_metallic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_metallic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_roughness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Body_roughness.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_albedo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_albedo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_metallic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_metallic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_roughness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Handle_roughness.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_albedo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_albedo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_metallic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_metallic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_roughness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Nozzle_roughness.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_albedo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_albedo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_metallic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_metallic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_roughness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Pump_roughness.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_albedo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_albedo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_metallic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_metallic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_roughness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tank_roughness.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_albedo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_albedo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_metallic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_metallic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_roughness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/textures/Tube_roughness.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/tube.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Splattershot-Splatoon/tube.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Jammo-Character/Scripts/MovementInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Jammo-Character/Scripts/MovementInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/VirtualJoystick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/VirtualJoystick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/MixAndJam.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/MixAndJam.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -235,15 +33,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\UnityHUB\Editors\2021.3.14f1\Editor\Unity.exe" />
@@ -286,6 +83,7 @@
       <workItem from="1673883016166" duration="3000" />
       <workItem from="1673883194824" duration="6000" />
       <workItem from="1673883233506" duration="209000" />
+      <workItem from="1673889843857" duration="3506000" />
     </task>
     <servers />
   </component>

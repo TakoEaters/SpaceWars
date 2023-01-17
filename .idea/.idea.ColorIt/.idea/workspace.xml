@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Jammo-Character/Scripts/MovementInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Jammo-Character/Scripts/MovementInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/Audio/CollisionShootSFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/Audio/CollisionShootSFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/Audio/TrailSFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/Audio/TrailSFX.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/MixAndJam.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/MixAndJam.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ParticlesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ParticlesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
       <workItem from="1673883194824" duration="6000" />
       <workItem from="1673883233506" duration="209000" />
       <workItem from="1673889843857" duration="6766000" />
-      <workItem from="1673963017342" duration="1957000" />
+      <workItem from="1673963017342" duration="2735000" />
     </task>
     <servers />
   </component>

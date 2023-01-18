@@ -1,5 +1,7 @@
 using _Project.Scripts.Core.Pool;
+using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Utils.Audio;
+using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
 using Cinemachine;
 using CustomAssets.Jammo_Character.Scripts;
@@ -107,15 +109,17 @@ namespace _Project.Scripts.ColorIt
                     //Change animation mode if rotation is blocked
                     _animator.SetBool(Shooting, false);
                     _lastShootingTime = Time.time;
+                    Signal.Current.Fire<Modifier>(new Modifier {Percentage = Overheat / 100f});
                 }
             }
         }
         
         private void OverheatUpdate()
         {
-            if (Time.time - LastCoolingTime > 1f && Time.time - _lastShootingTime > _data.FireRate + 1f)
+            if (Time.time - LastCoolingTime > 0.1f && Time.time - _lastShootingTime > _data.FireRate + .1f)
             {
-                Overheat = Mathf.Clamp(Overheat - _data.CoolingPerSecond, 0f, 100f);
+                Overheat = Mathf.Clamp(Overheat - _data.CoolingPerSecond * .1f, 0f, 100f);
+                Signal.Current.Fire<Modifier>(new Modifier {Percentage = Overheat / 100f});
                 LastCoolingTime = Time.time;
             }
 

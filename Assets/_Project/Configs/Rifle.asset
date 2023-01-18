@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   MaxOverheat: 5
-  OverheatPercentPerFire: 5
-  CoolingPerSecond: 10
+  CoolingPerSecond: 50
   FireRate: 0.1
-  OverheatDuration: 5.09
-  ReloadingDuration: 2.55
+  OverheatAdditive: 2.25
   Damage: 58

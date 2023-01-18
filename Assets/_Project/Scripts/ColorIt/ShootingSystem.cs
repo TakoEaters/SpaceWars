@@ -22,11 +22,15 @@ namespace _Project.Scripts.ColorIt
         [SerializeField] CinemachineFreeLook freeLookCamera;
         CinemachineImpulseSource impulseSource;
 
+        private static readonly int Shooting = Animator.StringToHash("shooting");
+
+        private Animator _animator;
         private PlayerInputs _inputs;
         private float _lastShootingTime;
     
         void Start()
         {
+            _animator = GetComponent<Animator>();
             input = GetComponent<MovementInput>();
             _inputs = GetComponent<PlayerInputs>(); 
             impulseSource = freeLookCamera.GetComponent<CinemachineImpulseSource>();
@@ -93,13 +97,15 @@ namespace _Project.Scripts.ColorIt
         {
             if (_inputs.IsShooting)
             {
-                VisualPolish();
                 input.RotateToCamera(transform);
                 if (Time.time - _lastShootingTime >=  _data.FireRate && !IsOverheat)
                 {
-                    Overheat = Mathf.Clamp(Overheat + _data.OverheatDuration, 0f, 100f);
+                    VisualPolish();
+                    Overheat = Mathf.Clamp(Overheat + _data.OverheatAdditive, 0f, 100f);
                     var clip = CorePool.Current.Get(_clip);
                     clip.Play();
+                    //Change animation mode if rotation is blocked
+                    _animator.SetBool(Shooting, false);
                     _lastShootingTime = Time.time;
                 }
             }

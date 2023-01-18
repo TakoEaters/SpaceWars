@@ -11924,7 +11924,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869074592}
-  m_LocalRotation: {x: 0.09113357, y: 0.029744662, z: -0.0027232901, w: 0.99539065}
+  m_LocalRotation: {x: 0.09112377, y: 0.03313881, z: -0.0030340436, w: 0.9952834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12364,7 +12364,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906262002}
-  m_LocalRotation: {x: 0.054915924, y: 0.029823953, z: -0.0016410197, w: 0.99804413}
+  m_LocalRotation: {x: 0.054910004, y: 0.033227146, z: -0.0018282749, w: 0.99793667}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28381,7 +28381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.09113359, y: 0.029744668, z: -0.0027232908, w: 0.99539065}
+  m_LocalRotation: {x: 0.09112377, y: 0.03313881, z: -0.0030340438, w: 0.9952834}
   m_LocalPosition: {x: 0, y: 2.5, z: -7.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29710,7 +29710,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101118512}
-  m_LocalRotation: {x: 0.09113358, y: 0.029744662, z: -0.0027232901, w: 0.99539065}
+  m_LocalRotation: {x: 0.09112377, y: 0.03313881, z: -0.0030340436, w: 0.9952834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32597,12 +32597,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb06fe47b1efa9418445b7194ad6456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: ad8cb674dc37f1c41aab4120755b9403, type: 2}
   _sfxThreshold: 0.1
   _clip: {fileID: 7664595135879330527, guid: 570c422e015da724a86befcf41fcef06, type: 3}
   inkParticle: {fileID: 949289641}
   parentController: {fileID: 895936853}
   splatGunNozzle: {fileID: 1132077972659446630}
   freeLookCamera: {fileID: 209627690}
+  LastCoolingTime: 0
+  Overheat: 0
+  IsOverheat: 0
 --- !u!4 &3609869344849030578
 Transform:
   m_ObjectHideFlags: 0

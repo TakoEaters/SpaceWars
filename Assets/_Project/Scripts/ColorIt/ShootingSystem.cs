@@ -78,7 +78,7 @@ namespace _Project.Scripts.ColorIt
 
             if (!DOTween.IsTweening(splatGunNozzle))
             {
-                splatGunNozzle.DOComplete();
+                splatGunNozzle.DOComplete();     
                 splatGunNozzle.DOPunchScale(new Vector3(0, 1, 1) / 1.5f, .15f, 10, 1);
             }
         }

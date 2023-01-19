@@ -32,7 +32,7 @@ namespace _Project.Scripts.ColorIt
         {
             Vector3 audioPos = Vector3.zero;
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-
+            print("collided with - " + other.name);
             Paintable p = other.GetComponent<Paintable>();
             if (p != null)
             {

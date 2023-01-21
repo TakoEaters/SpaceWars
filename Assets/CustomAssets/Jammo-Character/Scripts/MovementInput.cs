@@ -4,7 +4,7 @@ using UnityEngine;
 //With a blend tree to control the inputmagnitude and allow blending between animations.
 namespace CustomAssets.Jammo_Character.Scripts
 {
-	[RequireComponent(typeof(CharacterController), typeof(PlayerInput))]
+	[RequireComponent(typeof(CharacterController), typeof(PlayerInputs))]
 	public class MovementInput : MonoBehaviour
 	{
 

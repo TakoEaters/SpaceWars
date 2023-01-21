@@ -14,6 +14,7 @@ namespace _Project.Scripts.ColorIt
     {
         [SerializeField] private WeaponEntity _data;
         [SerializeField] private float _sfxThreshold = 1f;
+        [SerializeField] private CorePoolAudio _overHeatClip;
         [SerializeField] private CorePoolAudio _clip;
 
         MovementInput input;
@@ -145,6 +146,8 @@ namespace _Project.Scripts.ColorIt
 
         private void OnOverheat()
         {
+            var overHeat = CorePool.Current.Get(_overHeatClip);
+            overHeat.Play();
             inkParticle.Stop();
         }
 

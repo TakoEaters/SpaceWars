@@ -6,6 +6,7 @@ using _Project.Scripts.Player.WeaponsSystem;
 using Cinemachine;
 using CustomAssets.Jammo_Character.Scripts;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 
 namespace _Project.Scripts.ColorIt
@@ -115,6 +116,7 @@ namespace _Project.Scripts.ColorIt
             }
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
         private void OverheatUpdate()
         {
             if (Time.time - LastCoolingTime > 0.1f && Time.time - _lastShootingTime > _data.FireRate + .1f)
@@ -128,6 +130,7 @@ namespace _Project.Scripts.ColorIt
             else if (Overheat < _data.MaxOverheat) IsOverheat = false;
             if (IsOverheat && _sentOverheatEvent == false)
             {
+                MMVibrationManager.Haptic(HapticTypes.Failure, false, true, this);
                 _sentOverheatEvent = true;
                 OnOverheat();
            //     _onOverheat?.Invoke();

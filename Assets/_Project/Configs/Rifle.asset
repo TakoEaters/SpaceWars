@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2726efc48a6bb874ca7a6fcbea09b286, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
+  ID: 0
   MaxOverheat: 5
   CoolingPerSecond: 50
   FireRate: 0.1

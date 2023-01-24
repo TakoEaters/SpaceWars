@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Utils.Audio;
@@ -13,7 +16,6 @@ namespace _Project.Scripts.ColorIt
     public class ShootingSystem : MonoBehaviour
     {
         [SerializeField] private WeaponEntity _data;
-        [SerializeField] private float _sfxThreshold = 1f;
         [SerializeField] private CorePoolAudio _overHeatClip;
         [SerializeField] private CorePoolAudio _clip;
 
@@ -27,16 +29,19 @@ namespace _Project.Scripts.ColorIt
 
         private static readonly int Shooting = Animator.StringToHash("shooting");
 
+        private List<WeaponView> _views = new List<WeaponView>();
         private Animator _animator;
         private PlayerInputs _inputs;
         private float _lastShootingTime;
-    
-        void Start()
+
+        private void Awake()
         {
+            _views = GetComponentsInChildren<WeaponView>(true).ToList();
             _animator = GetComponent<Animator>();
             input = GetComponent<MovementInput>();
             _inputs = GetComponent<PlayerInputs>(); 
-            impulseSource = freeLookCamera.GetComponent<CinemachineImpulseSource>();
+            impulseSource = freeLookCamera.GetComponent<CinemachineImpulseSource>(); 
+            _views[_data.ID].Enable();
         }
 
         private void Update()

@@ -1,55 +1,82 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.LevelHandlers;
+using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.LevelHandlers.Common;
 using UnityEngine;
 
-public class MultiplayerHandler : MonoBehaviour, IGameHandler
+namespace _Project.Scripts.Common
 {
-    [SerializeField, Range(1, 10)] private int _totalSessionMinutes = 5;
+    public class MultiplayerHandler : MonoBehaviour, IGameHandler
+    {
+        [SerializeField, Range(100, 1000)] private int _necessaryWinScore = 500;
+        [SerializeField, Range(1, 10)] private int _totalSessionMinutes = 5;
     
-    private Coroutine _countRoutine;
-    private ICounterSystem _counter;
-    private readonly int _secondsInMinute = 60;
-    private int _remainingTime;
+        
+        private readonly List<TeamScore> _teams = new List<TeamScore>();
+        private Coroutine _countRoutine;
+        private ICounterSystem _counter;
     
-    public void Register()
-    {
-        ServiceLocator.Current.Register<IGameHandler>(this);
-    }
-
-
-    [Sub]
-    private void OnStartLevel(StartLevel reference)
-    {
-        StartCounter();
-    }
+        private readonly int _secondsInMinute = 60;
+        private int _remainingTime;
     
-    private void StartCounter()
-    {
-        _counter = ServiceLocator.Current.Get<ICounterSystem>();
-        _countRoutine = StartCoroutine(Count());
-    }
-
-    // ReSharper disable Unity.PerformanceAnalysis
-    private IEnumerator Count()
-    {
-        _remainingTime = _totalSessionMinutes * _secondsInMinute;
-        WaitForSeconds waitTime = new WaitForSeconds(1f);
-
-        while (_remainingTime > 0)
+        public void Register()
         {
-            _counter.SetCounterTime(_remainingTime);
-            _remainingTime -= 1;
-            yield return waitTime;
+            ServiceLocator.Current.Register<IGameHandler>(this);
+        }
+
+
+        [Sub]
+        private void OnStartLevel(StartLevel reference)
+        {
+            StartCounter();
         }
         
-    }
-}
+        [Sub]
+        private void OnReceiveScore(ScoreChanger reference)
+        {
+            TeamScore currentTeam = _teams.Find(x => x.Team == reference.Team);
+            if (currentTeam == null)
+            {
+                currentTeam = new TeamScore(reference.Team, reference.Amount);
+                _teams.Add(currentTeam);
+                return;
+            }
 
-public interface IGameHandler : IGameService
-{
+            currentTeam.TotalAmount += reference.Amount;
+        }
     
+        private void StartCounter()
+        {
+            _counter = ServiceLocator.Current.Get<ICounterSystem>();
+            _countRoutine = StartCoroutine(Count());
+        }
+        
+        private bool IsAnyWinner()
+        {
+            TeamScore winner = _teams.Find(x => x.TotalAmount >= _necessaryWinScore);
+            return winner != null;
+        }
+
+        // ReSharper disable Unity.PerformanceAnalysis
+        private IEnumerator Count()
+        {
+            _remainingTime = _totalSessionMinutes * _secondsInMinute;
+            WaitForSeconds waitTime = new WaitForSeconds(1f);
+
+            while (_remainingTime > 0)
+            {
+                if (IsAnyWinner()) yield break;
+                _counter.SetCounterTime(_remainingTime);
+                _remainingTime -= 1;
+                yield return waitTime;
+            }
+        }
+    }
+
+    public interface IGameHandler : IGameService
+    {
+    }
 }

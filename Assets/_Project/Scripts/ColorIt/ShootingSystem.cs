@@ -113,6 +113,7 @@ namespace _Project.Scripts.ColorIt
                     Overheat = Mathf.Clamp(Overheat + _data.OverheatAdditive, 0f, 100f);
                     var clip = CorePool.Current.Get(_clip);
                     clip.Play();
+                    MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
                     //Change animation mode if rotation is blocked
                     _animator.SetBool(Shooting, false);
                     _lastShootingTime = Time.time;

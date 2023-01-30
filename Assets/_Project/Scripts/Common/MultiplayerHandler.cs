@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.LevelHandlers;
 using _Project.Scripts.General.Signals;
-using _Project.Scripts.GUi.LevelHandlers.Common;
+using _Project.Scripts.GUi.Interface;
 using UnityEngine;
 
 namespace _Project.Scripts.Common
@@ -17,7 +18,7 @@ namespace _Project.Scripts.Common
         
         private readonly List<TeamScore> _teams = new List<TeamScore>();
         private Coroutine _countRoutine;
-        private ICounterSystem _counter;
+        private IScoreSystem _score;
     
         private readonly int _secondsInMinute = 60;
         private int _remainingTime;
@@ -46,11 +47,13 @@ namespace _Project.Scripts.Common
             }
 
             currentTeam.TotalAmount += reference.Amount;
+            _score.SetTeamScore(currentTeam);
         }
     
         private void StartCounter()
         {
-            _counter = ServiceLocator.Current.Get<ICounterSystem>();
+            _score = ServiceLocator.Current.Get<IScoreSystem>();
+            _score.SetMaxScore(_necessaryWinScore);
             _countRoutine = StartCoroutine(Count());
         }
         
@@ -69,7 +72,7 @@ namespace _Project.Scripts.Common
             while (_remainingTime > 0)
             {
                 if (IsAnyWinner()) yield break;
-                _counter.SetCounterTime(_remainingTime);
+                _score.SetCounterTime(_remainingTime);
                 _remainingTime -= 1;
                 yield return waitTime;
             }

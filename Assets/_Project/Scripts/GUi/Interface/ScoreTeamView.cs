@@ -16,14 +16,12 @@ namespace _Project.Scripts.GUi.Interface
         public void SetMaxScore(int maxScoreValue)
         {
             _maxSessionScore = maxScoreValue;
-            _amount.text = 0 + " / " + _maxSessionScore;
+            _amount.text = 0 + "  <#afd9e9>/ " + _maxSessionScore; 
         }
 
         public void SetCurrentScore(int score)
         {
-            _amount.text = score + " / " + _maxSessionScore;
+            _amount.text = score + " <#afd9e9>/ " + _maxSessionScore; 
         }
-
-
     }
 }

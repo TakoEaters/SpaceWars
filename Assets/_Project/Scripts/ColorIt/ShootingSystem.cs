@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Utils.Audio;
@@ -16,7 +17,6 @@ namespace _Project.Scripts.ColorIt
 {
     public class ShootingSystem : MonoBehaviour
     {
-        [SerializeField] private WeaponEntity _data;
         [SerializeField] private CorePoolAudio _overHeatClip;
         [SerializeField] private CorePoolAudio _clip;
 
@@ -30,6 +30,7 @@ namespace _Project.Scripts.ColorIt
 
         private static readonly int Shooting = Animator.StringToHash("shooting");
 
+        private WeaponEntity _currentWeapon;
         private List<WeaponView> _views = new List<WeaponView>();
         private Animator _animator;
         private PlayerInputs _inputs;
@@ -41,8 +42,13 @@ namespace _Project.Scripts.ColorIt
             _animator = GetComponent<Animator>();
             input = GetComponent<MovementInput>();
             _inputs = GetComponent<PlayerInputs>(); 
-            impulseSource = freeLookCamera.GetComponent<CinemachineImpulseSource>(); 
-            _views[_data.ID].Enable();
+            impulseSource = freeLookCamera.GetComponent<CinemachineImpulseSource>();
+        }
+
+        private void Start()
+        {
+            _currentWeapon = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
+            _views[_currentWeapon.ID].Enable();
         }
 
         private void Update()
@@ -107,10 +113,10 @@ namespace _Project.Scripts.ColorIt
             if (_inputs.IsShooting)
             {
                 input.RotateToCamera(transform);
-                if (Time.time - _lastShootingTime >=  _data.FireRate && !IsOverheat)
+                if (Time.time - _lastShootingTime >=  _currentWeapon.FireRate && !IsOverheat)
                 {
                     VisualPolish();
-                    Overheat = Mathf.Clamp(Overheat + _data.OverheatAdditive, 0f, 100f);
+                    Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
                     var clip = CorePool.Current.Get(_clip);
                     clip.Play();
                     MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
@@ -125,15 +131,15 @@ namespace _Project.Scripts.ColorIt
         // ReSharper disable Unity.PerformanceAnalysis
         private void OverheatUpdate()
         {
-            if (Time.time - LastCoolingTime > 0.1f && Time.time - _lastShootingTime > _data.FireRate + .1f)
+            if (Time.time - LastCoolingTime > 0.1f && Time.time - _lastShootingTime > _currentWeapon.FireRate + .1f)
             {
-                Overheat = Mathf.Clamp(Overheat - _data.CoolingPerSecond * .1f, 0f, 100f);
+                Overheat = Mathf.Clamp(Overheat - _currentWeapon.CoolingPerSecond * .1f, 0f, 100f);
                 Signal.Current.Fire<Modifier>(new Modifier {Percentage = Overheat / 100f});
                 LastCoolingTime = Time.time;
             }
 
             if (Overheat >= 99) IsOverheat = true;
-            else if (Overheat < _data.MaxOverheat) IsOverheat = false;
+            else if (Overheat < _currentWeapon.MaxOverheat) IsOverheat = false;
             if (IsOverheat && _sentOverheatEvent == false)
             {
                 MMVibrationManager.Haptic(HapticTypes.Failure, false, true, this);

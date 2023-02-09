@@ -15,6 +15,6 @@ MonoBehaviour:
   ID: 1
   MaxOverheat: 5
   CoolingPerSecond: 50
-  FireRate: 0.1
-  OverheatAdditive: 2.25
+  FireRate: 0.01
+  OverheatAdditive: 10
   Damage: 75

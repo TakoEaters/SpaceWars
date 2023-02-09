@@ -9,7 +9,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [Range(1.0f, 100.0f)] public float MaxOverheat;
         [Range(1.0f, 50.0f)] public float CoolingPerSecond;
         [Range(0.01f, 2.0f)] public float FireRate;
-        [Range(0.1f, 3.0f)] public float OverheatAdditive = 1.25f;
+        [Range(1.0f, 10.0f)] public float OverheatAdditive = 1.25f;
         [Range(5.0f, 100.0f)] public float Damage;
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
@@ -22,23 +21,19 @@ namespace _Project.Scripts.ColorIt
 
         MovementInput input;
 
-        [SerializeField] ParticleSystem inkParticle;
-        [SerializeField] Transform parentController;
-        [SerializeField] Transform splatGunNozzle;
         [SerializeField] CinemachineFreeLook freeLookCamera;
         CinemachineImpulseSource impulseSource;
 
         private static readonly int Shooting = Animator.StringToHash("shooting");
 
         private WeaponEntity _currentWeapon;
-        private List<WeaponView> _views = new List<WeaponView>();
+        private WeaponView _currentView;
         private Animator _animator;
         private PlayerInputs _inputs;
         private float _lastShootingTime;
 
         private void Awake()
         {
-            _views = GetComponentsInChildren<WeaponView>(true).ToList();
             _animator = GetComponent<Animator>();
             input = GetComponent<MovementInput>();
             _inputs = GetComponent<PlayerInputs>(); 
@@ -48,12 +43,14 @@ namespace _Project.Scripts.ColorIt
         private void Start()
         {
             _currentWeapon = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
-            _views[_currentWeapon.ID].Enable();
+            List<WeaponView> views = GetComponentsInChildren<WeaponView>(true).ToList();
+            _currentView = views[_currentWeapon.ID];
+            _currentView.Enable();
         }
 
         private void Update()
         {
-            Vector3 angle = parentController.localEulerAngles;
+            Vector3 angle = _currentView.ParticleTransform.localEulerAngles;
             input.blockRotationPlayer = _inputs.IsShooting;
             bool pressing = _inputs.IsShooting;
 
@@ -63,36 +60,36 @@ namespace _Project.Scripts.ColorIt
             OverheatUpdate();
             if (_inputs.IsShootingPressed && !IsOverheat)
             {
-                inkParticle.Play();
+                _currentView.ShootParticle();
             }
             else if (_inputs.IsShootingReleased)
             {
-                inkParticle.Stop();
+                _currentView.StopParticle();
             }
 
-            parentController.localEulerAngles
+            _currentView.ParticleTransform.localEulerAngles
                 = new Vector3(
-                    Mathf.LerpAngle(parentController.localEulerAngles.x,
+                    Mathf.LerpAngle(_currentView.ParticleTransform.localEulerAngles.x,
                         pressing ? RemapCamera(freeLookCamera.m_YAxis.Value, 0, 1, -25, 25) : 0, .3f), angle.y,
                     angle.z);
         }
 
         private void VisualPolish()
         {
-            if (!DOTween.IsTweening(parentController))
+            if (!DOTween.IsTweening(_currentView.ParticleTransform))
             {
-                parentController.DOComplete();
-                Vector3 localPos = parentController.localPosition;
-                parentController.DOLocalMove(localPos - new Vector3(0, 0, .2f), .03f)
-                    .OnComplete(() => parentController.DOLocalMove(localPos, .1f).SetEase(Ease.OutSine));
+                _currentView.ParticleTransform.DOComplete();
+                Vector3 localPos = _currentView.ParticleTransform.localPosition;
+                _currentView.ParticleTransform.DOLocalMove(localPos - new Vector3(0, 0, .2f), .03f)
+                    .OnComplete(() => _currentView.ParticleTransform.DOLocalMove(localPos, .1f).SetEase(Ease.OutSine));
 
                 impulseSource.GenerateImpulse();
             }
 
-            if (!DOTween.IsTweening(splatGunNozzle))
+            if (!DOTween.IsTweening(_currentView.Nozzle))
             {
-                splatGunNozzle.DOComplete();     
-                splatGunNozzle.DOPunchScale(new Vector3(0, 1, 1) / 1.5f, .15f, 10, 1);
+                _currentView.Nozzle.DOComplete();     
+                _currentView.Nozzle.DOPunchScale(new Vector3(0, 1, 1) / 1.5f, .15f, 10, 1);
             }
         }
 
@@ -162,8 +159,8 @@ namespace _Project.Scripts.ColorIt
         private void OnOverheat()
         {
             var overHeat = CorePool.Current.Get(_overHeatClip);
-            overHeat.Play();
-            inkParticle.Stop();
+            overHeat.Play(); 
+            _currentView.StopParticle();
         }
 
         private bool _sentOverheatEvent;

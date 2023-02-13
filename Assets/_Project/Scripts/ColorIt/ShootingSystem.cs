@@ -45,6 +45,7 @@ namespace _Project.Scripts.ColorIt
             _currentWeapon = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
             List<WeaponView> views = GetComponentsInChildren<WeaponView>(true).ToList();
             _currentView = views[_currentWeapon.ID];
+            _currentView.InitializeData(_currentWeapon.Damage);
             _currentView.Enable();
         }
 

@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
+using _Project.Scripts.General;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.Player.WeaponsSystem;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.ColorIt
 {
@@ -22,9 +25,12 @@ namespace _Project.Scripts.ColorIt
 
 
         private int _currentTime = 0;
-        
-        private void Start()
+        private int _damage;
+
+
+        public void Initialize(int damage)
         {
+            _damage = damage;
             _currentTime = _threshold;
             part = GetComponent<ParticleSystem>();
             collisionEvents = new List<ParticleCollisionEvent>();
@@ -36,6 +42,7 @@ namespace _Project.Scripts.ColorIt
             Vector3 audioPos = Vector3.zero;
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
             Paintable p = other.GetComponent<Paintable>();
+            OnShootEnemy(other);
             if (p != null)
             {
                 for (int i = 0; i < numCollisionEvents; i++)
@@ -53,6 +60,14 @@ namespace _Project.Scripts.ColorIt
                     var clip = CorePool.Current.Get(_clip);
                     clip.Play(audioPos);
                 }
+            }
+        }
+
+        private void OnShootEnemy(GameObject other)
+        {
+            if (other.TryGetComponent(out IDamageable damageable) && damageable.IsAlive)
+            {
+                damageable.OnTakeDamage(_damage);
             }
         }
     }

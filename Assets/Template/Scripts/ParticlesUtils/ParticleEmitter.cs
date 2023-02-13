@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Project.Scripts.Core.ParticlesUtils
+namespace Template.Scripts.ParticlesUtils
 {
     public class ParticleEmitter
     {
@@ -22,6 +22,13 @@ namespace _Project.Scripts.Core.ParticlesUtils
             var emitter = Get(prefab);
             emitter.transform.position = position;
             emitter.Play();
+        }
+
+        public void Emit(ParticleSystem prefab, int count, Vector3 position)
+        {
+            var emitter = Get(prefab);
+            emitter.transform.position = position;
+            emitter.Emit(count);
         }
 
         public void Play(ParticleSystem prefab, Vector3 position, Quaternion rotation)

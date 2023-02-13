@@ -16,6 +16,11 @@ namespace _Project.Scripts.Player.WeaponsSystem
             _inkParticle.Play();
         }
 
+        public void EmitParticle(int count)
+        {
+            _inkParticle.Emit(count);
+        }
+
         public void StopParticle()
         {
             _inkParticle.Stop();

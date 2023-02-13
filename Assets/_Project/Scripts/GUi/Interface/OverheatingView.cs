@@ -22,7 +22,7 @@ namespace _Project.Scripts.GUi.Interface
             float lerpSpeedClamped = _lerpSpeed * Time.deltaTime;
             _slide.value = Mathf.Lerp(_slide.value, _targetFill, lerpSpeedClamped);
             _slideSprite.color = Color.Lerp(_initialColor, _overheatedColor, _targetFill);
-            
+
             if (Math.Abs(_slide.value - _targetFill) < .0001f) _view.Disable();
             else _view.Enable();
         }

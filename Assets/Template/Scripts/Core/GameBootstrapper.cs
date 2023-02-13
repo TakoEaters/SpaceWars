@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
-using _Project.Scripts.Core.ParticlesUtils;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SaveSystem;
 using _Project.Scripts.Core.SignalBus;
 using Sirenix.Utilities;
+using Template.Scripts.ParticlesUtils;
 using UnityEngine;
 
 namespace Template.Scripts.Core

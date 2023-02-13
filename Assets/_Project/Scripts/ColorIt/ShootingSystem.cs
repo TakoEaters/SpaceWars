@@ -53,20 +53,10 @@ namespace _Project.Scripts.ColorIt
             Vector3 angle = _currentView.ParticleTransform.localEulerAngles;
             input.blockRotationPlayer = _inputs.IsShooting;
             bool pressing = _inputs.IsShooting;
-
-
-
+            
             Fire();
             OverheatUpdate();
-            if (_inputs.IsShootingPressed && !IsOverheat)
-            {
-                _currentView.ShootParticle();
-            }
-            else if (_inputs.IsShootingReleased)
-            {
-                _currentView.StopParticle();
-            }
-
+            
             _currentView.ParticleTransform.localEulerAngles
                 = new Vector3(
                     Mathf.LerpAngle(_currentView.ParticleTransform.localEulerAngles.x,
@@ -105,26 +95,32 @@ namespace _Project.Scripts.ColorIt
         public float Overheat;
         public bool IsOverheat;
         
+        // ReSharper disable Unity.PerformanceAnalysis
         private void Fire()
         {
             if (_inputs.IsShooting)
             {
                 input.RotateToCamera(transform);
-                if (Time.time - _lastShootingTime >=  _currentWeapon.FireRate && !IsOverheat)
+                if (!IsOverheat)
                 {
-                    VisualPolish();
-                    Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
-                    var clip = CorePool.Current.Get(_clip);
-                    clip.Play();
-                    MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
-                    //Change animation mode if rotation is blocked
-                    _animator.SetBool(Shooting, false);
-                    _lastShootingTime = Time.time;
-                    Signal.Current.Fire<Modifier>(new Modifier {Percentage = Overheat / 100f});
+                    if (Time.time - _lastShootingTime >= _currentWeapon.FireRate)
+                    {
+                        _currentView.ShootParticle();
+                        VisualPolish();
+                        Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
+                        CorePool.Current.Get(_clip).Play();
+                        MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this); 
+                        _animator.SetBool(Shooting, false);
+                        _lastShootingTime = Time.time;
+                        Signal.Current.Fire<Modifier>(new Modifier { Percentage = Overheat / 100f });
+                    }
                 }
+                
+                else _currentView.StopParticle();
             }
+            else _currentView.StopParticle();
         }
-        
+
         // ReSharper disable Unity.PerformanceAnalysis
         private void OverheatUpdate()
         {

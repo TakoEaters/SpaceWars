@@ -10,7 +10,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
 
         public Transform Nozzle => _nozzle;
         public Transform ParticleTransform => _inkParticle.transform;
-
+        
         public void ShootParticle()
         {
             _inkParticle.Play();

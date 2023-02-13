@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.General.Utils.Audio;
+using _Project.Scripts.Player.WeaponsSystem;
 using UnityEngine;
 
 namespace _Project.Scripts.ColorIt
@@ -26,6 +28,7 @@ namespace _Project.Scripts.ColorIt
             _currentTime = _threshold;
             part = GetComponent<ParticleSystem>();
             collisionEvents = new List<ParticleCollisionEvent>();
+            paintColor = ServiceLocator.Current.Get<IPaintColor>().CurrentColor;
         }
 
         private void OnParticleCollision(GameObject other)

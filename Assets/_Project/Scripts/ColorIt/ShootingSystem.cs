@@ -3,6 +3,7 @@ using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.Camera;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
@@ -84,7 +85,7 @@ namespace _Project.Scripts.ColorIt
             }
         }
 
-        float RemapCamera(float value, float from1, float to1, float from2, float to2)
+        private float RemapCamera(float value, float from1, float to1, float from2, float to2)
         {
             return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
         }
@@ -92,6 +93,8 @@ namespace _Project.Scripts.ColorIt
         
         #region Overheat
 
+        [SerializeField] private float _intensity = 2f;
+        
         public float LastCoolingTime;
         public float Overheat;
         public bool IsOverheat;
@@ -108,6 +111,7 @@ namespace _Project.Scripts.ColorIt
                     {
                         _currentView.ShootParticle();
                         VisualPolish();
+                        ServiceLocator.Current.Get<ICameraShake>().Shake(_intensity, 0.1f);
                         Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
                         CorePool.Current.Get(_clip).Play();
                         MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this); 

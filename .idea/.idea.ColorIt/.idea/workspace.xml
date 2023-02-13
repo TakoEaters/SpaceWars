@@ -3,15 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/ColorIt/ParticleMaterial 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/ColorIt/ParticleMaterial 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/PaintManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/PaintManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_11.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Prefabs/Rock_6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-Gameplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-Gameplay.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ParticlesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ParticlesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ditled.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ditled.fbx.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +36,8 @@
     <setting file="mock://C:/Users/M16/Documents/GitHub/ColorIt/Assets/_Project/Scenes/Demo.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/M16/Documents/GitHub/ColorIt/Assets/_Project/Scenes/Demo.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/AI/AIBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/HealthUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/HeartUIElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/OverheatingView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/ScoreTeamView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/PlayerSaves.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Signals/StartLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/Audio/CorePoolAudio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Player/HealthSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/TestEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Impulse/CinemachineImpulseSource.cs" root0="SKIP_HIGHLIGHTING" />
   </component>

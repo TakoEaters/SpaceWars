@@ -35,9 +35,8 @@ namespace _Project.Scripts.Player
         private void LateUpdate()
         {
             // ReSharper disable once PossibleLossOfFraction
-            float lerpSpeedClamped =  1 - ((float)_currentHealth / _playerTotalHealth);
+            float lerpSpeedClamped =  1 - (float)_currentHealth / _playerTotalHealth;
             _vignette.intensity.value = Mathf.Lerp(0, _maxVignetteRadius, lerpSpeedClamped);
-            print(_vignette.intensity.value);
         }
 
         [Button()]

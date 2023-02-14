@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using CustomAssets.Epic_Toon_FX.Demo.Scripts;
 
 namespace EpicToonFX
 {

@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using _Project.Scripts.Player.WeaponsSystem;
+﻿using _Project.Scripts.Player.WeaponsSystem;
+using UnityEngine;
 
-namespace EpicToonFX
+namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
 {
     public class ETFXProjectileScript : MonoBehaviour
     {

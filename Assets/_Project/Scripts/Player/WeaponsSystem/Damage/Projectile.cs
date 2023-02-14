@@ -1,17 +1,18 @@
 using System.Collections;
-using _Project.Scripts.General;
 using Template.Scripts.Pool;
+using UnityEngine;
 
 namespace _Project.Scripts.Player.WeaponsSystem.Damage
 {
     public abstract class Projectile : CorePoolElement
     {
-        protected abstract IEnumerator FireRoutine(IDamageable target, float damage);
+        public abstract void Initialize(Vector3 spawnPosition, Quaternion spawnRotation);
+        protected abstract IEnumerator FireRoutine(int damage);
 
-        public void Fire(IDamageable target, float damage)
+        public void Fire(int damage)
         {
             gameObject.SetActive(true);
-            StartCoroutine(FireRoutine(target, damage));
+            StartCoroutine(FireRoutine(damage));
         }
     }
 }

@@ -6,33 +6,32 @@ namespace _Project.Scripts.Player.WeaponsSystem
 {
     public class WeaponView : View
     {
+        [SerializeField] private float _bulletSpeed = 1500f;
+        [SerializeField] private LayerMask _necessaryLayer;
+        [SerializeField] private GameObject _projectile;
+
         [SerializeField] private Transform _nozzle;
-        [SerializeField] private ParticleSystem _inkParticle;
 
         public Transform Nozzle => _nozzle;
-        public Transform ParticleTransform => _inkParticle.transform;
 
-        private ParticlesController _particlesController;
+        private Camera _mainCamera;
+        private int _damage;
 
         public void InitializeData(int damage)
         {
-            _particlesController = GetComponentInChildren<ParticlesController>();
-            _particlesController.Initialize(damage);
+            _mainCamera = Camera.main;
+            _damage = damage;
         }
 
-        public void ShootParticle()
+        public void ShootProjectile()
         {
-            _inkParticle.Play();
-        }
-
-        public void EmitParticle(int count)
-        {
-            _inkParticle.Emit(count);
-        }
-
-        public void StopParticle()
-        {
-            _inkParticle.Stop();
+            Ray ray = _mainCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+            if (Physics.Raycast(ray, out RaycastHit hit, 1000f, _necessaryLayer)) //Finds the point where you click with the mouse
+            {
+                GameObject projectile = Instantiate(_projectile, _nozzle.position, Quaternion.identity); //Spawns the selected projectile
+                projectile.transform.LookAt(hit.point); //Sets the projectiles rotation to look at the point clicked
+                projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 1000f); //Set the speed of the projectile by applying force to the rigidbody
+            }
         }
     }
 }

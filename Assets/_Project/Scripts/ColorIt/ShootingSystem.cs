@@ -52,31 +52,13 @@ namespace _Project.Scripts.ColorIt
 
         private void Update()
         {
-            Vector3 angle = _currentView.ParticleTransform.localEulerAngles;
             input.blockRotationPlayer = _inputs.IsShooting;
-            bool pressing = _inputs.IsShooting;
-            
             Fire();
             OverheatUpdate();
-            
-            _currentView.ParticleTransform.localEulerAngles
-                = new Vector3(
-                    Mathf.LerpAngle(_currentView.ParticleTransform.localEulerAngles.x,
-                        pressing ? RemapCamera(freeLookCamera.m_YAxis.Value, 0, 1, -25, 25) : 0, .3f), angle.y,
-                    angle.z);
         }
 
         private void VisualPolish()
         {
-            if (!DOTween.IsTweening(_currentView.ParticleTransform))
-            {
-                _currentView.ParticleTransform.DOComplete();
-                Vector3 localPos = _currentView.ParticleTransform.localPosition;
-                _currentView.ParticleTransform.DOLocalMove(localPos - new Vector3(0, 0, .2f), .03f)
-                    .OnComplete(() => _currentView.ParticleTransform.DOLocalMove(localPos, .1f).SetEase(Ease.OutSine));
-
-                impulseSource.GenerateImpulse();
-            }
 
             if (!DOTween.IsTweening(_currentView.Nozzle))
             {
@@ -109,7 +91,7 @@ namespace _Project.Scripts.ColorIt
                 {
                     if (Time.time - _lastShootingTime >= _currentWeapon.FireRate)
                     {
-                        _currentView.ShootParticle();
+                        _currentView.ShootProjectile();
                         VisualPolish();
                         ServiceLocator.Current.Get<ICameraShake>().Shake(_intensity, 0.1f);
                         Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
@@ -120,10 +102,7 @@ namespace _Project.Scripts.ColorIt
                         Signal.Current.Fire<Modifier>(new Modifier { Percentage = Overheat / 100f });
                     }
                 }
-                
-                else _currentView.StopParticle();
             }
-            else _currentView.StopParticle();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -159,9 +138,8 @@ namespace _Project.Scripts.ColorIt
 
         private void OnOverheat()
         {
-            var overHeat = CorePool.Current.Get(_overHeatClip);
+            CorePoolAudio overHeat = CorePool.Current.Get(_overHeatClip);
             overHeat.Play(); 
-            _currentView.StopParticle();
         }
 
         private bool _sentOverheatEvent;

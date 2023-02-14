@@ -7,7 +7,6 @@ using _Project.Scripts.General.Camera;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
-using Cinemachine;
 using CustomAssets.Jammo_Character.Scripts;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
@@ -18,13 +17,9 @@ namespace _Project.Scripts.ColorIt
     public class ShootingSystem : MonoBehaviour
     {
         [SerializeField] private CorePoolAudio _overHeatClip;
-        [SerializeField] private CorePoolAudio _clip;
 
         MovementInput input;
-
-        [SerializeField] CinemachineFreeLook freeLookCamera;
-        CinemachineImpulseSource impulseSource;
-
+        
         private static readonly int Shooting = Animator.StringToHash("shooting");
 
         private WeaponEntity _currentWeapon;
@@ -38,7 +33,6 @@ namespace _Project.Scripts.ColorIt
             _animator = GetComponent<Animator>();
             input = GetComponent<MovementInput>();
             _inputs = GetComponent<PlayerInputs>(); 
-            impulseSource = freeLookCamera.GetComponent<CinemachineImpulseSource>();
         }
 
         private void Start()
@@ -67,12 +61,6 @@ namespace _Project.Scripts.ColorIt
             }
         }
 
-        private float RemapCamera(float value, float from1, float to1, float from2, float to2)
-        {
-            return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
-        }
-        
-        
         #region Overheat
 
         [SerializeField] private float _intensity = 2f;
@@ -95,7 +83,6 @@ namespace _Project.Scripts.ColorIt
                         VisualPolish();
                         ServiceLocator.Current.Get<ICameraShake>().Shake(_intensity, 0.1f);
                         Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
-                        CorePool.Current.Get(_clip).Play();
                         MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this); 
                         _animator.SetBool(Shooting, false);
                         _lastShootingTime = Time.time;

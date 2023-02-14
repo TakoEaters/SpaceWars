@@ -60,4 +60,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changeableMaterial: {fileID: 2100000, guid: 4bdfd49a249c4834c9d6a7a591023bb2, type: 2}
-  _necessaryColor: {r: 1, g: 0, b: 0, a: 1}
+  _necessaryColor: {r: 0, g: 0, b: 0, a: 1}

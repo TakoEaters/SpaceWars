@@ -3,31 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/FireballSharp/FireBallSharpFireOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/FireballSharp/FireBallSharpFireOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/FireballSoft/FireBallSoftBlueOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/FireballSoft/FireBallSoftBlueOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/FireballSoft/FireBallSoftFireOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/FireballSoft/FireBallSoftFireOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/Liquid/LiquidAcidOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/Liquid/LiquidAcidOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/Liquid/LiquidLavaOBJ.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/Liquid/LiquidLavaOBJ.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXButtonScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXButtonScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXFireProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXFireProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/Liquid/LiquidAcidOBJ.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Missile Prefabs/Liquid/LiquidAcidOBJ.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Explosions/LiquidExplosion/LiquidExplosionAcid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Explosions/LiquidExplosion/LiquidExplosionAcid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/FireballSoft/FireballSoftMissileBlue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/FireballSoft/FireballSoftMissileBlue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/FireballSoft/FireballSoftMissileFire.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/FireballSoft/FireballSoftMissileFire.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/Liquid/LiquidMissileAcid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/Liquid/LiquidMissileAcid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/Liquid/LiquidMissileLava.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Missiles/Liquid/LiquidMissileLava.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Muzzleflash/LiquidMuzzle/LiquidMuzzleAcid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Prefabs/Combat/Muzzleflash/LiquidMuzzle/LiquidMuzzleAcid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Upgrade/ETFX 2019.4.24f1 URP Upgrade.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NiceVibrations/OlderVersions/v1.7/NiceVibrations-v-1-7.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NiceVibrations/OlderVersions/v2.0.1/NiceVibrations-v-2-0-1.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Projectiles/RifleProjectile.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Projectiles/RifleProjectile.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/CameraManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/CameraManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SampleSceneLightingSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SampleSceneLightingSettings.lighting" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/ColorIt/ShootingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/Damage/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/Damage/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/Damage/ProjectileTypes/RifleProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/Damage/ProjectileTypes/RifleProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

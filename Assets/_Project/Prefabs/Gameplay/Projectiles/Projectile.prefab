@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 11464288}
   - component: {fileID: 4760509805866051061}
   m_Layer: 0
-  m_Name: LiquidAcidOBJ
+  m_Name: Projectile
   m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

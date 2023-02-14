@@ -35,19 +35,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
         {
             if (other.TryGetComponent(out Paintable p))
             {
-                for (int i = 0; i < 10; i++)
-                {
-                    Vector2 offset = Random.insideUnitCircle;
-                    var pnwos = pos.OffsetX(offset.x * _distance).OffsetZ(offset.y * _distance);
-                    DrawPoint(p, pnwos);
-                }
+                PaintManager.instance.paint(p, pos, 0.1f, hardness, strength, paintColor);   
             }
-        }
-
-        private void DrawPoint(Paintable paint, Vector3 position)
-        {
-            float radius = Random.Range(minRadius, maxRadius);
-            PaintManager.instance.paint(paint, position, radius, hardness, strength, paintColor);   
         }
     }
 }

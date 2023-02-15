@@ -9,6 +9,7 @@ namespace _Project.Scripts.Common
 {
     public class CameraManager : MonoBehaviour, ICameraManager
     {
+        [SerializeField, Range(0.1f, 2.0f)] private float _shakeIntensity = 0.55f;
         [SerializeField] private CinemachineVirtualCamera _playerCamera;
         [SerializeField] private CinemachineVirtualCamera _deathCamera;
         
@@ -23,11 +24,11 @@ namespace _Project.Scripts.Common
                 _playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         }
 
-        public void ShakeCamera(float intensity, float time)
+        public void ShakeCamera(float time)
         {
-            _cineMachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
+            _cineMachineBasicMultiChannelPerlin.m_AmplitudeGain = _shakeIntensity;
             _shakeTimer = time;
-            _startingIntensity = intensity;
+            _startingIntensity = _shakeIntensity;
             StartCoroutine(LerpCamera());
         }
 
@@ -55,6 +56,6 @@ namespace _Project.Scripts.Common
 
     public interface ICameraManager : IGameService
     {
-        public void ShakeCamera(float intensity, float time);
+        public void ShakeCamera(float time);
     }
 }

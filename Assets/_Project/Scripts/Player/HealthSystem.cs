@@ -3,6 +3,7 @@ using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General;
+using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -51,9 +52,8 @@ namespace _Project.Scripts.Player
             if (_currentHealth <= 0)
             {
                 _maxVignetteRadius = 0;
-                ServiceLocator.Current.Get<ICameraManager>().OnEnableDeathCamera();
+                Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
                 _animatorController.enabled = false;
-                Debug.Log("Player is dead");
             }
         }
 

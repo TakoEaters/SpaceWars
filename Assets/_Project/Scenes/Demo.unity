@@ -27743,7 +27743,7 @@ GameObject:
   - component: {fileID: 6647494864224995332}
   - component: {fileID: 6647494864224995330}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27859,8 +27859,6 @@ MonoBehaviour:
   desiredRotationSpeed: 0.3
   Speed: 0
   allowPlayerRotation: 0.1
-  HorizontalAnimSmoothTime: 0.2
-  VerticalAnimTime: 0.2
   StartAnimTime: 0.3
   StopAnimTime: 0.15
   verticalVel: -0.5

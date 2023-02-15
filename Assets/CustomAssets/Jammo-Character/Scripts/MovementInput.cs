@@ -1,3 +1,7 @@
+using System.Collections;
+using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.LevelHandlers;
+using _Project.Scripts.General.Signals;
 using UnityEngine;
 
 //This script requires you to have setup your animator with 3 parameters, "InputMagnitude", "InputX", "InputZ"
@@ -24,11 +28,6 @@ namespace CustomAssets.Jammo_Character.Scripts
 		public float Speed;
 		public float allowPlayerRotation = 0.1f;
 
-
-		[Header("Animation Smoothing")] [Range(0, 1f)]
-		public float HorizontalAnimSmoothTime = 0.2f;
-
-		[Range(0, 1f)] public float VerticalAnimTime = 0.2f;
 		[Range(0, 1f)] public float StartAnimTime = 0.3f;
 		[Range(0, 1f)] public float StopAnimTime = 0.15f;
 
@@ -39,40 +38,51 @@ namespace CustomAssets.Jammo_Character.Scripts
 		private static readonly int Y = Animator.StringToHash("Y");
 		private static readonly int X = Animator.StringToHash("X");
 
+		private Coroutine _inputRoutine;
+
 		private void Awake()
 		{
 			Application.targetFrameRate = 60;
 			_inputs = GetComponent<PlayerInputs>();
-		}
-
-		void Start()
-		{
 			anim = this.GetComponent<Animator>();
 			cam = Camera.main;
 			controller = this.GetComponent<CharacterController>();
 		}
 
-		void Update()
+		[Sub]
+		private void OnStartLevel(StartLevel reference)
 		{
+			_inputRoutine = StartCoroutine(UpdateInputs());
+		}
 
-			InputMagnitude();
+		[Sub]
+		private void OnPlayerDeath(PlayerDeath reference)
+		{
+			if (_inputRoutine != null) StopCoroutine(_inputRoutine);
+		}
 
-			isGrounded = controller.isGrounded;
-			if (isGrounded)
-				verticalVel -= 0;
-			else
-				verticalVel -= 1;
+		private IEnumerator UpdateInputs()
+		{
+			while (true)
+			{
+				InputMagnitude();
 
-			moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
-			controller.Move(moveVector);
+				isGrounded = controller.isGrounded;
+				if (isGrounded) verticalVel -= 0;
+				else verticalVel -= 1;
+
+				moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
+				controller.Move(moveVector);
+				yield return null;
+			}
+			// ReSharper disable once IteratorNeverReturns
 		}
 
 		void PlayerMoveAndRotation()
 		{
 			InputX = _inputs.Movement.x;
 			InputZ = _inputs.Movement.y;
-
-			var camera = Camera.main;
+			
 			var forward = cam.transform.forward;
 			var right = cam.transform.right;
 
@@ -96,11 +106,6 @@ namespace CustomAssets.Jammo_Character.Scripts
 				//Strafe
 				controller.Move((transform.forward * InputZ + transform.right * InputX) * Time.deltaTime * Velocity);
 			}
-		}
-
-		public void LookAt(Vector3 pos)
-		{
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(pos), desiredRotationSpeed);
 		}
 
 		public void RotateToCamera(Transform t)

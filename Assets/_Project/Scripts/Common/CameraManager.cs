@@ -1,5 +1,7 @@
 using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.Signals;
 using Cinemachine;
 using UnityEngine;
 
@@ -29,7 +31,8 @@ namespace _Project.Scripts.Common
             StartCoroutine(LerpCamera());
         }
 
-        public void OnEnableDeathCamera()
+        [Sub]
+        private void OnEnableDeathCamera(PlayerDeath reference)
         {
             _playerCamera.gameObject.SetActive(false);
         }
@@ -53,6 +56,5 @@ namespace _Project.Scripts.Common
     public interface ICameraManager : IGameService
     {
         public void ShakeCamera(float intensity, float time);
-        public void OnEnableDeathCamera();
     }
 }

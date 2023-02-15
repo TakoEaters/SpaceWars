@@ -16,8 +16,7 @@ namespace _Project.Scripts.GUi.Gameplay
     {
         [SerializeField, Range(0.5f, 2.0f)] private float _enableDelay = 1.0f;
         [SerializeField, Range(0.05f, 1.0f)] private float _duration = 0.35f;
-         
-        
+
         [SerializeField] private View _mainView;
         [SerializeField] private Image _background;
         [SerializeField] private Button _deployButton;

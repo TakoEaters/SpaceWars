@@ -10,7 +10,6 @@ namespace _Project.Scripts.Player
     public class PlayerSystem : MonoBehaviour, IPlayerSystem
     {
         [SerializeField, Range(0.5f, 2.0f)] private float _enableDelay = 1.0f;
-        [SerializeField, Range(0.5f, 2.0f)] private float _updateDelay = 1.0f;
         [SerializeField] private Player _player;
         
         public void Register()
@@ -33,7 +32,7 @@ namespace _Project.Scripts.Player
 
         public void UpdatePlayer()
         {
-            StartCoroutine(WaitUtils.WaitWithDelay(_player.UpdatePlayerData, _updateDelay));
+            StartCoroutine(WaitUtils.WaitWithDelay(_player.UpdatePlayerData, _enableDelay));
         }
 
         public void DisablePlayer()

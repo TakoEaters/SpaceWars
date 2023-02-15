@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.General;
+using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.Player.WeaponsSystem;
 using UnityEngine;

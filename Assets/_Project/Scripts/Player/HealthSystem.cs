@@ -3,6 +3,7 @@ using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General;
+using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
 using Sirenix.OdinInspector;
@@ -22,6 +23,10 @@ namespace _Project.Scripts.Player
         private Vignette _vignette;
         private int _currentHealth;
 
+        public DamageableLayer DamageableLayer { get; }
+        public Vector3 Position { get; }
+        public int Priority { get; }
+        public bool IsInSafeZone { get; set; }
         public bool IsAlive => _currentHealth > 0;
 
         private void Awake()

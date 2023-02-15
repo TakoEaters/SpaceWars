@@ -1,4 +1,5 @@
 using _Project.Scripts.General;
+using _Project.Scripts.General.DamageableCore;
 using UnityEngine;
 
 namespace _Project.Scripts
@@ -14,6 +15,10 @@ namespace _Project.Scripts
             _currentHealth = _totalHealth;
         }
 
+        public DamageableLayer DamageableLayer { get; }
+        public Vector3 Position { get; }
+        public int Priority { get; }
+        public bool IsInSafeZone { get; set; }
         public bool IsAlive => _currentHealth > 0;
         
         

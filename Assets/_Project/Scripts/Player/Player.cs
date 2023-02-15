@@ -13,8 +13,6 @@ namespace _Project.Scripts.Player
             Inputs = GetComponent<PlayerInputs>();
             
             Camera = Camera.main;
-
-            StartCoroutine(RestoreHealth());
         }
 
 

@@ -1,4 +1,6 @@
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.Signals;
 using UnityEngine;
 
 namespace _Project.Scripts.Player
@@ -27,6 +29,12 @@ namespace _Project.Scripts.Player
         public void DisablePlayer()
         {
             _player.DisableController();
+        }
+
+        [Sub]
+        private void OnPlayerDeath(PlayerDeath reference)
+        {
+            DisablePlayer();
         }
     }
 

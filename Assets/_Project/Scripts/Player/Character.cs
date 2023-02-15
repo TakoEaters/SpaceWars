@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.DamageableCore;
+using _Project.Scripts.GUi.Interface;
 using Template.Scripts.Pool;
 using UnityEngine;
 
@@ -30,17 +32,19 @@ namespace _Project.Scripts.Player
                 {
                     Health += _configs.HealthRestorationAmount;
                     Health = Mathf.Clamp(Health, 0, _configs.Health);
+                    Signal.Current.Fire<ChangeUIHealth>(new ChangeUIHealth { CurrentHealth = Health });
                 }
+
                 yield return wait;
             }
         }
-        
+
         public abstract void OnTakeDamage(int damage);
     }
     
     [Serializable] public class CharacterConfigs 
     {
-        public float MaxSpeed;
+        [Range(1.0f, 5.0f)] public float Velocity = 3.5f;
         public float RotationSpeed;
 
         public int Health;

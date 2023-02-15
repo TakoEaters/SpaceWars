@@ -2,14 +2,17 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.InputHandlers;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Utils;
+using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Project.Scripts.Player
@@ -17,10 +20,14 @@ namespace _Project.Scripts.Player
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputs))]
     public class PlayerController : Character
     {
+	    [SerializeField] private CorePoolAudio _overHeatClip;
+	    
         protected CharacterController Controller;
         protected PlayerInputs Inputs;
         protected Animator PlayerAnimator;
         protected Camera Camera;
+
+        protected bool IsDisabled;
 
         protected void FindServices()
         {
@@ -30,18 +37,18 @@ namespace _Project.Scripts.Player
 
         public void EnableController()
         {
+	        IsDisabled = false;
             InitializeWeapon();
             InitializeHealth();
+            Signal.Current.Fire<PlayerRevive>(new PlayerRevive());
         }
 
         public void DisableController()
         {
-
+	        IsDisabled = true;
         }
 
         #region MOVEMENT
-
-        [SerializeField] private float _velocity = 2f;
         
         [Range(0, 1f)] public float StartAnimTime = 0.3f;
         [Range(0, 1f)] public float StopAnimTime = 0.15f;
@@ -60,6 +67,7 @@ namespace _Project.Scripts.Player
 
         protected void UpdateMovement()
         {
+	        if (IsDisabled) return;
 	        InputMagnitude();
 
 	        _isGrounded = Controller.isGrounded;
@@ -91,12 +99,12 @@ namespace _Project.Scripts.Player
 				//Camera
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_desiredMoveDirection),
 					_desiredRotationSpeed);
-				Controller.Move(_desiredMoveDirection * Time.deltaTime * _velocity);
+				Controller.Move(_desiredMoveDirection * Time.deltaTime * _configs.Velocity);
 			}
 			else
 			{
 				//Strafe
-				Controller.Move((transform.forward * _inputZ + transform.right * _inputX) * Time.deltaTime * _velocity);
+				Controller.Move((transform.forward * _inputZ + transform.right * _inputX) * Time.deltaTime * _configs.Velocity);
 			}
 		}
 
@@ -122,7 +130,7 @@ namespace _Project.Scripts.Player
 			_speed = new Vector2(_inputX, _inputZ).sqrMagnitude;
 
 			//Change animation mode if rotation is blocked
-			PlayerAnimator.SetBool(Shooting, _blockRotationPlayer);
+		//	PlayerAnimator.SetBool(Shooting, _blockRotationPlayer);
 
 			//Physically move player
 			if (_speed > _allowPlayerRotation)
@@ -165,7 +173,11 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         protected void UpdateWeapon()
         {
+	        if (IsDisabled) return;
+	        PlayerAnimator.SetBool(Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
+	        
+	        
             if (Inputs.IsShooting)
             {
                 RotateToCamera(transform);
@@ -178,7 +190,7 @@ namespace _Project.Scripts.Player
                         ServiceLocator.Current.Get<ICameraManager>().ShakeCamera(0.1f);
                         _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
                         MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
-                        PlayerAnimator.SetBool(Shooting, false);
+                     //   PlayerAnimator.SetBool(Shooting, false);
                         _lastShootingTime = Time.time;
                         Signal.Current.Fire<Modifier>(new Modifier { Percentage = _overheat / 100f });
                     }
@@ -189,6 +201,8 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         protected void UpdateOverheat()
         {
+	        if (IsDisabled) return;
+
             if (Time.time - _lastCoolingTime > 0.1f && Time.time - _lastShootingTime > _weaponEntity.FireRate + .1f)
             {
                 _overheat = Mathf.Clamp(_overheat - _weaponEntity.CoolingPerSecond * .1f, 0f, 100f);
@@ -223,7 +237,8 @@ namespace _Project.Scripts.Player
 
         private void OnOverheat()
         {
-
+	        CorePoolAudio overHeat = CorePool.Current.Get(_overHeatClip);
+	        overHeat.Play(); 
         }
 
         #endregion
@@ -231,21 +246,23 @@ namespace _Project.Scripts.Player
         #region HEALTH/DAMAGE
 
         private IEffectsModifier _effectsModifier;
-        private int _maxPlayerHealth;
+        private Coroutine _healthRoutine;
 
         private void InitializeHealth()
         {
-            _maxPlayerHealth = _configs.Health;
-            Health = _maxPlayerHealth;
+	        Health = _configs.Health;
             Signal.Current.Fire<ChangeUIHealth>(new ChangeUIHealth { TotalHealth = Health });
+            _healthRoutine = StartCoroutine(RestoreHealth());
         }
 
         protected void LerpHealth()
         {
-            float lerpSpeedClamped = 1 - (float)Health / _maxPlayerHealth;
+	        if (IsDisabled) return;
+	        float lerpSpeedClamped = 1 - (float)Health / _configs.Health;
             _effectsModifier.UpdateVignette(lerpSpeedClamped);
         }
 
+        [Button()]
         public override void OnTakeDamage(int damage)
         {
             Health -= damage;
@@ -257,7 +274,10 @@ namespace _Project.Scripts.Player
 
         private void OnDeath()
         {
-            Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
+	        if (_healthRoutine != null) StopCoroutine(_healthRoutine);
+	        PlayerAnimator.enabled = false;
+	        Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
+	        _effectsModifier.UpdateVignette(0);
         }
 
         #endregion

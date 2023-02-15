@@ -22,9 +22,15 @@ namespace _Project.Scripts.GUi.Interface
         }
         
         [Sub]
-        private void OnStart(StartLevel reference)
+        private void OnPlayerRevive(PlayerRevive reference)
         {
             _view.Enable();
+        }
+
+        [Sub]
+        private void OnPlayerDeath(PlayerDeath reference)
+        {
+            _view.Disable();
         }
 
         [Sub]

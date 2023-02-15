@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.Core.LocatorServices;
 using UnityEngine;
 using UnityEngine.Rendering;

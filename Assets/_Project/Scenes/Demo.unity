@@ -1464,6 +1464,7 @@ GameObject:
   - component: {fileID: 89003517}
   - component: {fileID: 89003515}
   - component: {fileID: 89003518}
+  - component: {fileID: 89003519}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1503,13 +1504,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer: {fileID: 11400000, guid: ceb801f35c8db36429875a222afec235, type: 2}
   _configs:
-    MaxSpeed: 0
-    RotationSpeed: 0
+    Velocity: 3.5
+    RotationSpeed: 3.75
     Health: 100
-    HealthRestorationDelay: 0
-    HealthRestorationAmount: 0
+    HealthRestorationDelay: 3
+    HealthRestorationAmount: 10
     Priority: 1
-  _velocity: 4.5
+  _overHeatClip: {fileID: 1050987032799425790, guid: ef5c09626b9df49e99e7b3cf2465b363, type: 3}
   StartAnimTime: 0.3
   StopAnimTime: 0.15
   _desiredRotationSpeed: 0.3
@@ -1566,6 +1567,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f6885a7184044de9c6c5840d5ea066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &89003519
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89003513}
+  m_Enabled: 1
 --- !u!1 &94128828
 GameObject:
   m_ObjectHideFlags: 0
@@ -20928,18 +20937,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 984683139}
-    - target: {fileID: 4762200968942475224, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01650967
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762200968942475224, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.5927234
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762200968942475224, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.7334855
-      objectReference: {fileID: 0}
     - target: {fileID: 4762200969218064492, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -20992,30 +20989,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 984683139}
-    - target: {fileID: 6643782707269332007, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01650967
-      objectReference: {fileID: 0}
-    - target: {fileID: 6643782707269332007, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.5927234
-      objectReference: {fileID: 0}
-    - target: {fileID: 6643782707269332007, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.7334855
-      objectReference: {fileID: 0}
-    - target: {fileID: 6665346367195677880, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.8468205
-      objectReference: {fileID: 0}
-    - target: {fileID: 6665346367195677880, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.160954
-      objectReference: {fileID: 0}
-    - target: {fileID: 6665346367195677880, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.8674314
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
 --- !u!4 &5127703090504469417

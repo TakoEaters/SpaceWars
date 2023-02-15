@@ -1509,6 +1509,7 @@ MonoBehaviour:
     HealthRestorationDelay: 0
     HealthRestorationAmount: 0
     Priority: 1
+  _velocity: 4.5
   StartAnimTime: 0.3
   StopAnimTime: 0.15
   _desiredRotationSpeed: 0.3

@@ -40,6 +40,8 @@ namespace _Project.Scripts.Player
         }
 
         #region MOVEMENT
+
+        [SerializeField] private float _velocity = 2f;
         
         [Range(0, 1f)] public float StartAnimTime = 0.3f;
         [Range(0, 1f)] public float StopAnimTime = 0.15f;
@@ -54,7 +56,6 @@ namespace _Project.Scripts.Player
         private float _inputX;
         private float _inputZ;
         private float _speed;
-        private float _velocity;
         private bool _isGrounded;
 
         protected void UpdateMovement()
@@ -74,8 +75,8 @@ namespace _Project.Scripts.Player
 			_inputX = Inputs.Movement.x;
 			_inputZ = Inputs.Movement.y;
 			
-			var forward = Camera.transform.forward;
-			var right = Camera.transform.right;
+			Vector3 forward = Camera.transform.forward;
+			Vector3 right = Camera.transform.right;
 
 			forward.y = 0f;
 			right.y = 0f;
@@ -123,9 +124,6 @@ namespace _Project.Scripts.Player
 			//Change animation mode if rotation is blocked
 			PlayerAnimator.SetBool(Shooting, _blockRotationPlayer);
 
-			print(_speed);
-			
-			
 			//Physically move player
 			if (_speed > _allowPlayerRotation)
 			{
@@ -167,6 +165,7 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         protected void UpdateWeapon()
         {
+	        _blockRotationPlayer = Inputs.IsShooting;
             if (Inputs.IsShooting)
             {
                 RotateToCamera(transform);

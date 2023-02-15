@@ -3,9 +3,13 @@ using UnityEngine;
 
 namespace _Project.Scripts.AI
 {
-    public abstract class AIBehaviour : MonoBehaviour, IDamageable
+    public class AIBehaviour : MonoBehaviour, IDamageable
     {
-        public abstract bool IsAlive { get; }
-        public abstract void OnTakeDamage(int damage);
+        public bool IsAlive { get; }
+
+        public void OnTakeDamage(int damage)
+        {
+            
+        }
     }
 }

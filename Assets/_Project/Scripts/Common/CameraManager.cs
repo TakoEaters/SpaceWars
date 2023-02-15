@@ -1,32 +1,37 @@
-using System;
 using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
 using Cinemachine;
 using UnityEngine;
 
-namespace _Project.Scripts.General.Camera
+namespace _Project.Scripts.Common
 {
-    public class CineMachineShake : MonoBehaviour, ICameraShake
+    public class CameraManager : MonoBehaviour, ICameraManager
     {
-        [SerializeField] private CinemachineVirtualCamera _cineMachineVirtual;
-
+        [SerializeField] private CinemachineVirtualCamera _playerCamera;
+        [SerializeField] private CinemachineVirtualCamera _deathCamera;
+        
         private CinemachineBasicMultiChannelPerlin _cineMachineBasicMultiChannelPerlin;
         private float _startingIntensity;
         private float _shakeTimer;
         
         public void Register()
         {
-            ServiceLocator.Current.Register<ICameraShake>(this);
+            ServiceLocator.Current.Register<ICameraManager>(this);
             _cineMachineBasicMultiChannelPerlin =
-                _cineMachineVirtual.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                _playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         }
 
-        public void Shake(float intensity, float time)
+        public void ShakeCamera(float intensity, float time)
         {
             _cineMachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
             _shakeTimer = time;
             _startingIntensity = intensity;
             StartCoroutine(LerpCamera());
+        }
+
+        public void OnEnableDeathCamera()
+        {
+            _playerCamera.gameObject.SetActive(false);
         }
         
         private IEnumerator LerpCamera()
@@ -45,8 +50,9 @@ namespace _Project.Scripts.General.Camera
         }
     }
 
-    public interface ICameraShake : IGameService
+    public interface ICameraManager : IGameService
     {
-        public void Shake(float intensity, float time);
+        public void ShakeCamera(float intensity, float time);
+        public void OnEnableDeathCamera();
     }
 }

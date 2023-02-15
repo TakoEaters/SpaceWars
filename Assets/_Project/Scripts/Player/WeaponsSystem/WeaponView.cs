@@ -6,7 +6,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
 {
     public class WeaponView : View
     {
-        [SerializeField] private float _bulletSpeed = 1500f;
+        [SerializeField] private float _bulletSpeed = 1000f;
         [SerializeField] private LayerMask _necessaryLayer;
         [SerializeField] private GameObject _projectile;
 
@@ -30,7 +30,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             {
                 GameObject projectile = Instantiate(_projectile, _nozzle.position, Quaternion.identity); //Spawns the selected projectile
                 projectile.transform.LookAt(hit.point); //Sets the projectiles rotation to look at the point clicked
-                projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 1000f); //Set the speed of the projectile by applying force to the rigidbody
+                projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody
             }
         }
     }

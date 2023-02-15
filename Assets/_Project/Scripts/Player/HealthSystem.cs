@@ -1,4 +1,6 @@
 using System;
+using _Project.Scripts.Common;
+using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General;
 using _Project.Scripts.GUi.Interface;
@@ -11,6 +13,7 @@ namespace _Project.Scripts.Player
 {
     public class HealthSystem : MonoBehaviour, IDamageable
     {
+        [SerializeField] private Animator _animatorController;
         [SerializeField] private VolumeProfile _volumeProfile;
         [SerializeField, Range(0.1f, 0.5f)] private float _maxVignetteRadius = 0.35f;
         [SerializeField, Range(10, 250)] private int _playerTotalHealth = 250;
@@ -47,6 +50,9 @@ namespace _Project.Scripts.Player
 
             if (_currentHealth <= 0)
             {
+                _maxVignetteRadius = 0;
+                ServiceLocator.Current.Get<ICameraManager>().OnEnableDeathCamera();
+                _animatorController.enabled = false;
                 Debug.Log("Player is dead");
             }
         }

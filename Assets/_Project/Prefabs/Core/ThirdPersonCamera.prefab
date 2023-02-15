@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2172364088158107234}
   - component: {fileID: 2172364088158107235}
   - component: {fileID: 2172364088158107237}
-  - component: {fileID: 1503562881271786825}
   - component: {fileID: 2127290396}
   m_Layer: 0
   m_Name: ThirdPersonCamera
@@ -104,19 +103,6 @@ MonoBehaviour:
   m_Damping: 1
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
---- !u!114 &1503562881271786825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2172364088158107232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ebc20711ecb2e4a9ed70312cb17f44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cineMachineVirtual: {fileID: 2172364088158107235}
 --- !u!114 &2127290396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 2
   m_VerticalAxis:
-    Value: 30
+    Value: 25.646643
     m_SpeedMode: 1
     m_MaxSpeed: 0.5
     m_AccelTime: 0.2
@@ -278,7 +264,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: 0
+    Value: -7.6240597
     m_SpeedMode: 1
     m_MaxSpeed: 1
     m_AccelTime: 0.2

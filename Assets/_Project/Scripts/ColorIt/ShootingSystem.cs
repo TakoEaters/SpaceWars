@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SignalBus;
-using _Project.Scripts.General.Camera;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
@@ -81,7 +81,7 @@ namespace _Project.Scripts.ColorIt
                     {
                         _currentView.ShootProjectile();
                         VisualPolish();
-                        ServiceLocator.Current.Get<ICameraShake>().Shake(_intensity, 0.1f);
+                        ServiceLocator.Current.Get<ICameraManager>().ShakeCamera(_intensity, 0.1f);
                         Overheat = Mathf.Clamp(Overheat + _currentWeapon.OverheatAdditive, 0f, 100f);
                         MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this); 
                         _animator.SetBool(Shooting, false);

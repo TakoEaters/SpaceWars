@@ -212,6 +212,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8603146813455444828}
     m_Modifications:
+    - target: {fileID: 4906842758262853845, guid: de7d8cf7be7d5ff409db9a041f88fb16, type: 3}
+      propertyPath: _enableDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5450916340813010458, guid: de7d8cf7be7d5ff409db9a041f88fb16, type: 3}
       propertyPath: m_Name
       value: Canvas-Gameplay

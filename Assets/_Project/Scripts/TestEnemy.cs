@@ -1,34 +1,16 @@
-using _Project.Scripts.General;
 using _Project.Scripts.General.DamageableCore;
+using _Project.Scripts.General.Utils;
 using UnityEngine;
 
 namespace _Project.Scripts
 {
-    public class TestEnemy : MonoBehaviour, IDamageable
+    public class TestEnemy : MonoBehaviour
     {
-        [SerializeField] private int _totalHealth;
-
-        private int _currentHealth;
-
-        private void Awake()
+        private void OnTriggerEnter(Collider other)
         {
-            _currentHealth = _totalHealth;
-        }
-
-        public DamageableLayer DamageableLayer { get; }
-        public Vector3 Position { get; }
-        public int Priority { get; }
-        public bool IsInSafeZone { get; set; }
-        public bool IsAlive => _currentHealth > 0;
-        
-        
-        public void OnTakeDamage(int damage)
-        {
-            _currentHealth -= damage;
-
-            if (_currentHealth <= 0)
+            if (other.TryGetComponent(out IDamageable damageable) && damageable.IsAlive)
             {
-                Debug.Log("Is dead");
+                damageable.OnTakeDamage(500);
             }
         }
     }

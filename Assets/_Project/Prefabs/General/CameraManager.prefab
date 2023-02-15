@@ -593,6 +593,14 @@ PrefabInstance:
       propertyPath: m_HorizontalAxis.Value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2172364088363110349, guid: 17213f17162314b4fbc38c8d22923eda, type: 3}
+      propertyPath: m_VerticalAxis.m_MaxSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172364088363110349, guid: 17213f17162314b4fbc38c8d22923eda, type: 3}
+      propertyPath: m_HorizontalAxis.m_MaxSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1503562881271786825, guid: 17213f17162314b4fbc38c8d22923eda, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17213f17162314b4fbc38c8d22923eda, type: 3}

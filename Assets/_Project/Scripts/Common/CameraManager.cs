@@ -10,8 +10,9 @@ namespace _Project.Scripts.Common
     public class CameraManager : MonoBehaviour, ICameraManager
     {
         [SerializeField, Range(0.1f, 2.0f)] private float _shakeIntensity = 0.55f;
+        [SerializeField] private CinemachineVirtualCamera _gameplayCamera;
         [SerializeField] private CinemachineVirtualCamera _playerCamera;
-        [SerializeField] private CinemachineVirtualCamera _deathCamera;
+        [SerializeField] private CinemachineInputProvider _inputProvider;
         
         private CinemachineBasicMultiChannelPerlin _cineMachineBasicMultiChannelPerlin;
         private float _startingIntensity;
@@ -22,6 +23,16 @@ namespace _Project.Scripts.Common
             ServiceLocator.Current.Register<ICameraManager>(this);
             _cineMachineBasicMultiChannelPerlin =
                 _playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        }
+
+        public void EnableCameraInput()
+        {
+            _inputProvider.enabled = true;
+        }
+
+        public void EnableGameplayCamera()
+        {
+            _gameplayCamera.gameObject.SetActive(true);
         }
 
         public void ShakeCamera(float time)
@@ -35,12 +46,14 @@ namespace _Project.Scripts.Common
         [Sub]
         private void OnEnableDeathCamera(PlayerDeath reference)
         {
+            _inputProvider.enabled = false;
             _playerCamera.gameObject.SetActive(false);
         }
 
         [Sub]
         private void OnRevivePlayer(PlayerRevive reference)
         {
+            _gameplayCamera.gameObject.SetActive(false);
             _playerCamera.gameObject.SetActive(true);
         }
         
@@ -62,6 +75,8 @@ namespace _Project.Scripts.Common
 
     public interface ICameraManager : IGameService
     {
+        public void EnableCameraInput();
+        public void EnableGameplayCamera();
         public void ShakeCamera(float time);
     }
 }

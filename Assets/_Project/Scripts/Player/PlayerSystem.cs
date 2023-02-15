@@ -1,12 +1,16 @@
+using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
+using _Project.Scripts.General.Utils;
 using UnityEngine;
 
 namespace _Project.Scripts.Player
 {
     public class PlayerSystem : MonoBehaviour, IPlayerSystem
     {
+        [SerializeField, Range(0.5f, 2.0f)] private float _enableDelay = 1.0f;
+        [SerializeField, Range(0.5f, 2.0f)] private float _updateDelay = 1.0f;
         [SerializeField] private Player _player;
         
         public void Register()
@@ -18,12 +22,18 @@ namespace _Project.Scripts.Player
         public void InitializeSystem()
         {
             _player.Initialize();
-            _player.EnableController();
+            _player.UpdatePlayerData();
         }
 
         public void EnablePlayer()
+        { 
+            Signal.Current.Fire<PlayerRevive>(new PlayerRevive());
+            StartCoroutine(WaitUtils.WaitWithDelay(_player.EnableController, _enableDelay));
+        }
+
+        public void UpdatePlayer()
         {
-            _player.EnableController();
+            StartCoroutine(WaitUtils.WaitWithDelay(_player.UpdatePlayerData, _updateDelay));
         }
 
         public void DisablePlayer()
@@ -42,6 +52,8 @@ namespace _Project.Scripts.Player
     {
         public void InitializeSystem();
         public void EnablePlayer();
+
+        public void UpdatePlayer();
         public void DisablePlayer();
     }
 }

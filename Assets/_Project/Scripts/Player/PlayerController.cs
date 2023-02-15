@@ -28,7 +28,7 @@ namespace _Project.Scripts.Player
         protected Animator PlayerAnimator;
         protected Camera Camera;
 
-        protected bool IsDisabled;
+        protected bool IsDisabled = true;
 
         private ISpawnerSystem _spawnerSystem;
 
@@ -40,14 +40,20 @@ namespace _Project.Scripts.Player
             _views = GetComponentsInChildren<WeaponView>(true).ToList();
         }
 
-        [Button()]
+        // ReSharper disable Unity.PerformanceAnalysis
         public void EnableController()
         {
 	        transform.position = _spawnerSystem.GetRandomSpawner(Team.Blue).SpawnPosition;
 	        IsDisabled = false;
+	        ServiceLocator.Current.Get<ICameraManager>().EnableCameraInput();
+        }
+
+        // ReSharper disable Unity.PerformanceAnalysis
+        public void UpdatePlayerData()
+        {
+	        transform.position = _spawnerSystem.GetRandomSpawner(Team.Blue).SpawnPosition;
+	        InitializeHealth();
 	        InitializeWeapon();
-            InitializeHealth();
-            Signal.Current.Fire<PlayerRevive>(new PlayerRevive());
         }
 
         public void DisableController()

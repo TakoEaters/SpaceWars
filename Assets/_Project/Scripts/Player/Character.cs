@@ -19,7 +19,8 @@ namespace _Project.Scripts.Player
         public bool IsAlive => Health > 0;
         public bool IsInSafeZone { get; set; }
         public Vector3 Position => transform.position;
-        
+
+        protected IHealthViewer HealthViewer;
         protected int Health;
 
 
@@ -32,7 +33,7 @@ namespace _Project.Scripts.Player
                 {
                     Health += _configs.HealthRestorationAmount;
                     Health = Mathf.Clamp(Health, 0, _configs.Health);
-                    Signal.Current.Fire<ChangeUIHealth>(new ChangeUIHealth { CurrentHealth = Health });
+                    HealthViewer.UpdateView(0, Health);
                 }
 
                 yield return wait;

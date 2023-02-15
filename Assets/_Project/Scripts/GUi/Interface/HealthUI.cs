@@ -24,10 +24,4 @@ namespace _Project.Scripts.GUi.Interface
             _healthPoints.ForEach(x => x.Fill(currentAmount / _totalHealth));
         }
     }
-
-    public struct ChangeUIHealth
-    {
-        public int TotalHealth;
-        public int CurrentHealth;
-    }
 }

@@ -37,6 +37,12 @@ namespace _Project.Scripts.Common
         {
             _playerCamera.gameObject.SetActive(false);
         }
+
+        [Sub]
+        private void OnRevivePlayer(PlayerRevive reference)
+        {
+            _playerCamera.gameObject.SetActive(true);
+        }
         
         private IEnumerator LerpCamera()
         {

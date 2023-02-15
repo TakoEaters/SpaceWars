@@ -6,6 +6,7 @@ using _Project.Scripts.Core.Pool;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.InputHandlers;
 using _Project.Scripts.General.Signals;
+using _Project.Scripts.General.Spawners;
 using _Project.Scripts.General.Utils;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
@@ -29,16 +30,22 @@ namespace _Project.Scripts.Player
 
         protected bool IsDisabled;
 
+        private ISpawnerSystem _spawnerSystem;
+
         protected void FindServices()
         {
+	        _spawnerSystem = ServiceLocator.Current.Get<ISpawnerSystem>();
+	        HealthViewer = ServiceLocator.Current.Get<IHealthViewer>();
             _effectsModifier = ServiceLocator.Current.Get<IEffectsModifier>();
             _views = GetComponentsInChildren<WeaponView>(true).ToList();
         }
 
+        [Button()]
         public void EnableController()
         {
+	        transform.position = _spawnerSystem.GetRandomSpawner(Team.Blue).SpawnPosition;
 	        IsDisabled = false;
-            InitializeWeapon();
+	        InitializeWeapon();
             InitializeHealth();
             Signal.Current.Fire<PlayerRevive>(new PlayerRevive());
         }
@@ -250,9 +257,10 @@ namespace _Project.Scripts.Player
 
         private void InitializeHealth()
         {
+	        PlayerAnimator.enabled = true;
 	        Health = _configs.Health;
-            Signal.Current.Fire<ChangeUIHealth>(new ChangeUIHealth { TotalHealth = Health });
-            _healthRoutine = StartCoroutine(RestoreHealth());
+	        HealthViewer.UpdateView(Health, Health);
+	        _healthRoutine = StartCoroutine(RestoreHealth());
         }
 
         protected void LerpHealth()
@@ -266,7 +274,7 @@ namespace _Project.Scripts.Player
         public override void OnTakeDamage(int damage)
         {
             Health -= damage;
-            Signal.Current.Fire<ChangeUIHealth>(new ChangeUIHealth { CurrentHealth = Health });
+            HealthViewer.UpdateView(0, Health);
 
             if (Health <= 0) OnDeath();
         }

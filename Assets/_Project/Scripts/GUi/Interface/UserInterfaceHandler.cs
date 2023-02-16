@@ -1,12 +1,14 @@
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
+using Template.Scripts.General;
 using UnityEngine;
 
 namespace _Project.Scripts.GUi.Interface
 {
     public class UserInterfaceHandler : MonoBehaviour, IHealthViewer
     {
+        [SerializeField] private View _mainView;
         [SerializeField] private HealthUI _healthUI;
         
         public void Register()
@@ -20,22 +22,22 @@ namespace _Project.Scripts.GUi.Interface
             if (totalHealth > 0) _healthUI.SetData(totalHealth, totalHealth);
             else _healthUI.ChangeUi(currentHealth);
         }
-
+        
         [Sub]
-        private void OnPlayerRevive(PlayerRevive reference)
+        private void OnToggleView(ToggleGameplayUI reference)
         {
-            _healthUI.Enable();
-        }
-
-        [Sub]
-        private void OnPlayerDeath(PlayerDeath reference)
-        {
-            _healthUI.Disable();
+            if (reference.Enable) _mainView.Enable();
+            else _mainView.Disable();
         }
     }
 
     public interface IHealthViewer : IGameService
     {
         public void UpdateView(int totalHealth, int currentHealth);
+    }
+    
+    public struct ToggleGameplayUI
+    {
+        public bool Enable;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
+using _Project.Scripts.GUi.Interface;
 using Cinemachine;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace _Project.Scripts.Common
 
         public void EnableCameraInput()
         {
+            Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = true});
             _inputProvider.enabled = true;
         }
 
@@ -46,6 +48,7 @@ namespace _Project.Scripts.Common
         [Sub]
         private void OnEnableDeathCamera(PlayerDeath reference)
         {
+            Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = false});
             _inputProvider.enabled = false;
             _playerCamera.gameObject.SetActive(false);
         }

@@ -17,9 +17,9 @@ namespace _Project.Scripts.Player
             ServiceLocator.Current.Register<IPlayerSystem>(this);
         }
 
-        public void InitializeSystem()
+        public void InitializeSystem(Team playerTeam)
         {
-            _player.Initialize();
+            _player.Initialize(playerTeam);
             _player.UpdatePlayerData();
         }
 
@@ -48,7 +48,7 @@ namespace _Project.Scripts.Player
 
     public interface IPlayerSystem : IGameService
     {
-        public void InitializeSystem();
+        public void InitializeSystem(Team playerTeam);
         public void EnablePlayer();
 
         public void UpdatePlayer();

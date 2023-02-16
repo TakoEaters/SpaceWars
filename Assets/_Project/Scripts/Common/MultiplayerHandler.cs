@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Project.Scripts.AI;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.LevelHandlers;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
+using _Project.Scripts.Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Common
 {
@@ -13,27 +17,35 @@ namespace _Project.Scripts.Common
     {
         [SerializeField, Range(100, 1000)] private int _necessaryWinScore = 500;
         [SerializeField, Range(1, 10)] private int _totalSessionMinutes = 5;
-    
         
         private readonly List<TeamScore> _teams = new List<TeamScore>();
         private Coroutine _countRoutine;
         private IScoreSystem _score;
-    
+
         private readonly int _secondsInMinute = 60;
         private int _remainingTime;
-    
+
         public void Register()
         {
             ServiceLocator.Current.Register<IGameHandler>(this);
         }
 
-
-        [Sub]
-        private void OnStartLevel(StartLevel reference)
+        public void InitializeTeams()
         {
+            Team playerTeam = (Team)Random.Range(0, 2);
+            ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(playerTeam);
+            ServiceLocator.Current.Get<IBotSystem>().InitializeSystem(playerTeam);
+
             StartCounter();
         }
-        
+
+        private void StartCounter()
+        {
+            _score = ServiceLocator.Current.Get<IScoreSystem>();
+            _score.SetMaxScore(_necessaryWinScore);
+            _countRoutine = StartCoroutine(Count());
+        }
+
         [Sub]
         private void OnReceiveScore(ScoreChanger reference)
         {
@@ -48,14 +60,7 @@ namespace _Project.Scripts.Common
             currentTeam.TotalAmount += reference.Amount;
             _score.SetTeamScore(currentTeam);
         }
-    
-        private void StartCounter()
-        {
-            _score = ServiceLocator.Current.Get<IScoreSystem>();
-            _score.SetMaxScore(_necessaryWinScore);
-            _countRoutine = StartCoroutine(Count());
-        }
-        
+
         private bool IsAnyWinner()
         {
             TeamScore winner = _teams.Find(x => x.TotalAmount >= _necessaryWinScore);
@@ -80,5 +85,6 @@ namespace _Project.Scripts.Common
 
     public interface IGameHandler : IGameService
     {
+        public void InitializeTeams();
     }
 }

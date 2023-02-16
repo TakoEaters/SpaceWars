@@ -3,12 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Layers/EnemyBot.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Layers/EnemyBot.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Layers/FriendlyBot.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Layers/FriendlyBot.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Layers/Player.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Layers/Player.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/AIBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/AIBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/Bot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/Bot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/BotSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/BotSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/MultiplayerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/MultiplayerHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerSystem.cs" afterDir="false" />
     </list>

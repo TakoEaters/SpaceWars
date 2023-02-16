@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Project.Scripts.General.DamageableCore;
+using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
 using Template.Scripts.Pool;
 using UnityEngine;
@@ -42,8 +43,9 @@ namespace _Project.Scripts.Player
         public abstract void OnTakeDamage(int damage);
     }
     
-    [Serializable] public class CharacterConfigs 
+    [Serializable] public class CharacterConfigs
     {
+        public Team Team;
         [Range(1.0f, 5.0f)] public float Velocity = 3.5f;
         public float RotationSpeed;
 

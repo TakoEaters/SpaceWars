@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collisionLayers:
   - {fileID: 11400000, guid: 6e3b5f28632d5c24394747ab1b975d9d, type: 2}
-  - {fileID: 11400000, guid: 73da457e3bd50ec409a8f6866fc28ba4, type: 2}
+  - {fileID: 11400000, guid: 6e3b5f28632d5c24394747ab1b975d9d, type: 2}

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f341d376bebe0f448b9973f013951f78, type: 3}
-  m_Name: EnemyBot
+  m_Name: AI
   m_EditorClassIdentifier: 
   _collisionLayers:
-  - {fileID: 11400000, guid: 6e3b5f28632d5c24394747ab1b975d9d, type: 2}
+  - {fileID: 11400000}
   - {fileID: 11400000, guid: ceb801f35c8db36429875a222afec235, type: 2}

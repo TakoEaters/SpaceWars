@@ -2,16 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.General.Extensions;
 using _Project.Scripts.General.Spawners;
+using _Project.Scripts.General.Utils;
 using _Project.Scripts.Player.SkinChanger;
 using _Project.Scripts.Player.WeaponsSystem;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace _Project.Scripts.AI
 {
     public class AIController : AIBehaviour
     {
+        [SerializeField] private Transform _target;
+
         protected CharacterController Controller;
+        protected NavMeshAgent Agent;
         protected Animator Animator;
         protected SkinsChanger SkinsChanger;
         protected Action OnDeath;
@@ -40,6 +46,7 @@ namespace _Project.Scripts.AI
             Animator.Rebind();
             InitializeHealth();
             InitializeWeapon();
+            InitializeStatesManager();
             SkinsChanger.EnableMesh();
         }
 
@@ -48,18 +55,67 @@ namespace _Project.Scripts.AI
             _isDisabled = false;
         }
 
+        #region STATES_MANAGER
+
+        private AIState _currentState = AIState.Idle;
+        private Vector3 _velocity;
+
+        private readonly float _allowRotation = 0.1f;
+        private readonly float _startAnimationTime = 0.3f;
+        private readonly float _stopAnimationTime = 0.15f;
+        private float _speed;
+
+        private void InitializeStatesManager()
+        {
+            Agent.enabled = true;
+            Agent.destination = _target.position;
+            _currentState = AIState.Move;
+        }
+
+        protected void UpdateStates()
+        {
+            if (_isDisabled) return;
+
+            switch (_currentState)
+            {
+                case AIState.Idle:
+                    break;
+
+                case AIState.Move:
+                    OnMove();
+                    break;
+
+                case AIState.Attack:
+                    OnAttack();
+                    break;
+            }
+        }
+
+        private void OnMove()
+        {
+            transform.LookAt(_target.position.SetY(transform.position.y), _configs.RotationSpeed);
+        }
+
+
+        #endregion
+
         #region SHOOTING
 
         private List<WeaponView> _views;
         private WeaponEntity _weaponEntity;
         private WeaponView _currentWeapon;
-        
+
         private void InitializeWeapon()
         {
             _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().RandomWeapon;
             _currentWeapon = _views[_weaponEntity.ID];
             _currentWeapon.InitializeData(_weaponEntity.Damage);
             _currentWeapon.Enable();
+        }
+
+        private void OnAttack()
+        {
+            
         }
 
         #endregion
@@ -80,7 +136,7 @@ namespace _Project.Scripts.AI
             Health -= damage;
 
             if (Health <= 0) OnDie();
-            else Animator.SetTrigger(Hit);
+            else Animator.SetTrigger(AnimationHash.Hit);
         }
 
 
@@ -92,14 +148,27 @@ namespace _Project.Scripts.AI
             OnDeath?.Invoke();
         }
         #endregion
-        
-        #region HASHES
 
-        private static readonly int Shooting = Animator.StringToHash("shooting");
-        private static readonly int Hit = Animator.StringToHash("Hit");
-        private static readonly int Blend = Animator.StringToHash("Blend");
-        private static readonly int Y = Animator.StringToHash("Y");
-        private static readonly int X = Animator.StringToHash("X");
+        #region ANIMATOR
+
+        protected void UpdateAnimator()
+        {
+            _velocity = Agent.velocity;
+            _speed = _velocity.sqrMagnitude;
+            
+            if (_speed > _allowRotation)
+            {
+                Animator.SetFloat(AnimationHash.Blend, _speed, _startAnimationTime, Time.deltaTime); 
+                Animator.SetFloat(AnimationHash.X, _velocity.x, _startAnimationTime / 3, Time.deltaTime); 
+                Animator.SetFloat(AnimationHash.Y, _velocity.z, _startAnimationTime / 3, Time.deltaTime);
+            }
+            else if (_speed < _allowRotation)
+            {
+                Animator.SetFloat(AnimationHash.Blend, _speed, _stopAnimationTime, Time.deltaTime); 
+                Animator.SetFloat(AnimationHash.X, _velocity.x, _stopAnimationTime / 3, Time.deltaTime); 
+                Animator.SetFloat(AnimationHash.Y, _velocity.z, _stopAnimationTime / 3, Time.deltaTime);
+            }
+        }
 
         #endregion
     }

@@ -146,22 +146,19 @@ namespace _Project.Scripts.Player
 			//Calculate the Input Magnitude
 			_speed = new Vector2(_inputX, _inputZ).sqrMagnitude;
 
-			//Change animation mode if rotation is blocked
-		//	PlayerAnimator.SetBool(Shooting, _blockRotationPlayer);
-
 			//Physically move player
 			if (_speed > _allowPlayerRotation)
 			{
-				PlayerAnimator.SetFloat(Blend, _speed, StartAnimTime, Time.deltaTime);
-				PlayerAnimator.SetFloat(X, _inputX, StartAnimTime / 3, Time.deltaTime);
-				PlayerAnimator.SetFloat(Y, _inputZ, StartAnimTime / 3, Time.deltaTime);
+				PlayerAnimator.SetFloat(AnimationHash.Blend, _speed, StartAnimTime, Time.deltaTime);
+				PlayerAnimator.SetFloat(AnimationHash.X, _inputX, StartAnimTime / 3, Time.deltaTime);
+				PlayerAnimator.SetFloat(AnimationHash.Y, _inputZ, StartAnimTime / 3, Time.deltaTime);
 				PlayerMoveAndRotation();
 			}
 			else if (_speed < _allowPlayerRotation)
 			{
-				PlayerAnimator.SetFloat(Blend, _speed, StopAnimTime, Time.deltaTime);
-				PlayerAnimator.SetFloat(X, _inputX, StopAnimTime / 3, Time.deltaTime);
-				PlayerAnimator.SetFloat(Y, _inputZ, StopAnimTime / 3, Time.deltaTime);
+				PlayerAnimator.SetFloat(AnimationHash.Blend, _speed, StopAnimTime, Time.deltaTime);
+				PlayerAnimator.SetFloat(AnimationHash.X, _inputX, StopAnimTime / 3, Time.deltaTime);
+				PlayerAnimator.SetFloat(AnimationHash.Y, _inputZ, StopAnimTime / 3, Time.deltaTime);
 			}
 		}
 
@@ -191,7 +188,7 @@ namespace _Project.Scripts.Player
         protected void UpdateWeapon()
         {
 	        if (_isDisabled) return;
-	        PlayerAnimator.SetBool(Shooting, Inputs.IsShooting);
+	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
 	        
 	        
@@ -289,7 +286,7 @@ namespace _Project.Scripts.Player
             HealthViewer.UpdateView(0, Health);
 
             if (Health <= 0) OnDeath();
-            else PlayerAnimator.SetTrigger(Hit);
+            else PlayerAnimator.SetTrigger(AnimationHash.Hit);
         }
 
 
@@ -302,16 +299,6 @@ namespace _Project.Scripts.Player
 	        Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
 	        _effectsModifier.UpdateVignette(0);
         }
-
-        #endregion
-        
-        #region HASHES
-
-        private static readonly int Shooting = Animator.StringToHash("shooting");
-        private static readonly int Hit = Animator.StringToHash("Hit");
-        private static readonly int Blend = Animator.StringToHash("Blend");
-        private static readonly int Y = Animator.StringToHash("Y");
-        private static readonly int X = Animator.StringToHash("X");
 
         #endregion
     }

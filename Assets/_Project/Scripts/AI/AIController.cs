@@ -1,12 +1,17 @@
+using System;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.Spawners;
+using _Project.Scripts.Player.SkinChanger;
 using UnityEngine;
 
 namespace _Project.Scripts.AI
 {
     public class AIController : AIBehaviour
     {
+        protected CharacterController Controller;
         protected Animator Animator;
+        protected SkinsChanger SkinsChanger;
+        protected Action OnDeath;
 
         
         private ISpawnerSystem _spawnerSystem;
@@ -26,9 +31,11 @@ namespace _Project.Scripts.AI
         // ReSharper disable Unity.PerformanceAnalysis
         public void UpdateBotData()
         {
+            Controller.enabled = true;
             transform.position = _spawnerSystem.GetRandomSpawner(_configs.Team).SpawnPosition;
             Animator.Rebind();
             InitializeHealth();
+            SkinsChanger.EnableMesh();
         }
 
         public void DisableController()
@@ -52,15 +59,17 @@ namespace _Project.Scripts.AI
         {
             Health -= damage;
 
-            if (Health <= 0) OnDeath();
+            if (Health <= 0) OnDie();
             else Animator.SetTrigger(Hit);
         }
 
 
-        private void OnDeath()
+        private void OnDie()
         {
             if (_healthRoutine != null) StopCoroutine(_healthRoutine);
+            Controller.enabled = false;
             Animator.enabled = false;
+            OnDeath?.Invoke();
         }
         #endregion
         

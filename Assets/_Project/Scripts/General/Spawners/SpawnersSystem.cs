@@ -24,6 +24,7 @@ namespace _Project.Scripts.General.Spawners
         }
     }
 
+    
     public interface ISpawnerSystem : IGameService
     {
         public Spawner GetRandomSpawner(Team necessarySpawnTeam);

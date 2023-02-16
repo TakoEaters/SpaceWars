@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.GUi.Interface;
 using Template.Scripts.Pool;

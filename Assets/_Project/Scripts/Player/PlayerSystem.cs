@@ -14,7 +14,6 @@ namespace _Project.Scripts.Player
         
         public void Register()
         {
-            Application.targetFrameRate = 60;
             ServiceLocator.Current.Register<IPlayerSystem>(this);
         }
 

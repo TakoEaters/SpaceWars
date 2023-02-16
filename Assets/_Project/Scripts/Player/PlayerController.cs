@@ -291,6 +291,7 @@ namespace _Project.Scripts.Player
             HealthViewer.UpdateView(0, Health);
 
             if (Health <= 0) OnDeath();
+            else PlayerAnimator.SetTrigger(Hit);
         }
 
 
@@ -310,6 +311,7 @@ namespace _Project.Scripts.Player
         #region HASHES
 
         private static readonly int Shooting = Animator.StringToHash("shooting");
+        private static readonly int Hit = Animator.StringToHash("Hit");
         private static readonly int Blend = Animator.StringToHash("Blend");
         private static readonly int Y = Animator.StringToHash("Y");
         private static readonly int X = Animator.StringToHash("X");

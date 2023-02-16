@@ -34,7 +34,7 @@ namespace _Project.Scripts.AI
         private void InitializeData(Bot bot, Team team)
         {
             bot.Initialize(team);
-            bot.UpdateBotData();
+            bot.UpdateBotData(); 
             bot.EnableController();
         }
     }

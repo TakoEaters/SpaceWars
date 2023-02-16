@@ -10,6 +10,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
     {
         [SerializeField] private List<WeaponEntity> _weapons = new List<WeaponEntity>();
 
+        public WeaponEntity RandomWeapon => _weapons[Random.Range(0, _weapons.Count)];
         public WeaponEntity CurrentWeapon { get; protected set; }
         
         public void Register()
@@ -33,6 +34,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
 
     public interface IWeaponHandler : IGameService
     {
+        public WeaponEntity RandomWeapon { get; }
         public WeaponEntity CurrentWeapon { get; }
 
         public void UpdateWeapon(int weaponID);

@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.Spawners;
 using _Project.Scripts.Player.SkinChanger;
+using _Project.Scripts.Player.WeaponsSystem;
 using UnityEngine;
 
 namespace _Project.Scripts.AI
@@ -13,13 +16,14 @@ namespace _Project.Scripts.AI
         protected SkinsChanger SkinsChanger;
         protected Action OnDeath;
 
-        
+
         private ISpawnerSystem _spawnerSystem;
         private bool _isDisabled = true;
-        
+
         protected void FindServices()
         {
             _spawnerSystem = ServiceLocator.Current.Get<ISpawnerSystem>();
+            _views = GetComponentsInChildren<WeaponView>(true).ToList();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -35,6 +39,7 @@ namespace _Project.Scripts.AI
             transform.position = _spawnerSystem.GetRandomSpawner(_configs.Team).SpawnPosition;
             Animator.Rebind();
             InitializeHealth();
+            InitializeWeapon();
             SkinsChanger.EnableMesh();
         }
 
@@ -43,6 +48,21 @@ namespace _Project.Scripts.AI
             _isDisabled = false;
         }
 
+        #region SHOOTING
+
+        private List<WeaponView> _views;
+        private WeaponEntity _weaponEntity;
+        private WeaponView _currentWeapon;
+        
+        private void InitializeWeapon()
+        {
+            _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().RandomWeapon;
+            _currentWeapon = _views[_weaponEntity.ID];
+            _currentWeapon.InitializeData(_weaponEntity.Damage);
+            _currentWeapon.Enable();
+        }
+
+        #endregion
 
         #region HEALTH/DAMAGE
 

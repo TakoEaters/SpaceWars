@@ -1,4 +1,4 @@
 namespace _Project.Scripts.General.Signals
 {
-    public struct PlayerRevive { }
+    public struct PlayerDeploy { }
 }

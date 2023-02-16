@@ -22,7 +22,7 @@ namespace _Project.Scripts.GUi.Interface
         }
         
         [Sub]
-        private void OnPlayerRevive(PlayerRevive reference)
+        private void OnPlayerRevive(PlayerDeploy reference)
         {
             _view.Enable();
         }

@@ -54,7 +54,7 @@ namespace _Project.Scripts.Common
         }
 
         [Sub]
-        private void OnRevivePlayer(PlayerRevive reference)
+        private void OnRevivePlayer(PlayerDeploy reference)
         {
             _gameplayCamera.gameObject.SetActive(false);
             _playerCamera.gameObject.SetActive(true);

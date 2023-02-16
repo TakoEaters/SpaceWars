@@ -48,18 +48,18 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         public void EnableController()
         {
-	        transform.position = _spawnerSystem.GetRandomSpawner(_configs.Team).SpawnPosition;
 	        IsDisabled = false;
 	        ServiceLocator.Current.Get<ICameraManager>().EnableCameraInput();
         }
-
+        
         // ReSharper disable Unity.PerformanceAnalysis
         public void UpdatePlayerData()
         {
-	        PlayerAnimator.Rebind();
+	        print("player data is updated");
 	        transform.position = _spawnerSystem.GetRandomSpawner(Team.Blue).SpawnPosition;
 	        InitializeHealth();
 	        InitializeWeapon();
+	        PlayerAnimator.Rebind();
         }
 
         public void DisableController()

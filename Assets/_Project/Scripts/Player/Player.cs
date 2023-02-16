@@ -29,10 +29,5 @@ namespace _Project.Scripts.Player
         {
             LerpHealth();
         }
-
-        private void FixedUpdate()
-        {
-            
-        }
     }
 }

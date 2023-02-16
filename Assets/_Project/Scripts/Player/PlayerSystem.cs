@@ -25,7 +25,7 @@ namespace _Project.Scripts.Player
 
         public void EnablePlayer()
         { 
-            Signal.Current.Fire<PlayerRevive>(new PlayerRevive());
+            Signal.Current.Fire<PlayerDeploy>(new PlayerDeploy());
             StartCoroutine(WaitUtils.WaitWithDelay(_player.EnableController, _enableDelay));
         }
 

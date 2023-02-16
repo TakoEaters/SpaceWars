@@ -29,11 +29,10 @@ namespace _Project.Scripts.Player
         protected Animator PlayerAnimator;
         protected Camera Camera;
 
-        protected bool IsDisabled = true;
-
         private ISpawnerSystem _spawnerSystem;
         private AimIK _aimIK;
         private LookAtIK _lookAtIK;
+        private bool _isDisabled = true;
 
         protected void FindServices()
         {
@@ -48,14 +47,13 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         public void EnableController()
         {
-	        IsDisabled = false;
+	        _isDisabled = false;
 	        ServiceLocator.Current.Get<ICameraManager>().EnableCameraInput();
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
         public void UpdatePlayerData()
         {
-	        print("player data is updated");
 	        transform.position = _spawnerSystem.GetRandomSpawner(Team.Blue).SpawnPosition;
 	        InitializeHealth();
 	        InitializeWeapon();
@@ -64,7 +62,7 @@ namespace _Project.Scripts.Player
 
         public void DisableController()
         {
-	        IsDisabled = true;
+	        _isDisabled = true;
         }
 
         #region MOVEMENT
@@ -86,7 +84,7 @@ namespace _Project.Scripts.Player
 
         protected void UpdateMovement()
         {
-	        if (IsDisabled) return;
+	        if (_isDisabled) return;
 	        InputMagnitude();
 
 	        _isGrounded = Controller.isGrounded;
@@ -192,7 +190,7 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         protected void UpdateWeapon()
         {
-	        if (IsDisabled) return;
+	        if (_isDisabled) return;
 	        PlayerAnimator.SetBool(Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
 	        
@@ -220,7 +218,7 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         protected void UpdateOverheat()
         {
-	        if (IsDisabled) return;
+	        if (_isDisabled) return;
 
             if (Time.time - _lastCoolingTime > 0.1f && Time.time - _lastShootingTime > _weaponEntity.FireRate + .1f)
             {
@@ -279,7 +277,7 @@ namespace _Project.Scripts.Player
 
         protected void LerpHealth()
         {
-	        if (IsDisabled) return;
+	        if (_isDisabled) return;
 	        float lerpSpeedClamped = 1 - (float)Health / _configs.Health;
             _effectsModifier.UpdateVignette(lerpSpeedClamped);
         }
@@ -306,8 +304,7 @@ namespace _Project.Scripts.Player
         }
 
         #endregion
-
-
+        
         #region HASHES
 
         private static readonly int Shooting = Animator.StringToHash("shooting");

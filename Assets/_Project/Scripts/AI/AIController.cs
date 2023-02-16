@@ -24,11 +24,13 @@ namespace _Project.Scripts.AI
 
 
         private ISpawnerSystem _spawnerSystem;
+        private IWaypointsPath _waypointsPath;
         private bool _isDisabled = true;
 
         protected void FindServices()
         {
             _spawnerSystem = ServiceLocator.Current.Get<ISpawnerSystem>();
+            _waypointsPath = ServiceLocator.Current.Get<IWaypointsPath>();
             _views = GetComponentsInChildren<WeaponView>(true).ToList();
         }
 
@@ -68,7 +70,7 @@ namespace _Project.Scripts.AI
         private void InitializeStatesManager()
         {
             Agent.enabled = true;
-            Agent.destination = _target.position;
+            Agent.destination = _waypointsPath.GetFutureTarget().position;
             _currentState = AIState.Move;
         }
 

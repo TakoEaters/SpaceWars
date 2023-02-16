@@ -44,7 +44,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
         
         public void ShootProjectile()
         {
-            GameObject projectile = Instantiate(_projectile, transform.position, Quaternion.identity); //Spawns the selected projectile
+            GameObject projectile = Instantiate(_projectile, _nozzle.position, Quaternion.identity); //Spawns the selected projectile
+            projectile.transform.position = _nozzle.position;
             projectile.transform.LookAt(Position());
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody
         }

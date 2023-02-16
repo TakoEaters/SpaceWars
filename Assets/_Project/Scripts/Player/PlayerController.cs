@@ -13,6 +13,7 @@ using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+using RootMotion.FinalIK;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -31,6 +32,8 @@ namespace _Project.Scripts.Player
         protected bool IsDisabled = true;
 
         private ISpawnerSystem _spawnerSystem;
+        private AimIK _aimIK;
+        private LookAtIK _lookAtIK;
 
         protected void FindServices()
         {
@@ -38,6 +41,8 @@ namespace _Project.Scripts.Player
 	        HealthViewer = ServiceLocator.Current.Get<IHealthViewer>();
             _effectsModifier = ServiceLocator.Current.Get<IEffectsModifier>();
             _views = GetComponentsInChildren<WeaponView>(true).ToList();
+            _aimIK = GetComponent<AimIK>();
+            _lookAtIK = GetComponent<LookAtIK>();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -265,6 +270,8 @@ namespace _Project.Scripts.Player
         private void InitializeHealth()
         {
 	        PlayerAnimator.enabled = true;
+	        _lookAtIK.enabled = true;
+	        _aimIK.enabled = true;
 	        Health = _configs.Health;
 	        HealthViewer.UpdateView(Health, Health);
 	        _healthRoutine = StartCoroutine(RestoreHealth());
@@ -291,6 +298,8 @@ namespace _Project.Scripts.Player
         {
 	        if (_healthRoutine != null) StopCoroutine(_healthRoutine);
 	        PlayerAnimator.enabled = false;
+	        _lookAtIK.enabled = false;
+	        _aimIK.enabled = false;
 	        Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
 	        _effectsModifier.UpdateVignette(0);
         }

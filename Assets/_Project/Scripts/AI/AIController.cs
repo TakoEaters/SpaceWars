@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
-using _Project.Scripts.General.Extensions;
+using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Spawners;
 using _Project.Scripts.General.Utils;
@@ -17,9 +17,11 @@ namespace _Project.Scripts.AI
     public class AIController : AIBehaviour
     {
         protected CharacterController Controller;
+        protected DamageableScanner Scanner;
         protected Animator Animator;
         protected SkinsChanger SkinsChanger;
         protected AIStates States;
+
         protected Action OnDeath;
         
         private ISpawnerSystem _spawnerSystem;
@@ -38,6 +40,7 @@ namespace _Project.Scripts.AI
         public void EnableController()
         {
             _isDisabled = false;
+            Scanner.StartScanning(OnDetectEnemy, DamageableLayer, _configs.Team);
             States.Enable();
         }
 
@@ -55,6 +58,7 @@ namespace _Project.Scripts.AI
         public void DisableController()
         {
             _isDisabled = false;
+            Scanner.StopScanning();
             States.Disable();
         }
 
@@ -78,9 +82,15 @@ namespace _Project.Scripts.AI
 
         #region SHOOTING
 
+        private IDamageable _currentTarget;
         private List<WeaponView> _views;
         private WeaponEntity _weaponEntity;
         private WeaponView _currentWeapon;
+
+        private float _lastShootingTime;
+        private float _lastCoolingTime;
+        private float _overheat;
+        private bool _isOverheat;
 
         private void InitializeWeapon()
         {
@@ -90,9 +100,50 @@ namespace _Project.Scripts.AI
             _currentWeapon.Enable();
         }
 
-        private void OnAttack()
+        private void OnDetectEnemy(IDamageable target)
         {
-            
+            if (target == null)
+            {
+                _currentTarget = null;
+                return;
+            }
+            if (_currentTarget != null && _currentTarget == target) return;
+            States.SetTarget(target.Position);
+            _currentTarget = target;
+        }
+
+        // ReSharper disable Unity.PerformanceAnalysis
+        protected void OnAttack()
+        {
+            if (_currentTarget != null && _currentTarget.IsAlive)
+            {
+                if (!_isOverheat)
+                {
+                    if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
+                    {
+                        _currentWeapon.ShootProjectile(_currentTarget);
+                        _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
+                        _lastShootingTime = Time.time;
+                    }
+                }
+            }
+        }
+        
+        protected void UpdateOverheat()
+        {
+            if (_isDisabled) return;
+            if (Time.time - _lastCoolingTime > 0.1f && Time.time - _lastShootingTime > _weaponEntity.FireRate + .1f)
+            {
+                _overheat = Mathf.Clamp(_overheat - _weaponEntity.CoolingPerSecond * .1f, 0f, 100f);
+                _lastCoolingTime = Time.time;
+            }
+
+            if (_overheat >= 99) _isOverheat = true;
+            else if (_overheat < _weaponEntity.MaxOverheat) _isOverheat = false;
+            if (_isOverheat)
+            {
+              //  OnOverheat();
+            }
         }
 
         #endregion
@@ -113,7 +164,7 @@ namespace _Project.Scripts.AI
             Health -= damage;
 
             if (Health <= 0) OnDie();
-            else Animator.SetTrigger(AnimationHash.Hit);
+            else {Animator.SetTrigger(AnimationHash.Hit);}
         }
 
 

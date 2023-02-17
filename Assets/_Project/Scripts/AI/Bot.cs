@@ -1,25 +1,32 @@
+using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Utils;
 using _Project.Scripts.Player.SkinChanger;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace _Project.Scripts.AI
 {
     public class Bot : AIController
     {
         [SerializeField, Range(0.5f, 3.0f)] private float _waitRespawnDelay = 2f;
+
+        private NicknameViewer _viewer;
+        
         public void Initialize(Team team)
         {
             OnDeath = OnAIDie;
             _configs.Team = team;
 
             Controller = GetComponent<CharacterController>();
+            Scanner = GetComponentInChildren<DamageableScanner>();
+            _viewer = GetComponentInChildren<NicknameViewer>();
             States = GetComponent<AIStates>();
             Animator = GetComponent<Animator>();
             SkinsChanger = GetComponentInChildren<SkinsChanger>();
+            _viewer = GetComponentInChildren<NicknameViewer>();
             
             FindServices();
+            _viewer.Initialize(team);
         }
 
         private void OnAIRevive()
@@ -27,16 +34,20 @@ namespace _Project.Scripts.AI
             SkinsChanger.DisableMesh();
             UpdateBotData();
             EnableController();
+            _viewer.EnableView();
         }
 
         private void Update()
         {
+            OnAttack();
+            UpdateOverheat();
             UpdateAnimator();
             UpdateStates();
         }
 
         private void OnAIDie()
         {
+            _viewer.DisableView();
             DisableController();
             StartCoroutine(WaitUtils.WaitWithDelay(OnAIRevive, _waitRespawnDelay));
         }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Project.Scripts.AI;
@@ -33,6 +32,7 @@ namespace _Project.Scripts.Common
         public void InitializeTeams()
         {
             Team playerTeam = (Team)Random.Range(0, 2);
+            print(playerTeam);
             ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(playerTeam);
             ServiceLocator.Current.Get<IBotSystem>().InitializeSystem(playerTeam);
 

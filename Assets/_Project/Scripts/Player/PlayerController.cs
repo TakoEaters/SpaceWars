@@ -54,7 +54,7 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         public void UpdatePlayerData()
         {
-	        transform.position = _spawnerSystem.GetRandomSpawner(Team.Blue).SpawnPosition;
+	        transform.position = _spawnerSystem.GetRandomSpawner(_configs.Team).SpawnPosition;
 	        InitializeHealth();
 	        InitializeWeapon();
 	        PlayerAnimator.Rebind();

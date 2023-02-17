@@ -1,3 +1,4 @@
+using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         
         public override void InitializeData(Team preferredTeam, int damage)
         {
+            _weaponTeam = preferredTeam;
             MainCamera = Camera.main;
             Damage = damage;
         }
@@ -30,7 +32,12 @@ namespace _Project.Scripts.Player.WeaponsSystem
             projectile.GetComponent<Projectile>().StartM(_weaponTeam);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody
         }
-        
+
+        public override void ShootProjectile(IDamageable damageable)
+        {
+            
+        }
+
         private Vector3 Position()
         {
             var point = MainCamera.transform.forward * 20f + MainCamera.transform.position;

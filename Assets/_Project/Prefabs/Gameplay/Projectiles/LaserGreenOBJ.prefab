@@ -113,3 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b57c42e1c6c7904490d02e5416bd6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fx:
+  - Team: 0
+    MuzzleParticle: {fileID: 19880226, guid: 19fe3450bddf24b4398eab5e38bba063, type: 3}
+    HitParticle: {fileID: 19869370, guid: 63782bd2b5a23754181adaf65653088a, type: 3}
+    TrailParticle: {fileID: 19812862, guid: 1cbea70b4874c49458ec188e4527dfa7, type: 3}
+  - Team: 1
+    MuzzleParticle: {fileID: 19852598, guid: c49de3291c8b48841a7dbd15e3f74c2b, type: 3}
+    HitParticle: {fileID: 19878174, guid: 5b2df17ecc30d7b44909bcc7d4a4febd, type: 3}
+    TrailParticle: {fileID: 19802716, guid: 5ebe806fbdc57ab4e834f4764618c29b, type: 3}

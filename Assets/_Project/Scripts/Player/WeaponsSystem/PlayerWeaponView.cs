@@ -29,7 +29,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             GameObject projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
             projectile.transform.position = Nozzle.position;
             projectile.transform.LookAt(Position());
-            projectile.GetComponent<Projectile>().StartM(_weaponTeam);
+            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody
         }
 

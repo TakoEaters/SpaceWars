@@ -6,24 +6,27 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
 {
     public class ETFXProjectileScript : MonoBehaviour
     {
-        public GameObject impactParticle; // Effect spawned when projectile hits a collider
-        public GameObject projectileParticle; // Effect attached to the gameobject as child
-        public GameObject muzzleParticle; // Effect instantly spawned when gameobject is spawned
+      //  public GameObject impactParticle; // Effect spawned when projectile hits a collider
+     //   public GameObject projectileParticle; // Effect attached to the gameobject as child
+     //   public GameObject muzzleParticle; // Effect instantly spawned when gameobject is spawned
         [Header("Adjust if not using Sphere Collider")]
         public float colliderRadius = 1f;
         [Range(0f, 1f)] // This is an offset that moves the impact effect slightly away from the point of impact to reduce clipping of the impact effect
         public float collideOffset = 0.15f;
 
         [SerializeField] private DrawController _draw;
+
+        private Projectile _projectile;
         
         void Start()
         {
-            projectileParticle = Instantiate(projectileParticle, transform.position, transform.rotation) as GameObject;
-            projectileParticle.transform.parent = transform;
-            if (muzzleParticle)
+            _projectile = GetComponent<Projectile>();
+            _projectile.CurrentFX.TrailParticle = Instantiate(_projectile.CurrentFX.TrailParticle, transform.position, transform.rotation);
+            _projectile.CurrentFX.TrailParticle.transform.parent = transform;
+            if (_projectile.CurrentFX.MuzzleParticle)
             {
-                muzzleParticle = Instantiate(muzzleParticle, transform.position, transform.rotation) as GameObject;
-                Destroy(muzzleParticle, 1.5f); // 2nd parameter is lifetime of effect in seconds
+                _projectile.CurrentFX.MuzzleParticle = Instantiate(_projectile.CurrentFX.MuzzleParticle, transform.position, transform.rotation);
+                Destroy(_projectile.CurrentFX.MuzzleParticle, 1.5f); // 2nd parameter is lifetime of effect in seconds
             }
         }
 		
@@ -53,7 +56,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
             {
                 transform.position = hit.point + (hit.normal * collideOffset); // Move projectile to point of collision
 
-                GameObject impactP = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, hit.normal)) as GameObject; // Spawns impact effect
+                GameObject impactP = Instantiate(_projectile.CurrentFX.HitParticle.gameObject, transform.position, Quaternion.FromToRotation(Vector3.up, hit.normal)) as GameObject; // Spawns impact effect
 
                 ParticleSystem[] trails = GetComponentsInChildren<ParticleSystem>(); // Gets a list of particle systems, as we need to detach the trails
                 //Component at [0] is that of the parent i.e. this object (if there is any)
@@ -71,7 +74,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
                 _draw.OnPaint(hit.collider.gameObject, hit.point);
                 GetComponent<Projectile>().DetectTarget(hit.collider.gameObject, 25);
 
-                Destroy(projectileParticle, 3f); // Removes particle effect after delay
+                Destroy(_projectile.CurrentFX.TrailParticle, 3f); // Removes particle effect after delay
                 Destroy(impactP, 3.5f); // Removes impact effect after delay
                 Destroy(gameObject); // Removes the projectile
             }

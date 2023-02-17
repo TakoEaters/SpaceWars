@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65602c2fd2b087841ae01be197459904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scanRange: 6
+  _scanRange: 8
   _delay: 1
 --- !u!1 &2040552430429910741
 GameObject:

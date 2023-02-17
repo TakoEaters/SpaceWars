@@ -1,4 +1,5 @@
 using _Project.Scripts.General.DamageableCore;
+using _Project.Scripts.General.Extensions;
 using _Project.Scripts.General.Signals;
 using UnityEngine;
 
@@ -25,7 +26,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         public override void ShootProjectile(IDamageable damageable)
         {
             GameObject projectile = Instantiate(_projectile, transform.position, Quaternion.identity); //Spawns the selected projectile
-            projectile.transform.LookAt(damageable.Position);
+            projectile.transform.LookAt(damageable.Position.AddY(0.75f));
             projectile.GetComponent<Projectile>().StartM(_weaponTeam);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody   
         }

@@ -7,6 +7,7 @@ namespace _Project.Scripts.AI
 {
     public class AIStates : MonoBehaviour
     {
+        [SerializeField] private float _threshold = 3f;
         private NavMeshAgent _agent;
         private AIConfigs _configs;
         private IWaypointsPath _waypointsPath;
@@ -28,6 +29,10 @@ namespace _Project.Scripts.AI
 
         public void UpdateStates()
         {
+            if (Vector3.Distance(transform.position, _target.position) < _threshold)
+            {
+                MoveRandom();
+            }
             OnMove();
         }
 
@@ -36,12 +41,12 @@ namespace _Project.Scripts.AI
             _agent.destination = damageablePosition;
         }
 
-        public void ReturnToPosition()
+        public void MoveRandom()
         {
-          //  _target = _waypointsPath.GetFutureTarget();
-        //    _agent.destination = _target.position;
+            _target = _waypointsPath.GetFutureTarget();
+            _agent.SetDestination(_target.position);
         }
-        
+
         private void OnMove()
         {
             transform.LookAt(_target.position.SetY(transform.position.y), _configs.RotationSpeed);

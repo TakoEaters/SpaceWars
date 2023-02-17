@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32caa95d68de422aba64e1d8dda3d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _removeScore: 5
   _necessaryWinScore: 500
   _totalSessionMinutes: 7

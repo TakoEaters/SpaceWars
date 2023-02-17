@@ -60,6 +60,7 @@ namespace _Project.Scripts.AI
             _isDisabled = false;
             Scanner.StopScanning();
             States.Disable();
+            _currentTarget = null;
         }
 
         #region STATES_MANAGER
@@ -91,6 +92,7 @@ namespace _Project.Scripts.AI
         private float _lastCoolingTime;
         private float _overheat;
         private bool _isOverheat;
+        private bool _isShooting;
 
         private void InitializeWeapon()
         {
@@ -102,25 +104,35 @@ namespace _Project.Scripts.AI
 
         private void OnDetectEnemy(IDamageable target)
         {
-            if (target == null)
+            if (target == null) return;
+            
+            if (_currentTarget != null && _currentTarget == target)
             {
-                _currentTarget = null;
                 return;
             }
-            if (_currentTarget != null && _currentTarget == target) return;
-            States.SetTarget(target.Position);
             _currentTarget = target;
+            States.SetTarget(target.Position);
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         protected void OnAttack()
         {
-            if (_currentTarget != null && _currentTarget.IsAlive)
+            if (_isDisabled) return;
+            _isShooting = false;
+            if (_currentTarget != null && _currentTarget.IsAlive == false)
+            {
+                _currentTarget = null;
+                if (_isDisabled) return;
+                States.MoveRandom();
+            }
+            
+            if (_currentTarget is { IsAlive: true })
             {
                 if (!_isOverheat)
                 {
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
                     {
+                        _isShooting = true;
                         _currentWeapon.ShootProjectile(_currentTarget);
                         _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
                         _lastShootingTime = Time.time;
@@ -183,6 +195,7 @@ namespace _Project.Scripts.AI
 
         protected void UpdateAnimator()
         {
+            Animator.SetBool(AnimationHash.Shooting, _isShooting);
             _velocity = _agent.velocity;
             _speed = _velocity.sqrMagnitude;
             

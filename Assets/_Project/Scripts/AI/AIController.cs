@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Extensions;
+using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Spawners;
 using _Project.Scripts.General.Utils;
 using _Project.Scripts.Player.SkinChanger;
@@ -118,6 +120,7 @@ namespace _Project.Scripts.AI
         private void OnDie()
         {
             if (_healthRoutine != null) StopCoroutine(_healthRoutine);
+            Signal.Current.Fire<ScoreChanger>(new ScoreChanger { Team = _configs.Team });
             States.Disable();
             Controller.enabled = false;
             Animator.enabled = false;

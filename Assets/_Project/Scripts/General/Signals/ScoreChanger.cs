@@ -5,7 +5,6 @@ namespace _Project.Scripts.General.Signals
     public struct ScoreChanger
     {
         public Team Team;
-        public int Amount;
     }
 
 

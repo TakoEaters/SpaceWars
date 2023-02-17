@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using _Project.Scripts.AI;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
-using _Project.Scripts.General.LevelHandlers;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player;
@@ -15,6 +14,7 @@ namespace _Project.Scripts.Common
 {
     public class MultiplayerHandler : MonoBehaviour, IGameHandler
     {
+        [SerializeField, Range(5, 25)] private int _removeScore = 15;
         [SerializeField, Range(100, 1000)] private int _necessaryWinScore = 500;
         [SerializeField, Range(1, 10)] private int _totalSessionMinutes = 5;
         
@@ -52,18 +52,18 @@ namespace _Project.Scripts.Common
             TeamScore currentTeam = _teams.Find(x => x.Team == reference.Team);
             if (currentTeam == null)
             {
-                currentTeam = new TeamScore(reference.Team, reference.Amount);
+                currentTeam = new TeamScore(reference.Team, _necessaryWinScore);
                 _teams.Add(currentTeam);
-                return;
             }
 
-            currentTeam.TotalAmount += reference.Amount;
+            currentTeam.TotalAmount -= _removeScore;
+            currentTeam.TotalAmount = Mathf.Clamp(currentTeam.TotalAmount, 0, _necessaryWinScore);
             _score.SetTeamScore(currentTeam);
         }
 
         private bool IsAnyWinner()
         {
-            TeamScore winner = _teams.Find(x => x.TotalAmount >= _necessaryWinScore);
+            TeamScore winner = _teams.Find(x => x.TotalAmount <= 0);
             return winner != null;
         }
 

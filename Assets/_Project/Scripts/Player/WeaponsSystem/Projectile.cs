@@ -1,4 +1,3 @@
-using System.Collections;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using Template.Scripts.Pool;

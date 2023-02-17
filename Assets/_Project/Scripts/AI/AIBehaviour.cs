@@ -11,7 +11,8 @@ namespace _Project.Scripts.AI
     {
         [SerializeField] private DamageableLayer _layer;
         [SerializeField] protected AIConfigs _configs;
-        
+
+        public Team Team => _configs.Team;
         public DamageableLayer DamageableLayer => _layer;
         public int Priority => _configs.Priority;
         public bool IsAlive => Health > 0;

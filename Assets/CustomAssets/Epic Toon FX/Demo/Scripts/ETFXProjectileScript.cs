@@ -69,13 +69,8 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
                 }
                 
                 _draw.OnPaint(hit.collider.gameObject, hit.point);
+                GetComponent<Projectile>().DetectTarget(hit.collider.gameObject, 25);
 
-                if (hit.collider.gameObject.TryGetComponent(out IDamageable enemy))
-                {
-                    enemy.OnTakeDamage(25);
-                } 
-                
-                
                 Destroy(projectileParticle, 3f); // Removes particle effect after delay
                 Destroy(impactP, 3.5f); // Removes impact effect after delay
                 Destroy(gameObject); // Removes the projectile

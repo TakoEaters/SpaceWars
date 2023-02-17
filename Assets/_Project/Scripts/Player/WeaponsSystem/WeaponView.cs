@@ -1,3 +1,4 @@
+using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Utils;
 using Template.Scripts.General;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             LookAtPoint = FindObjectOfType<LookAtPoint>();
         }
 
-        public abstract void InitializeData(int damage);
+        public abstract void InitializeData(Team preferredTeam, int damage);
         public abstract void ShootProjectile();
     }
 }

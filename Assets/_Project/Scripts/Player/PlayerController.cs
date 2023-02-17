@@ -179,7 +179,7 @@ namespace _Project.Scripts.Player
         {
             _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
             _currentWeapon = _views[_weaponEntity.ID];
-            _currentWeapon.InitializeData(_weaponEntity.Damage);
+            _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage);
             _currentWeapon.Enable();
         }
 
@@ -204,7 +204,6 @@ namespace _Project.Scripts.Player
                         ServiceLocator.Current.Get<ICameraManager>().ShakeCamera(0.1f);
                         _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
                         MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
-                     //   PlayerAnimator.SetBool(Shooting, false);
                         _lastShootingTime = Time.time;
                         Signal.Current.Fire<Modifier>(new Modifier { Percentage = _overheat / 100f });
                     }

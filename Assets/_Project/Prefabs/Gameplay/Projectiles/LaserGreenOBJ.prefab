@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5479992}
   - component: {fileID: 11464288}
   - component: {fileID: 2526208799962757749}
+  - component: {fileID: 7331156560125234276}
   m_Layer: 0
   m_Name: LaserGreenOBJ
   m_TagString: Missile
@@ -100,3 +101,15 @@ MonoBehaviour:
   strength: 1
   hardness: 0.5
   _distance: 2
+--- !u!114 &7331156560125234276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b57c42e1c6c7904490d02e5416bd6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

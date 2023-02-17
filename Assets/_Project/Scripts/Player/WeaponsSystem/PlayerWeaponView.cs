@@ -1,3 +1,4 @@
+using _Project.Scripts.General.Signals;
 using UnityEngine;
 
 namespace _Project.Scripts.Player.WeaponsSystem
@@ -8,7 +9,9 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [SerializeField] private LayerMask _necessaryLayer;
         [SerializeField] private GameObject _projectile;
 
-        public override void InitializeData(int damage)
+        private Team _weaponTeam;
+        
+        public override void InitializeData(Team preferredTeam, int damage)
         {
             MainCamera = Camera.main;
             Damage = damage;
@@ -24,6 +27,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             GameObject projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
             projectile.transform.position = Nozzle.position;
             projectile.transform.LookAt(Position());
+            projectile.GetComponent<Projectile>().StartM(_weaponTeam);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody
         }
         

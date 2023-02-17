@@ -12,7 +12,8 @@ namespace _Project.Scripts.Player
     {
         [SerializeField] private DamageableLayer _layer;
         [SerializeField] protected CharacterConfigs _configs;
-        
+
+        public Team Team => _configs.Team;
         public DamageableLayer DamageableLayer => _layer;
         
         public int Priority => _configs.Priority;

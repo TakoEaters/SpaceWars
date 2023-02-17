@@ -14,30 +14,29 @@ namespace _Project.Scripts.AI
 {
     public class AIController : AIBehaviour
     {
-        [SerializeField] private Transform _target;
-
         protected CharacterController Controller;
-        protected NavMeshAgent Agent;
         protected Animator Animator;
         protected SkinsChanger SkinsChanger;
+        protected AIStates States;
         protected Action OnDeath;
-
-
+        
         private ISpawnerSystem _spawnerSystem;
-        private IWaypointsPath _waypointsPath;
+        private NavMeshAgent _agent;
         private bool _isDisabled = true;
 
         protected void FindServices()
         {
+            _agent = GetComponent<NavMeshAgent>();
             _spawnerSystem = ServiceLocator.Current.Get<ISpawnerSystem>();
-            _waypointsPath = ServiceLocator.Current.Get<IWaypointsPath>();
             _views = GetComponentsInChildren<WeaponView>(true).ToList();
+            States.Initialize(_configs, _agent);
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         public void EnableController()
         {
             _isDisabled = false;
+            States.Enable();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -48,18 +47,17 @@ namespace _Project.Scripts.AI
             Animator.Rebind();
             InitializeHealth();
             InitializeWeapon();
-            InitializeStatesManager();
             SkinsChanger.EnableMesh();
         }
 
         public void DisableController()
         {
             _isDisabled = false;
+            States.Disable();
         }
 
         #region STATES_MANAGER
-
-        private AIState _currentState = AIState.Idle;
+        
         private Vector3 _velocity;
 
         private readonly float _allowRotation = 0.1f;
@@ -67,35 +65,10 @@ namespace _Project.Scripts.AI
         private readonly float _stopAnimationTime = 0.15f;
         private float _speed;
 
-        private void InitializeStatesManager()
-        {
-            Agent.enabled = true;
-            Agent.destination = _waypointsPath.GetFutureTarget().position;
-            _currentState = AIState.Move;
-        }
-
         protected void UpdateStates()
         {
             if (_isDisabled) return;
-
-            switch (_currentState)
-            {
-                case AIState.Idle:
-                    break;
-
-                case AIState.Move:
-                    OnMove();
-                    break;
-
-                case AIState.Attack:
-                    OnAttack();
-                    break;
-            }
-        }
-
-        private void OnMove()
-        {
-            transform.LookAt(_target.position.SetY(transform.position.y), _configs.RotationSpeed);
+            States.UpdateStates();
         }
 
 
@@ -145,6 +118,7 @@ namespace _Project.Scripts.AI
         private void OnDie()
         {
             if (_healthRoutine != null) StopCoroutine(_healthRoutine);
+            States.Disable();
             Controller.enabled = false;
             Animator.enabled = false;
             OnDeath?.Invoke();
@@ -155,7 +129,7 @@ namespace _Project.Scripts.AI
 
         protected void UpdateAnimator()
         {
-            _velocity = Agent.velocity;
+            _velocity = _agent.velocity;
             _speed = _velocity.sqrMagnitude;
             
             if (_speed > _allowRotation)

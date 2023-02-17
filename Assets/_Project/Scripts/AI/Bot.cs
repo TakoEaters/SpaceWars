@@ -15,7 +15,7 @@ namespace _Project.Scripts.AI
             _configs.Team = team;
 
             Controller = GetComponent<CharacterController>();
-            Agent = GetComponent<NavMeshAgent>();
+            States = GetComponent<AIStates>();
             Animator = GetComponent<Animator>();
             SkinsChanger = GetComponentInChildren<SkinsChanger>();
             

@@ -8666,6 +8666,7 @@ GameObject:
   - component: {fileID: 2481511066912139501}
   - component: {fileID: 2481511066912139500}
   - component: {fileID: 2481511066912139499}
+  - component: {fileID: 5288525191795356939}
   - component: {fileID: 734846144373708719}
   m_Layer: 8
   m_Name: AIBot
@@ -8751,8 +8752,19 @@ MonoBehaviour:
     HealthRestorationDelay: 0.75
     HealthRestorationAmount: 1
     Priority: 1
-  _target: {fileID: 0}
   _waitRespawnDelay: 2
+--- !u!114 &5288525191795356939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481511066912139497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0809e9a3fb23a2449e05249fc95647d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &734846144373708719
 NavMeshAgent:
   m_ObjectHideFlags: 0

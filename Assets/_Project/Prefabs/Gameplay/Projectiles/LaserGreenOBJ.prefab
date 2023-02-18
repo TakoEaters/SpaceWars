@@ -47,7 +47,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5479992
 Rigidbody:
@@ -77,9 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd27932048c3254597a02078fa2cb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactParticle: {fileID: 100238, guid: 26fd612d281730243a5cb8e108261552, type: 3}
-  projectileParticle: {fileID: 178126, guid: 1ebd23ff3d8d4f849a6d0735e102b43e, type: 3}
-  muzzleParticle: {fileID: 170794, guid: 778204c4c02edbb4083f4aa23b83ad20, type: 3}
+  _rigidbody: {fileID: 5479992}
+  _sphereCollider: {fileID: 13576440}
   colliderRadius: 0.1
   collideOffset: 0.1
   _draw: {fileID: 2526208799962757749}

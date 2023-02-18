@@ -1,5 +1,7 @@
+using System;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
+using CustomAssets.Epic_Toon_FX.Demo.Scripts;
 using UnityEngine;
 
 namespace _Project.Scripts.Player.WeaponsSystem
@@ -8,7 +10,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
     {
         [SerializeField] private float _bulletSpeed = 1000f;
         [SerializeField] private LayerMask _necessaryLayer;
-        [SerializeField] private GameObject _projectile;
+        [SerializeField] private ETFXProjectileScript _projectile;
 
         private Team _weaponTeam;
         
@@ -24,16 +26,17 @@ namespace _Project.Scripts.Player.WeaponsSystem
             LookAtPoint.Transform.position = Position();
         }
 
-        public override void ShootProjectile()
+        public override void ShootProjectile(Action callback)
         {
-            GameObject projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
+            ETFXProjectileScript projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
+            projectile.OnKillTarget(callback);
             projectile.transform.position = Nozzle.position;
             projectile.transform.LookAt(Position());
             projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam);
-            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody
+            projectile.Rigidbody.AddForce(projectile.transform.forward * _bulletSpeed); 
         }
 
-        public override void ShootProjectile(IDamageable damageable)
+        public override void ShootProjectile(Action callback, IDamageable damageable)
         {
             
         }

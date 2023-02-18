@@ -21,11 +21,12 @@ namespace _Project.Scripts.Player.WeaponsSystem
             CurrentFX = _fx.Find(x => x.Team == team);
         }
 
-        public void DetectTarget(GameObject target, int damage)
+        public void DetectTarget(GameObject target, int damage, Action callback)
         {
             if (target.TryGetComponent(out IDamageable damageable) && damageable.IsAlive && damageable.Team != _currentTeam)
             {
                 damageable.OnTakeDamage(damage);
+                if (damageable.IsAlive == false) callback?.Invoke();
             }
         }
     }

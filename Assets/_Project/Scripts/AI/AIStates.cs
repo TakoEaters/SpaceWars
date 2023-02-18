@@ -12,6 +12,7 @@ namespace _Project.Scripts.AI
         private AIConfigs _configs;
         private IWaypointsPath _waypointsPath;
         private Transform _target;
+        private Vector3 _targetLookAt;
 
         public void Initialize(AIConfigs configs, NavMeshAgent agent)
         {
@@ -25,6 +26,7 @@ namespace _Project.Scripts.AI
             _agent.enabled = true;
             _target = _waypointsPath.GetFutureTarget();
             _agent.destination = _target.position;
+            _targetLookAt = _target.position;
         }
 
         public void UpdateStates()
@@ -39,17 +41,19 @@ namespace _Project.Scripts.AI
         public void SetTarget(Vector3 damageablePosition)
         {
             _agent.destination = damageablePosition;
+            _targetLookAt = damageablePosition;
         }
 
         public void MoveRandom()
         {
             _target = _waypointsPath.GetFutureTarget();
             _agent.SetDestination(_target.position);
+            _targetLookAt = _target.position;
         }
 
         private void OnMove()
         {
-            transform.LookAt(_target.position.SetY(transform.position.y), _configs.RotationSpeed);
+            transform.LookAt(_targetLookAt.SetY(transform.position.y), _configs.RotationSpeed);
         }
 
         public void Disable()

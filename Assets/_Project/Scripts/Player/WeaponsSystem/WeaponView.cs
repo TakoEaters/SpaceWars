@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Utils;
@@ -22,7 +23,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         }
 
         public abstract void InitializeData(Team preferredTeam, int damage);
-        public abstract void ShootProjectile();
-        public abstract void ShootProjectile(IDamageable damageable);
+        public abstract void ShootProjectile(Action callback);
+        public abstract void ShootProjectile(Action callback, IDamageable damageable);
     }
 }

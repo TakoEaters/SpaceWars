@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Project.Scripts.AI;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.LevelHandlers;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player;
@@ -11,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Common
 {
-    public class MultiplayerHandler : MonoBehaviour, IGameHandler
+    public class MultiplayerHandler : MonoBehaviour
     {
         [SerializeField, Range(5, 25)] private int _removeScore = 15;
         [SerializeField, Range(100, 1000)] private int _necessaryWinScore = 500;
@@ -23,13 +24,10 @@ namespace _Project.Scripts.Common
 
         private readonly int _secondsInMinute = 60;
         private int _remainingTime;
+        
 
-        public void Register()
-        {
-            ServiceLocator.Current.Register<IGameHandler>(this);
-        }
-
-        public void InitializeTeams()
+        [Sub]
+        private void InitializeTeams(StartLevel reference)
         {
             Team playerTeam = (Team)Random.Range(0, 2);
             ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(playerTeam);
@@ -80,10 +78,5 @@ namespace _Project.Scripts.Common
                 yield return waitTime;
             }
         }
-    }
-
-    public interface IGameHandler : IGameService
-    {
-        public void InitializeTeams();
     }
 }

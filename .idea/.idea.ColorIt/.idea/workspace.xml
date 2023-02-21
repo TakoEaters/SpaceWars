@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Resources/Entities/CoinsView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Resources/Entities/CoinsView.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/Core/GameBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/Core/GameBootstrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/SaveSystem/PlayerMoney.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/SaveSystem/PlayerMoney.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/SaveSystem/SaveManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/SaveSystem/SaveManager.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-MainMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Navigation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Navigation.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Settings.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Settings.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/PanelsHandler/Panels/SettingsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/PanelsHandler/Panels/SettingsPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +162,7 @@
       <workItem from="1676626882070" duration="15970000" />
       <workItem from="1676667746422" duration="2226000" />
       <workItem from="1676725723578" duration="614000" />
-      <workItem from="1676971504383" duration="8384000" />
+      <workItem from="1676971504383" duration="9034000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

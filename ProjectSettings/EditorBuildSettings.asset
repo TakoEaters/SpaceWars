@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Project/Scenes/_FirstScene.unity
+    guid: 0601eec525c38024799803eabb0aa781
+  - enabled: 1
+    path: Assets/_Project/Scenes/MainMenu.unity
+    guid: 888567f9a59571448bfc32b7fc6a7ed9
+  - enabled: 1
     path: Assets/_Project/Scenes/SandPlanet.unity
     guid: 7b4bbe7202410dd4e81acfe5a1b638ef
   m_configObjects: {}

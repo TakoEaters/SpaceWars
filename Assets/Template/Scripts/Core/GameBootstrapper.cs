@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.Pool;
-using _Project.Scripts.Core.SaveSystem;
 using _Project.Scripts.Core.SignalBus;
 using Sirenix.Utilities;
 using Template.Scripts.ParticlesUtils;
@@ -16,7 +15,6 @@ namespace Template.Scripts.Core
 
         private void Awake()
         {
-            PlayerMoney.Reset();
             ServiceLocator.Initialize();
             CorePool.Initialize();
             ParticleEmitter.Initialize();

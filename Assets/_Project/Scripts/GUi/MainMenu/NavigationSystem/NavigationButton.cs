@@ -1,4 +1,6 @@
 using System;
+using _Project.Scripts.Audio;
+using _Project.Scripts.Core.LocatorServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +21,7 @@ namespace _Project.Scripts.GUi.MainMenu.NavigationSystem
 
         private void OnClickOnButton()
         {
+            ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
             _onCall?.Invoke(_tab);
         }
     }

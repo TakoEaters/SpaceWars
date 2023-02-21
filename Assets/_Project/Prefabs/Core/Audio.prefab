@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _source: {fileID: 680663068222453222}
   _clickButtonSound: {fileID: 8300000, guid: 85c8d27e8859bc646ac2316f8500cdac, type: 3}
+  _switchButtonSound: {fileID: 8300000, guid: ec353dbb7139e8a4ea0582778aeb8faa, type: 3}
 --- !u!82 &680663068222453222
 AudioSource:
   m_ObjectHideFlags: 0
@@ -135,8 +136,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 85c8d27e8859bc646ac2316f8500cdac, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

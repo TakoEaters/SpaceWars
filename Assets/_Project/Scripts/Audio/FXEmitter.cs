@@ -7,6 +7,7 @@ namespace _Project.Scripts.Audio
     {
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _clickButtonSound;
+        [SerializeField] private AudioClip _switchButtonSound;
 
         public void Register()
         {
@@ -18,10 +19,17 @@ namespace _Project.Scripts.Audio
             _source.clip = _clickButtonSound;
             _source.Play();
         }
+
+        public void PlaySwitchSound()
+        {
+            _source.clip = _switchButtonSound;
+            _source.Play();
+        }
     }
 
     public interface IFXEmitter : IGameService
     {
         public void PlayButtonSound();
+        public void PlaySwitchSound();
     }
 }

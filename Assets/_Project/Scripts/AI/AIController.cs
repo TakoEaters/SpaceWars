@@ -133,7 +133,7 @@ namespace _Project.Scripts.AI
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
                     {
                         _isShooting = true;
-                        _currentWeapon.ShootProjectile(null, _currentTarget);
+                        _currentWeapon.ShootProjectile(_currentTarget);
                         _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
                         _lastShootingTime = Time.time;
                     }

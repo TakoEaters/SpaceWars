@@ -11,12 +11,14 @@ namespace _Project.Scripts.AI
         [SerializeField] private View _nickNameView;
         [SerializeField] private TextMeshPro _nickText;
 
+        public string Nick { get; private set; }
 
 
         public void Initialize(Team team)
         {
             _nickText.color =  team == Team.Blue ? Color.blue : Color.red;
             _nickText.text = NicknamesGenerator.GetNickName(team);
+            Nick = _nickText.text;
             _nickNameView.Enable();
         }
         public void EnableView()

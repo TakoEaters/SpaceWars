@@ -27,6 +27,7 @@ namespace _Project.Scripts.AI
             
             FindServices();
             _viewer.Initialize(team);
+            Nickname = _viewer.Nick;
         }
 
         private void OnAIRevive()

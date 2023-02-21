@@ -23,11 +23,11 @@ namespace _Project.Scripts.Player.WeaponsSystem
             Damage = damage;
         }
 
-        public override void ShootProjectile(Action callback)
+        public override void ShootProjectile()
         {
         }
 
-        public override void ShootProjectile(Action callback, IDamageable damageable)
+        public override void ShootProjectile(IDamageable damageable)
         {
             GameObject projectile = Instantiate(_projectile, transform.position, Quaternion.identity); //Spawns the selected projectile
             projectile.transform.LookAt(damageable.Position.AddY(0.75f));

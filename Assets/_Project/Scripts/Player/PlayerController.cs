@@ -199,7 +199,7 @@ namespace _Project.Scripts.Player
                 {
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
                     {
-                        _currentWeapon.ShootProjectile(OnKillTarget);
+                        _currentWeapon.ShootProjectile();
                         VisualPolish();
                         ServiceLocator.Current.Get<ICameraManager>().ShakeCamera(0.1f);
                         _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
@@ -246,11 +246,6 @@ namespace _Project.Scripts.Player
                 _currentWeapon.Nozzle.DOComplete();
                 _currentWeapon.Nozzle.DOPunchScale(new Vector3(0, 1, 1) / 1.5f, .15f, 10, 1);
             }
-        }
-
-        private void OnKillTarget()
-        {
-	        print("Killed target");
         }
 
         private void OnOverheat()

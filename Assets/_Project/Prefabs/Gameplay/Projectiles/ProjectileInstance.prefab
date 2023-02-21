@@ -46,7 +46,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5479992
 Rigidbody:
@@ -79,7 +79,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 5479992}
   _sphereCollider: {fileID: 13576440}
   _projectile: {fileID: 7331156560125234276}
-  colliderRadius: 0.1
+  colliderRadius: 0.4
   collideOffset: 0.1
 --- !u!114 &7331156560125234276
 MonoBehaviour:

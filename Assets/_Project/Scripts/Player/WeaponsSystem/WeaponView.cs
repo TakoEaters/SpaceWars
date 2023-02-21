@@ -23,7 +23,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         }
 
         public abstract void InitializeData(Team preferredTeam, int damage);
-        public abstract void ShootProjectile(Action callback);
-        public abstract void ShootProjectile(Action callback, IDamageable damageable);
+        public abstract void ShootProjectile();
+        public abstract void ShootProjectile(IDamageable damageable);
     }
 }

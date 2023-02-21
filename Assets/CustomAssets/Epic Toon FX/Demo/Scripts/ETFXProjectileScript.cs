@@ -1,5 +1,6 @@
 ﻿using System;
 using _Project.Scripts.General.DamageableCore;
+using _Project.Scripts.General.Signals;
 using _Project.Scripts.Player.WeaponsSystem;
 using UnityEngine;
 
@@ -16,7 +17,8 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
         [Range(0f, 1f)] // This is an offset that moves the impact effect slightly away from the point of impact to reduce clipping of the impact effect
         public float collideOffset = 0.15f;
 
-        private Action _onKillTarget;
+        private Action<string, Team> _onKillTarget;
+        private Action _onTakeDamageTarget;
         private GameObject _muzzleParticle;
         private GameObject _trailParticle;
         private GameObject _impactParticle;
@@ -24,7 +26,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
         
         public Rigidbody Rigidbody => _rigidbody;
         
-        void Start()
+        private void Start()
         {
             Destroy(gameObject, 4.0f);
             _trailParticle = Instantiate(_projectile.CurrentFX.TrailParticle, transform.position, transform.rotation).gameObject;
@@ -34,9 +36,10 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
             Destroy(_trailParticle.gameObject, 4.0f);
         }
 
-        public void OnKillTarget(Action receiveCallBack)
+        public void OnKillTarget(Action<string, Team> onKill, Action onTakeDamage)
         {
-            _onKillTarget = receiveCallBack;
+            _onKillTarget = onKill;
+            _onTakeDamageTarget = onTakeDamage;
         }
 		
         void FixedUpdate()
@@ -63,7 +66,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
                 transform.position = hit.point + (hit.normal * collideOffset); // Move projectile to point of collision
 
                 _impactParticle = Instantiate(_projectile.CurrentFX.HitParticle.gameObject, transform.position, Quaternion.FromToRotation(Vector3.up, hit.normal)); // Spawns impact effect
-                _projectile.DetectTarget(hit.collider.gameObject, 25, _onKillTarget);
+                _projectile.DetectTarget(hit.collider.gameObject, 25, _onKillTarget, _onTakeDamageTarget);
 
                 Destroy(_trailParticle, 1f); // Removes particle effect after delay
                 Destroy(_impactParticle, 1.5f); // Removes impact effect after delay

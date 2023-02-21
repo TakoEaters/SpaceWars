@@ -14,6 +14,7 @@ namespace _Project.Scripts.AI
 
         public Team Team => _configs.Team;
         public DamageableLayer DamageableLayer => _layer;
+        public string Nickname { get; protected set; }
         public int Priority => _configs.Priority;
         public bool IsAlive => Health > 0;
         public bool IsInSafeZone { get; set; }
@@ -42,7 +43,6 @@ namespace _Project.Scripts.AI
     [Serializable] public class AIConfigs
     {
         public Team Team;
-        [Range(1.0f, 5.0f)] public float Velocity = 3.5f;
         public float RotationSpeed;
 
         public int Health;

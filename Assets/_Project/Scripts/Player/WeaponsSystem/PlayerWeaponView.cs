@@ -1,6 +1,8 @@
 using System;
+using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
+using _Project.Scripts.GUi.Interface;
 using CustomAssets.Epic_Toon_FX.Demo.Scripts;
 using UnityEngine;
 
@@ -26,19 +28,24 @@ namespace _Project.Scripts.Player.WeaponsSystem
             LookAtPoint.Transform.position = Position();
         }
 
-        public override void ShootProjectile(Action callback)
+        public override void ShootProjectile()
         {
             ETFXProjectileScript projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
-            projectile.OnKillTarget(callback);
+            projectile.OnKillTarget(OnKillTarget, () => Signal.Current.Fire<OnTakeDamageAtEnemy>(new OnTakeDamageAtEnemy {Damage = Damage}));
             projectile.transform.position = Nozzle.position;
             projectile.transform.LookAt(Position());
             projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam);
             projectile.Rigidbody.AddForce(projectile.transform.forward * _bulletSpeed); 
         }
 
-        public override void ShootProjectile(Action callback, IDamageable damageable)
+        public override void ShootProjectile(IDamageable damageable)
         {
             
+        }
+
+        private void OnKillTarget(string nickname, Team team)
+        {
+            Signal.Current.Fire<OnKillTarget>(new OnKillTarget {Name = nickname, Team = team});
         }
 
         private Vector3 Position()

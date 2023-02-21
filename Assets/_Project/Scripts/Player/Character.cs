@@ -15,7 +15,8 @@ namespace _Project.Scripts.Player
 
         public Team Team => _configs.Team;
         public DamageableLayer DamageableLayer => _layer;
-        
+
+        public string Nickname => String.Empty;
         public int Priority => _configs.Priority;
         public bool IsAlive => Health > 0;
         public bool IsInSafeZone { get; set; }

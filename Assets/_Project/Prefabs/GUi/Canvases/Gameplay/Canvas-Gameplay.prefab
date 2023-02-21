@@ -634,7 +634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5450916341793447556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -721,7 +721,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enableDelay: 2
   _duration: 1
-  _maxFade: 0.35
   _mainView: {fileID: 5450916341793447557}
   _background: {fileID: 339510281110792883}
   _deployButton: {fileID: 1469918658883404752}

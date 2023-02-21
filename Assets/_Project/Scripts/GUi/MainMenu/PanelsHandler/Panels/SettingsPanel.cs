@@ -13,7 +13,7 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
         
         public override NavigationTab Navigation => NavigationTab.Settings;
 
-        private const float MaxScale = 1f;
+        private const float MaxScale = 0.75f;
         
         [Sub]
         protected override void OnNavigate(Navigate reference)

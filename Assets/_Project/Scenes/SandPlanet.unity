@@ -1941,7 +1941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1e4b806eabe1c4bafdf324f8a1b230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 0
 --- !u!4 &129397910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4112816361108670, guid: b1949b51525d5de4786087c968b4cde6, type: 3}

@@ -1,5 +1,6 @@
 using _Project.Scripts.General.InputHandlers;
 using _Project.Scripts.General.Signals;
+using _Project.Scripts.Player.SkinChanger;
 using UnityEngine;
 
 namespace _Project.Scripts.Player
@@ -8,12 +9,13 @@ namespace _Project.Scripts.Player
     {
         public void Initialize(Team playerTeam)
         {
+            GetComponentInChildren<SkinsChanger>().SetSkin();
             _configs.Team = playerTeam;
             FindServices();
             PlayerAnimator = GetComponent<Animator>();
             Controller = GetComponent<CharacterController>();
             Inputs = GetComponent<PlayerInputs>();
-            
+
             Camera = Camera.main;
         }
 

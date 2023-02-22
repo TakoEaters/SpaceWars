@@ -15,5 +15,17 @@ namespace _Project.Scripts.General.Saves
             string id = $"Player_Weapon";
             PlayerPrefs.SetInt(id, weaponID);
         }
+
+        public static int GetSkinID()
+        {
+            string id = $"Player_Skin";
+            return PlayerPrefs.GetInt(id, 0);
+        }
+
+        public static void SetSkinID(int skinID)
+        {
+            string id = $"Player_Skin";
+            PlayerPrefs.SetInt(id, skinID);
+        }
     }
 }

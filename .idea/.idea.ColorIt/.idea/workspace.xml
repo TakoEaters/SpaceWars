@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Scripts/ETFXProjectileScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Characters/AIBot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Characters/AIBot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Handlers/WaypointsBehaviour.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Handlers/WaypointsBehaviour.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Projectiles/ProjectileInstance.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Gameplay/Projectiles/ProjectileInstance.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/AIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/AIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/Bot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/AI/Bot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/AIWeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/AIWeaponView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/PlayerWeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/PlayerWeaponView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/Projectile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +166,7 @@
       <workItem from="1676667746422" duration="2226000" />
       <workItem from="1676725723578" duration="614000" />
       <workItem from="1676971504383" duration="15261000" />
-      <workItem from="1677056628771" duration="354000" />
+      <workItem from="1677056628771" duration="1722000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

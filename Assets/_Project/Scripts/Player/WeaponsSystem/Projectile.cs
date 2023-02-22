@@ -14,20 +14,22 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [SerializeField] private List<ProjectileFX> _fx = new List<ProjectileFX>();
 
         private Team _currentTeam;
+        private int _damage;
         public ProjectileFX CurrentFX { get; private set; }
         
         
-        public void InitializeProjectileData(Team team)
+        public void InitializeProjectileData(Team team, int damage)
         {
+            _damage = damage;
             _currentTeam = team;
             CurrentFX = _fx.Find(x => x.Team == team);
         }
 
-        public void DetectTarget(GameObject target, int damage, Action<string, Team> killedTarget, Action takeDamage)
+        public void DetectTarget(GameObject target, Action<string, Team> killedTarget, Action takeDamage)
         {
             if (target.TryGetComponent(out IDamageable damageable) && damageable.IsAlive && damageable.Team != _currentTeam)
             {
-                damageable.OnTakeDamage(damage);
+                damageable.OnTakeDamage(_damage);
                 takeDamage?.Invoke();
                 if (damageable.IsAlive == false) killedTarget?.Invoke(damageable.Nickname, damageable.Team);
             }

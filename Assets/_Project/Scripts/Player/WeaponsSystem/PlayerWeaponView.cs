@@ -15,7 +15,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [SerializeField] private ETFXProjectileScript _projectile;
 
         private Team _weaponTeam;
-        
+
         public override void InitializeData(Team preferredTeam, int damage)
         {
             _weaponTeam = preferredTeam;
@@ -34,7 +34,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             projectile.OnKillTarget(OnKillTarget, () => Signal.Current.Fire<OnTakeDamageAtEnemy>(new OnTakeDamageAtEnemy {Damage = Damage}));
             projectile.transform.position = Nozzle.position;
             projectile.transform.LookAt(Position());
-            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam);
+            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam, Damage);
             projectile.Rigidbody.AddForce(projectile.transform.forward * _bulletSpeed); 
         }
 

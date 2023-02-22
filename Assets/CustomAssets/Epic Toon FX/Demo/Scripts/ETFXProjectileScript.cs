@@ -24,17 +24,16 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
         private GameObject _trailParticle;
         private GameObject _impactParticle;
         
-        
         public Rigidbody Rigidbody => _rigidbody;
         
         private void Start()
         {
-            Destroy(gameObject, 4.0f);
+            Destroy(gameObject, 3.0f);
             _trailParticle = Instantiate(_projectile.CurrentFX.TrailParticle, transform.position, transform.rotation).gameObject;
             _trailParticle.transform.parent = transform;
             _muzzleParticle= Instantiate(_projectile.CurrentFX.MuzzleParticle, transform.position, transform.rotation).gameObject; 
-            Destroy(_muzzleParticle.gameObject, 1.5f); // 2nd parameter is lifetime of effect in seconds
-            Destroy(_trailParticle.gameObject, 4.0f);
+            Destroy(_muzzleParticle.gameObject, 0.5f); // 2nd parameter is lifetime of effect in seconds
+            Destroy(_trailParticle.gameObject, 3.0f);
         }
 
         public void OnKillTarget(Action<string, Team> onKill, Action onTakeDamage)
@@ -67,7 +66,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
                 transform.position = hit.point + (hit.normal * collideOffset); // Move projectile to point of collision
 
                 _impactParticle = Instantiate(_projectile.CurrentFX.HitParticle.gameObject, transform.position, Quaternion.FromToRotation(Vector3.up, hit.normal)); // Spawns impact effect
-                _projectile.DetectTarget(hit.collider.gameObject, 25, _onKillTarget, _onTakeDamageTarget);
+                _projectile.DetectTarget(hit.collider.gameObject, _onKillTarget, _onTakeDamageTarget);
 
                 Destroy(_trailParticle, 1f); // Removes particle effect after delay
                 Destroy(_impactParticle, 1.5f); // Removes impact effect after delay

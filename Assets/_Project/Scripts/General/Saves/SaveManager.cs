@@ -29,5 +29,20 @@ namespace _Project.Scripts.General.Saves
         }
 
         #endregion
+
+        #region SETTINGS
+        public static void SetGraphicsValue(int value)
+        {
+            string id = $"GRAPHICS";
+            PlayerPrefs.SetInt(id, value);
+        }
+
+        public static int GetGraphicsValue()
+        {
+            string id = $"GRAPHICS";
+            return PlayerPrefs.GetInt(id, 2);
+        }
+
+        #endregion
     }
 }

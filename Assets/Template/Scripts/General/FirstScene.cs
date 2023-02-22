@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FirstScene : MonoBehaviour
+namespace Template.Scripts.General
 {
-    void Start()
+    public class FirstScene : MonoBehaviour
     {
-        Initialize();
-        LoadFirstScene();
-    }
-    private void Initialize()
-    {
+        void Start()
+        {
+            Initialize();
+            LoadFirstScene();
+        }
+        private void Initialize()
+        {
 
-    }
-    private void LoadFirstScene()
-    {
-        SceneManager.LoadScene(1);
+        }
+        private void LoadFirstScene()
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

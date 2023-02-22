@@ -1,4 +1,4 @@
 namespace _Project.Scripts.General.Resources
 {
-    public enum Resource { Coins, Gems }
+    public enum Resource { Coins, Bullets }
 }

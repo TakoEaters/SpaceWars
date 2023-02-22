@@ -23,16 +23,16 @@ namespace _Project.Scripts.GUi.MainMenu.Shop
 
         private void OnPurchase()
         {
-            ServiceLocator.Current.Get<IFXEmitter>().PlaySwitchSound();
             int bulletsAmount = SaveManager.GetResourcesAmount(Resource.Bullets);
             if (bulletsAmount >= _removableAmount)
             {
                 SaveManager.IncrementResourcesAmount(Resource.Coins, _additiveAmount);
                 SaveManager.IncrementResourcesAmount(Resource.Bullets, -_removableAmount);
+                ServiceLocator.Current.Get<IFXEmitter>().PlaySuccessfulPurchaseSound();
                 return;
             }
             
-            //music on failed
+            ServiceLocator.Current.Get<IFXEmitter>().PlayFailedPurchaseSound();
         }
     }
 }

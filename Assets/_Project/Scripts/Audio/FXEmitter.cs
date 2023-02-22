@@ -8,6 +8,8 @@ namespace _Project.Scripts.Audio
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _clickButtonSound;
         [SerializeField] private AudioClip _switchButtonSound;
+        [SerializeField] private AudioClip _successfulPurchaseSound;
+        [SerializeField] private AudioClip _failedPurchaseSound;
 
         public void Register()
         {
@@ -25,11 +27,25 @@ namespace _Project.Scripts.Audio
             _source.clip = _switchButtonSound;
             _source.Play();
         }
+
+        public void PlaySuccessfulPurchaseSound()
+        {
+            _source.clip = _successfulPurchaseSound;
+            _source.Play();
+        }
+
+        public void PlayFailedPurchaseSound()
+        {
+            _source.clip = _failedPurchaseSound;
+            _source.Play();
+        }
     }
 
     public interface IFXEmitter : IGameService
     {
         public void PlayButtonSound();
         public void PlaySwitchSound();
+        public void PlaySuccessfulPurchaseSound();
+        public void PlayFailedPurchaseSound();
     }
 }

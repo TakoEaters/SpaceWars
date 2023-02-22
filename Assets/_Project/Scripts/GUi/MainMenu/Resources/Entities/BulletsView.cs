@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace _Project.Scripts.GUi.MainMenu.Resources.Entities
 {
-    public class CoinsView : ResourceView
+    public class BulletsView : ResourceView
     {
         [SerializeField, Range(5.0f, 20.0f)] private float _lerpIntensity = 15.0f;
         [SerializeField] private TextMeshProUGUI _text;
-        
-        public override Resource ViewResource => Resource.Coins;
+
+        public override Resource ViewResource => Resource.Bullets;
         
         private int _currentAmount;
         private int _targetAmount;

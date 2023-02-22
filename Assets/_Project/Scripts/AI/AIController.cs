@@ -16,7 +16,7 @@ namespace _Project.Scripts.AI
 {
     public class AIController : AIBehaviour
     {
-        protected CharacterController Controller;
+        protected CapsuleCollider Collider;
         protected DamageableScanner Scanner;
         protected Animator Animator;
         protected SkinsChanger SkinsChanger;
@@ -47,7 +47,7 @@ namespace _Project.Scripts.AI
         // ReSharper disable Unity.PerformanceAnalysis
         public void UpdateBotData()
         {
-            Controller.enabled = true;
+            Collider.enabled = true;
             transform.position = _spawnerSystem.GetRandomSpawner(_configs.Team).SpawnPosition;
             Animator.Rebind();
             InitializeHealth();
@@ -185,7 +185,7 @@ namespace _Project.Scripts.AI
             if (_healthRoutine != null) StopCoroutine(_healthRoutine);
             Signal.Current.Fire<ScoreChanger>(new ScoreChanger { Team = _configs.Team });
             States.Disable();
-            Controller.enabled = false;
+            Collider.enabled = false;
             Animator.enabled = false;
             OnDeath?.Invoke();
         }

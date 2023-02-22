@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageableLayer:
     serializedVersion: 2
-    m_Bits: 385
+    m_Bits: 0
   _rigidbody: {fileID: 5479992}
   _sphereCollider: {fileID: 13576440}
   _projectile: {fileID: 7331156560125234276}

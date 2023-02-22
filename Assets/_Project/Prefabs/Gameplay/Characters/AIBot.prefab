@@ -8915,10 +8915,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2481511066912139498}
   - component: {fileID: 2481511066912139501}
-  - component: {fileID: 2481511066912139500}
   - component: {fileID: 2481511066912139499}
   - component: {fileID: 5288525191795356939}
   - component: {fileID: 734846144373708719}
+  - component: {fileID: 4111299594226442735}
   m_Layer: 8
   m_Name: AIBot
   m_TagString: Untagged
@@ -8965,24 +8965,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &2481511066912139500
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2481511066912139497}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.8
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &2481511066912139499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8998,7 +8980,6 @@ MonoBehaviour:
   _layer: {fileID: 11400000, guid: 6e3b5f28632d5c24394747ab1b975d9d, type: 2}
   _configs:
     Team: 1
-    Velocity: 3.5
     RotationSpeed: 12
     Health: 100
     HealthRestorationDelay: 0.75
@@ -9040,6 +9021,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &4111299594226442735
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481511066912139497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.0944228
+  m_Direction: 1
+  m_Center: {x: 0.00000035751654, y: 0.9601631, z: 0.00000005359551}
 --- !u!1 &2481511066945176657
 GameObject:
   m_ObjectHideFlags: 0

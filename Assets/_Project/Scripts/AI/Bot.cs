@@ -17,7 +17,7 @@ namespace _Project.Scripts.AI
             OnDeath = OnAIDie;
             _configs.Team = team;
 
-            Controller = GetComponent<CharacterController>();
+            Collider = GetComponent<CapsuleCollider>();
             Scanner = GetComponentInChildren<DamageableScanner>();
             _viewer = GetComponentInChildren<NicknameViewer>();
             States = GetComponent<AIStates>();

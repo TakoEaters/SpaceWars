@@ -8,6 +8,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
 {
     public class ETFXProjectileScript : MonoBehaviour
     {
+        [SerializeField] private LayerMask _damageableLayer;
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private SphereCollider _sphereCollider;
         [SerializeField] private Projectile _projectile;
@@ -61,7 +62,7 @@ namespace CustomAssets.Epic_Toon_FX.Demo.Scripts
 
             float detectionDistance = _rigidbody.velocity.magnitude * Time.deltaTime; // Distance of collision detection for this frame
 
-            if (Physics.SphereCast(transform.position, radius, direction, out hit, detectionDistance)) // Checks if collision will happen
+            if (Physics.SphereCast(transform.position, radius, direction, out hit, detectionDistance, _damageableLayer)) // Checks if collision will happen
             {
                 transform.position = hit.point + (hit.normal * collideOffset); // Move projectile to point of collision
 

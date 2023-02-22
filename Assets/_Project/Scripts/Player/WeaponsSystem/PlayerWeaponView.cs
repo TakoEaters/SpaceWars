@@ -25,7 +25,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
 
         private void Update()
         {
-            LookAtPoint.Transform.position = Position();
+            Vector3 lookAtPoint = MainCamera.transform.forward * 20f + MainCamera.transform.position;
+            LookAtPoint.Transform.position = lookAtPoint;
         }
 
         public override void ShootProjectile()

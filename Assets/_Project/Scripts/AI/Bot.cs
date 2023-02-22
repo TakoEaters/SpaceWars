@@ -23,8 +23,7 @@ namespace _Project.Scripts.AI
             States = GetComponent<AIStates>();
             Animator = GetComponent<Animator>();
             SkinsChanger = GetComponentInChildren<SkinsChanger>();
-            _viewer = GetComponentInChildren<NicknameViewer>();
-            
+
             FindServices();
             _viewer.Initialize(team);
             Nickname = _viewer.Nick;

@@ -200,7 +200,6 @@ namespace _Project.Scripts.Player
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
                     {
                         _currentWeapon.ShootProjectile();
-                        VisualPolish();
                         ServiceLocator.Current.Get<ICameraManager>().ShakeCamera(0.1f);
                         _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
                         MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
@@ -239,15 +238,6 @@ namespace _Project.Scripts.Player
             }
         }
 
-        private void VisualPolish()
-        {
-            if (!DOTween.IsTweening(_currentWeapon.Nozzle))
-            {
-                _currentWeapon.Nozzle.DOComplete();
-                _currentWeapon.Nozzle.DOPunchScale(new Vector3(0, 1, 1) / 1.5f, .15f, 10, 1);
-            }
-        }
-
         private void OnOverheat()
         {
 	        CorePoolAudio overHeat = CorePool.Current.Get(_overHeatClip);
@@ -263,9 +253,9 @@ namespace _Project.Scripts.Player
 
         private void InitializeHealth()
         {
-	        PlayerAnimator.enabled = true;
+	        PlayerAnimator.enabled = true; 
 	        _lookAtIK.enabled = true;
-	        _aimIK.enabled = true;
+	     //   _aimIK.enabled = true;
 	        Health = _configs.Health;
 	        HealthViewer.UpdateView(Health, Health);
 	        _healthRoutine = StartCoroutine(RestoreHealth());

@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
@@ -33,7 +32,6 @@ namespace _Project.Scripts.Player.WeaponsSystem
         {
             ETFXProjectileScript projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
             projectile.OnKillTarget(OnKillTarget, () => Signal.Current.Fire<OnTakeDamageAtEnemy>(new OnTakeDamageAtEnemy {Damage = Damage}));
-            projectile.transform.position = Nozzle.position;
             projectile.transform.LookAt(Position());
             projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam, Damage);
             projectile.Rigidbody.AddForce(projectile.transform.forward * _bulletSpeed); 

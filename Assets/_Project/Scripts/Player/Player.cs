@@ -22,7 +22,7 @@ namespace _Project.Scripts.Player
 
         private void Update()
         {
-            UpdateMovement();
+            UpdateMovement(); 
             UpdateWeapon();
             UpdateOverheat();
         }

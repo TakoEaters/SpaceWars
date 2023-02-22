@@ -2969,6 +2969,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nozzle: {fileID: 2481511065133696506}
+  _rayCastLayer:
+    serializedVersion: 2
+    m_Bits: 256
   _bulletSpeed: 1000
   _projectile: {fileID: 128572, guid: 0eb4627efbccf234dbfeb66c7ed0fde2, type: 3}
 --- !u!1 &2481511065675178090
@@ -5062,6 +5065,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nozzle: {fileID: 2481511065875212909}
+  _rayCastLayer:
+    serializedVersion: 2
+    m_Bits: 256
   _bulletSpeed: 1000
   _projectile: {fileID: 128572, guid: 0eb4627efbccf234dbfeb66c7ed0fde2, type: 3}
 --- !u!1 &2481511066030798781
@@ -5522,7 +5528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1e4b806eabe1c4bafdf324f8a1b230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _test: 1
 --- !u!1 &2481511066159183668
 GameObject:
   m_ObjectHideFlags: 0
@@ -8957,7 +8962,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 9f078227c6f09b54392514bfaa25c741, type: 3}
   m_Controller: {fileID: 9100000, guid: 10a173d73c4423d4c8f83706931547b6, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -9810,6 +9815,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nozzle: {fileID: 2481511065855506237}
+  _rayCastLayer:
+    serializedVersion: 2
+    m_Bits: 256
   _bulletSpeed: 1000
   _projectile: {fileID: 128572, guid: 0eb4627efbccf234dbfeb66c7ed0fde2, type: 3}
 --- !u!1 &2481511067064501097

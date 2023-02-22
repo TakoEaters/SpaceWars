@@ -14005,6 +14005,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 59101571}
+    - target: {fileID: 2481511066912139501, guid: 2774a916a74e391408ebae7320ef6f49, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4546328991508208647, guid: 2774a916a74e391408ebae7320ef6f49, type: 3}
       propertyPath: m_Material
       value: 
@@ -15487,6 +15491,10 @@ PrefabInstance:
     - target: {fileID: 6643782707269332007, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
       propertyPath: m_LocalPosition.z
       value: 89.02644
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643782707465917835, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
+      propertyPath: m_AmplitudeGain
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6665346367195677880, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25097,7 +25105,7 @@ MonoBehaviour:
   fixTransforms: 1
   solver:
     executedInEditor: 0
-    IKPosition: {x: -0.00610842, y: 2.2017531, z: 3.009054}
+    IKPosition: {x: 112.92364, y: 5.5817533, z: 95.5955}
     IKPositionWeight: 1
     root: {fileID: 1925399012}
     target: {fileID: 46831660}
@@ -25153,15 +25161,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925399003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5013856973b27429d937d256dc082f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixTransforms: 1
+  fixTransforms: 0
   solver:
     executedInEditor: 0
-    IKPosition: {x: -3.0956244, y: 0, z: 3.9401155}
+    IKPosition: {x: 112.92975, y: 4.3800006, z: 95.58644}
     IKPositionWeight: 0.495
     root: {fileID: 1925399012}
     target: {fileID: 46831660}
@@ -25209,7 +25217,7 @@ MonoBehaviour:
     transform: {fileID: 1904173033}
     axis: {x: 0, y: -1, z: 0}
     poleAxis: {x: 0, y: 0, z: 0}
-    polePosition: {x: -11.7, y: 0, z: -19.82}
+    polePosition: {x: 112.92975, y: 4.38, z: 92.58644}
     poleWeight: 0
     poleTarget: {fileID: 0}
     clampWeight: 0.758
@@ -25226,7 +25234,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 9f078227c6f09b54392514bfaa25c741, type: 3}
   m_Controller: {fileID: 9100000, guid: a55611d2205a39d4ea0ce1b222176664, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

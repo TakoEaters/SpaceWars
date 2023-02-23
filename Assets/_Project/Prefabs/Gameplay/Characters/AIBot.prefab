@@ -2972,7 +2972,7 @@ MonoBehaviour:
   _rayCastLayer:
     serializedVersion: 2
     m_Bits: 256
-  _bulletSpeed: 5000
+  _bulletSpeed: 2500
   _projectile: {fileID: 128572, guid: 0eb4627efbccf234dbfeb66c7ed0fde2, type: 3}
 --- !u!1 &2481511065675178090
 GameObject:
@@ -5068,7 +5068,7 @@ MonoBehaviour:
   _rayCastLayer:
     serializedVersion: 2
     m_Bits: 256
-  _bulletSpeed: 5000
+  _bulletSpeed: 2500
   _projectile: {fileID: 128572, guid: 0eb4627efbccf234dbfeb66c7ed0fde2, type: 3}
 --- !u!1 &2481511066030798781
 GameObject:
@@ -9818,7 +9818,7 @@ MonoBehaviour:
   _rayCastLayer:
     serializedVersion: 2
     m_Bits: 256
-  _bulletSpeed: 5000
+  _bulletSpeed: 2500
   _projectile: {fileID: 128572, guid: 0eb4627efbccf234dbfeb66c7ed0fde2, type: 3}
 --- !u!1 &2481511067064501097
 GameObject:

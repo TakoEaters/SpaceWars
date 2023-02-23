@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _removeScore: 5
   _necessaryWinScore: 500
-  _totalSessionMinutes: 1
+  _totalSessionMinutes: 7

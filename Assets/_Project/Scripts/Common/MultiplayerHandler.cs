@@ -26,6 +26,7 @@ namespace _Project.Scripts.Common
         private Team _playerTeam;
         private readonly int _secondsInMinute = 60;
         private int _remainingTime;
+        private bool _isFinishInitialized;
         
 
         [Sub]
@@ -69,7 +70,7 @@ namespace _Project.Scripts.Common
         private void SendWinner()
         {
             TeamScore necessaryTeam = _teams.Find(x => x.Team == _playerTeam);
-            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = necessaryTeam.TotalAmount <= 0});
+            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = necessaryTeam.TotalAmount > 0});
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -90,7 +91,7 @@ namespace _Project.Scripts.Common
                 yield return waitTime;
             }
 
-
+            
             List<TeamScore> ordered = _teams.OrderBy(x => x.TotalAmount).ToList();
             Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = ordered.First().Team != _playerTeam});
         }

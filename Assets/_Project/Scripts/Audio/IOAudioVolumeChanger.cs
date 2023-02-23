@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts.Core.LocatorServices;
 using UnityEngine;
 
@@ -23,6 +24,11 @@ namespace _Project.Scripts.Audio
             if (!_audioSource) _audioSource = GetComponent<AudioSource>();
             var percentageVolume = Mathf.Lerp(0f, _maxValue, percentage);
             _audioSource.volume = percentageVolume;
+        }
+
+        private void OnDestroy()
+        {
+            ServiceLocator.Current.Get<IAudioManager>().UnSubscribe(this);
         }
     }
 }

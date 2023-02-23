@@ -10,7 +10,7 @@ namespace _Project.Scripts.GUi.MainMenu.Settings
     {
         [SerializeField] private List<GraphicsButton> _graphics = new List<GraphicsButton>();
 
-        private void Awake()
+        private void Start()
         {
             for (int i = 0; i < _graphics.Count; i++) _graphics[i].Initialize(IndexButtons, i);
             IndexButtons(SaveManager.GetGraphicsValue());

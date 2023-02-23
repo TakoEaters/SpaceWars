@@ -21,6 +21,12 @@ namespace _Project.Scripts.Audio
             volume.SetVolume(AudioSaveSystem.GetAudioVolume(volume.Audio));
         }
 
+        public void UnSubscribe(IAudio volume)
+        {
+            if (!_audios.Contains(volume)) return;
+            _audios.Remove(volume);
+        }
+
         public void ChangeVolume(AudioType type, float percentage)
         {
             AudioSaveSystem.SetAudioVolume(type, percentage);
@@ -38,6 +44,7 @@ namespace _Project.Scripts.Audio
     public interface IAudioManager : IGameService
     {
         public void Subscribe(IAudio volume);
+        public void UnSubscribe(IAudio volume);
         public void ChangeVolume(AudioType type, float percentage);
     }
 }

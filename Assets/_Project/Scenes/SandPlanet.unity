@@ -4376,6 +4376,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1166336926700437818, guid: 279691004cfc197458746adbde696e9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166336926700437818, guid: 279691004cfc197458746adbde696e9d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8603146813455444828, guid: 279691004cfc197458746adbde696e9d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4423,6 +4431,14 @@ PrefabInstance:
     - target: {fileID: 8603146813455444829, guid: 279691004cfc197458746adbde696e9d, type: 3}
       propertyPath: m_Name
       value: AllUI-Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029977665127252070, guid: 279691004cfc197458746adbde696e9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029977665127252070, guid: 279691004cfc197458746adbde696e9d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 279691004cfc197458746adbde696e9d, type: 3}
@@ -15196,7 +15212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6643782707465917835, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
       propertyPath: m_AmplitudeGain
-      value: 0.3118118
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6665346367195677880, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
       propertyPath: m_LocalPosition.x

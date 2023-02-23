@@ -91,7 +91,7 @@ namespace _Project.Scripts.Common
             }
 
 
-            var ordered = _teams.OrderBy(x => x.TotalAmount).ToList();
+            List<TeamScore> ordered = _teams.OrderBy(x => x.TotalAmount).ToList();
             Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = ordered.First().Team != _playerTeam});
         }
     }

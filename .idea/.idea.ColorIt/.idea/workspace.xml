@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/UI - BUILDER/Source Files/Fonts/OpenSans-Familiy/OpenSans-Light SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/UI - BUILDER/Source Files/Fonts/OpenSans-Familiy/OpenSans-Light SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Gameplay/Canvas-Gameplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Gameplay/Canvas-Gameplay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-Gameplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-Gameplay.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/GameplayInterfaceHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/GameplayInterfaceHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/LevelUIScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/LevelUIScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/InputHandlers/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/InputHandlers/PlayerInputs.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Common/LevelsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/GameplayInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/SettingsViewHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/OverheatingView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/ScoreTeamView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -174,7 +173,7 @@
       <workItem from="1676725723578" duration="614000" />
       <workItem from="1676971504383" duration="15261000" />
       <workItem from="1677056628771" duration="21644000" />
-      <workItem from="1677147567742" duration="2042000" />
+      <workItem from="1677147567742" duration="4353000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

@@ -1,8 +1,9 @@
+using _Project.Scripts.Core.LocatorServices;
 using UnityEngine;
 
 namespace _Project.Scripts.General.InputHandlers
 {
-    public class PlayerInputs : MonoBehaviour
+    public class PlayerInputs : MonoBehaviour, IPlayerInputs
     {
         public Vector2 Movement => _input.Player.Joystick.ReadValue<Vector2>();
         public Vector2 Rotation => _input.Player.Rotation.ReadValue<Vector2>();
@@ -22,5 +23,26 @@ namespace _Project.Scripts.General.InputHandlers
         {
             _input.Enable();
         }
+
+        public void Register()
+        {
+            ServiceLocator.Current.Register<IPlayerInputs>(this);
+        }
+
+        public void EnableInputs()
+        {
+            _input.Enable();
+        }
+
+        public void DisableInputs()
+        {
+            _input.Disable();
+        }
+    }
+
+    public interface IPlayerInputs : IGameService
+    {
+        public void EnableInputs();
+        public void DisableInputs();
     }
 }

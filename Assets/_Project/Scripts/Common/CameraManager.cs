@@ -32,6 +32,11 @@ namespace _Project.Scripts.Common
             _inputProvider.enabled = true;
         }
 
+        public void DisableCameraInput()
+        {
+            _inputProvider.enabled = false;
+        }
+
         public void EnableGameplayCamera()
         {
             _gameplayCamera.gameObject.SetActive(true);
@@ -79,6 +84,7 @@ namespace _Project.Scripts.Common
     public interface ICameraManager : IGameService
     {
         public void EnableCameraInput();
+        public void DisableCameraInput();
         public void EnableGameplayCamera();
         public void ShakeCamera(float time);
     }

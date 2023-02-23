@@ -39,6 +39,7 @@ namespace _Project.Scripts.GUi.Gameplay
 
         private void OnRevivePlayer()
         {
+            Cursor.visible = false;
             _deployButton.gameObject.SetActive(false);
             _quitButton.gameObject.SetActive(false);
             _spawnReturningButton.gameObject.SetActive(false);
@@ -84,7 +85,11 @@ namespace _Project.Scripts.GUi.Gameplay
         [Sub]
         private void OnPlayerDeath(PlayerDeath reference)
         {
+            Signal.Current.Fire<EnableNonSettingsScreen>(new EnableNonSettingsScreen());
+            Cursor.visible = true;
             _spawnReturningButton.gameObject.SetActive(true);
         }
     }
+
+    public struct EnableNonSettingsScreen { }
 }

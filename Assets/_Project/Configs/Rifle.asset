@@ -15,6 +15,16 @@ MonoBehaviour:
   ID: 0
   MaxOverheat: 5
   CoolingPerSecond: 50
-  FireRate: 0.25
-  OverheatAdditive: 5.5
-  Damage: 25
+  FireRate: 0.34
+  OverheatAdditive: 6.4
+  Damage: 16
+  Level: 1
+  Price: 7500
+  InitialUpgradePrice: 7500
+  AdditiveUpgradePrice: 5250
+  InitialDamage: 16
+  AdditiveDamage: 1
+  InitialOverheat: 6.4
+  AdditiveOverheat: 0.1
+  InitialFireRate: 0.34
+  AdditiveFireRate: 0.01

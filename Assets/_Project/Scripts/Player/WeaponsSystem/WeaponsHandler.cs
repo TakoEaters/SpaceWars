@@ -16,6 +16,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         public void Register()
         {
             ServiceLocator.Current.Register<IWeaponHandler>(this);
+            _weapons.ForEach(x => x.UpdateData());
             CurrentWeapon = _weapons.Find(x => x.ID == PlayerSaves.GetPlayerWeapon());
         }
         

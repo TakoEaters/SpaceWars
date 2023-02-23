@@ -2,7 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Shop/CoinPurchasable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Shop/CoinPurchasable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Upgrade/ETFX 2019.4.24f1 URP Upgrade.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NiceVibrations/OlderVersions/v1.7/NiceVibrations-v-1-7.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NiceVibrations/OlderVersions/v2.0.1/NiceVibrations-v-2-0-1.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/IK Jobs (Unity 2018.2.4f1).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/IK Jobs (Unity 2019.3).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/Oculus (Unity 2017.4.28f1, Oculus Integration v1.37).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/Playmaker (Unity 2017.4.28f1, PlayMaker 1.9.0).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/ReadyPlayerMe (Unity 2018.4.28f1, Oculus Integration).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/Steam VR (Unity 2017.4.28f1, SteamVR Plugin v2.6.1).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/UMA (Unity 2017.4.28f1, UMA 2.8.1).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Animated Locomotion-XR Plugin (Unity2020.3.33f1).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Movement Animset Pro.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Photon Demo (Unity 2017.4.28f1, Oculus Integration, PUN 1.103).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Photon2 Demo (Unity 2017.4.28f1, Oculus or SteamVR Integration, PUN 2.20.2).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/Import Assembly Definitions.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-MainMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Weapons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Weapons.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/PanelsHandler/Panels/WeaponsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/PanelsHandler/Panels/WeaponsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/PlayerSaves.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/PlayerSaves.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CharacterViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CharacterViewer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponsHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +49,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Audio/FXEmitter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Audio/IAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Common/LevelsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/GameplayInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/SettingsViewHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/FinishFailedView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/OverheatingView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/ScoreTeamView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,14 +68,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Shop/BulletPurchasable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Shop/CoinPurchasable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Utils/ShopButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Weapons/WeaponStatistics.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Weapons/WeaponUpgradeButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/DamageableCore/DamageableLayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/DamageableCore/DamageableTriggerDetector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Resources/Resource.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Resources/ResourceEntity.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/AdvertisementSaveSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/AudioSaveSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/PlayerSaves.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Signals/PlayerDeath.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Signals/StartLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Spawners/SpawnersSystem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,7 +80,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/DamageableUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/EffectsModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Player/CharacterViewer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Helpers/CinemachineInputProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Impulse/CinemachineImpulseSource.cs" root0="SKIP_HIGHLIGHTING" />
@@ -105,7 +124,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\UnityHUB\Editors\2021.3.14f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Unity\ColorIt -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Unity\ColorIt" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -171,6 +190,7 @@
       <workItem from="1676971504383" duration="15261000" />
       <workItem from="1677056628771" duration="21644000" />
       <workItem from="1677147567742" duration="18750000" />
+      <workItem from="1677174305481" duration="6284000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

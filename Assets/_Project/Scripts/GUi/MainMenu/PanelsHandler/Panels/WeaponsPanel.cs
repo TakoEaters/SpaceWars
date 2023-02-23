@@ -70,8 +70,10 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             _currentWeapon = entity;
             _upgradeButton.ShowPrice(_currentWeapon.Entity);
             _statistics.Show(_currentWeapon.Entity);
+            if (PlayerSaves.IsWeaponLocked(_currentWeapon.Entity.ID)) return;
             PlayerSaves.SetPlayerWeapon(_currentWeapon.Entity.ID);
             ServiceLocator.Current.Get<ICharacterViewer>().UpdateWeapon();
+            ServiceLocator.Current.Get<IFXEmitter>().PlaySwitchSound();
         }
         
         private void OnExitPanel()

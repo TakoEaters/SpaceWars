@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.General.Saves;
 using _Project.Scripts.Player.WeaponsSystem;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
 {
     public class WeaponUpgradeButton : MonoBehaviour
     {
+        [SerializeField] private GameObject _lockedView;
         [SerializeField] private TextMeshProUGUI _text;
 
         private Button _button;
@@ -29,6 +31,9 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         
         public void ShowPrice(WeaponEntity entity)
         {
+            bool isLocked = PlayerSaves.IsWeaponLocked(entity.ID);
+            _lockedView.SetActive(isLocked);
+            _button.interactable = !isLocked;
             gameObject.SetActive(!entity.IsMaxLevel());
             _text.text = entity.Price.ToString();
         }

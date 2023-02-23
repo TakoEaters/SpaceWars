@@ -19,9 +19,9 @@ MonoBehaviour:
   OverheatAdditive: 6.4
   Damage: 16
   Level: 1
-  Price: 7500
-  InitialUpgradePrice: 7500
-  AdditiveUpgradePrice: 5250
+  Price: 4500
+  InitialUpgradePrice: 4500
+  AdditiveUpgradePrice: 2250
   InitialDamage: 16
   AdditiveDamage: 1
   InitialOverheat: 6.4

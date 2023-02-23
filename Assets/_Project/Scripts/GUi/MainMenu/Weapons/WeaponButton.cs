@@ -1,6 +1,7 @@
 using System;
 using _Project.Scripts.Audio;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.General.Saves;
 using _Project.Scripts.Player.WeaponsSystem;
 using DG.Tweening;
 using UnityEngine;
@@ -9,7 +10,8 @@ using UnityEngine.UI;
 namespace _Project.Scripts.GUi.MainMenu.Weapons
 {
     public class WeaponButton : MonoBehaviour
-    { 
+    {
+        [SerializeField] private GameObject _lockView;
         [SerializeField] private WeaponEntity _entity;
         [SerializeField] private Image _selected;
         [SerializeField] private float _selectDuration = 0.25f;
@@ -22,6 +24,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         
         public void Initialize(Action<WeaponButton> onPreview)
         {
+            if (PlayerSaves.IsWeaponLocked(Entity.ID)) _lockView.SetActive(true);
             Entity.UpdateData();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnPreview);

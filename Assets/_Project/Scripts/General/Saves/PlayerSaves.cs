@@ -28,6 +28,19 @@ namespace _Project.Scripts.General.Saves
             PlayerPrefs.SetInt(id, GetWeaponLevel(weaponID) + 1);
         }
 
+        public static bool IsWeaponLocked(int weaponID)
+        {
+            string id = $"Weapon_Lock_{weaponID}";
+            int defaultLock = weaponID == 0 ? 1 : 0;
+            return PlayerPrefs.GetInt(id, defaultLock) == 0;
+        }
+        
+        public static void UnlockWeapon(int weaponID)
+        {
+            string id = $"Weapon_Lock_{weaponID}"; 
+            PlayerPrefs.SetInt(id, 1);
+        }
+
         public static int GetSkinID()
         {
             string id = $"Player_Skin";

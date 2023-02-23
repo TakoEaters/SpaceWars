@@ -4,33 +4,14 @@
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Upgrade/ETFX 2019.4.24f1 URP Upgrade.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NiceVibrations/OlderVersions/v1.7/NiceVibrations-v-1-7.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NiceVibrations/OlderVersions/v2.0.1/NiceVibrations-v-2-0-1.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/IK Jobs (Unity 2018.2.4f1).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/IK Jobs (Unity 2019.3).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/Oculus (Unity 2017.4.28f1, Oculus Integration v1.37).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/Playmaker (Unity 2017.4.28f1, PlayMaker 1.9.0).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/ReadyPlayerMe (Unity 2018.4.28f1, Oculus Integration).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/Steam VR (Unity 2017.4.28f1, SteamVR Plugin v2.6.1).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/UMA (Unity 2017.4.28f1, UMA 2.8.1).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Animated Locomotion-XR Plugin (Unity2020.3.33f1).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Movement Animset Pro.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Photon Demo (Unity 2017.4.28f1, Oculus Integration, PUN 1.103).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/FinalIK/_Integration/VRIK Photon2 Demo (Unity 2017.4.28f1, Oculus or SteamVR Integration, PUN 2.20.2).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/RootMotion/Import Assembly Definitions.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-MainMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/AllUI-MainMenu.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Weapons.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Menu/Canvas-Weapons.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/PanelsHandler/Panels/WeaponsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/PanelsHandler/Panels/WeaponsPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Weapons/WeaponButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Weapons/WeaponButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Weapons/WeaponUpgradeButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/MainMenu/Weapons/WeaponUpgradeButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/PlayerSaves.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Saves/PlayerSaves.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CharacterViewer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CharacterViewer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponsHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +171,7 @@
       <workItem from="1676971504383" duration="15261000" />
       <workItem from="1677056628771" duration="21644000" />
       <workItem from="1677147567742" duration="18750000" />
-      <workItem from="1677174305481" duration="6284000" />
+      <workItem from="1677174305481" duration="8057000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

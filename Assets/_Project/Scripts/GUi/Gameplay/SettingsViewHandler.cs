@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Audio;
 using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
@@ -23,7 +24,11 @@ namespace _Project.Scripts.GUi.Gameplay
 
         private void Awake()
         {
-            _exitButton.onClick.AddListener(LevelsManager.LoadMainMenu);
+            _exitButton.onClick.AddListener(() =>
+            {
+                ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
+                LevelsManager.LoadMainMenu();
+            });
             _resumeButton.onClick.AddListener(CloseSettings);
         }
 
@@ -51,6 +56,7 @@ namespace _Project.Scripts.GUi.Gameplay
         // ReSharper disable Unity.PerformanceAnalysis
         private void OpenSettings()
         {
+            ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
             ServiceLocator.Current.Get<IPlayerInputs>().DisableInputs();
             ServiceLocator.Current.Get<ICameraManager>().DisableCameraInput();
             _isSettingsEnabled = true;
@@ -60,6 +66,7 @@ namespace _Project.Scripts.GUi.Gameplay
 
         private void CloseSettings()
         {
+            ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
             ServiceLocator.Current.Get<IPlayerInputs>().EnableInputs();
             if (!_isOtherScreenEnabled) ServiceLocator.Current.Get<ICameraManager>().EnableCameraInput();
             _isSettingsEnabled = false;

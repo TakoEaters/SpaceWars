@@ -49,6 +49,7 @@ namespace _Project.Scripts.Player
         {
 	        _isDisabled = false;
 	        ServiceLocator.Current.Get<ICameraManager>().EnableCameraInput();
+	        ServiceLocator.Current.Get<IScoreSystem>().EnableScoreView();
         }
         
         // ReSharper disable Unity.PerformanceAnalysis

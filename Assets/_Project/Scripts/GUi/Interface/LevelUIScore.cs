@@ -21,18 +21,11 @@ namespace _Project.Scripts.GUi.Interface
             ServiceLocator.Current.Register<IScoreSystem>(this);
         }
         
-        [Sub]
-        private void OnPlayerRevive(PlayerDeploy reference)
+        public void EnableScoreView()
         {
             _view.Enable();
         }
-
-        [Sub]
-        private void OnPlayerDeath(PlayerDeath reference)
-        {
-            _view.Disable();
-        }
-
+        
         [Sub]
         private void OnFinish(FinishLevel reference)
         {
@@ -59,6 +52,7 @@ namespace _Project.Scripts.GUi.Interface
 
     public interface IScoreSystem : IGameService
     {
+        public void EnableScoreView();
         public void SetCounterTime(int time);
         public void SetMaxScore(int maxScore);
         public void SetTeamScore(TeamScore currentTeam);

@@ -20,8 +20,10 @@ namespace _Project.Scripts.GUi.Gameplay
         [SerializeField] private View _mainView;
         [SerializeField] private Image _background;
         [SerializeField] private Button _deployButton;
+        [SerializeField] private Button _quitButton;
         [SerializeField] private Button _spawnReturningButton;
         [SerializeField] private TextMeshProUGUI _fontValue;
+        [SerializeField] private TextMeshProUGUI _secondFontValue;
 
         private const float AlphaValue = 1f;
         private const float TransparentValue = 0f;
@@ -31,12 +33,14 @@ namespace _Project.Scripts.GUi.Gameplay
         {
             _mainView.Enable();
             _deployButton.onClick.AddListener(OnRevivePlayer);
+            _quitButton.onClick.AddListener(LevelsManager.LoadMainMenu);
             _spawnReturningButton.onClick.AddListener(OnReturnToSpawn);
         }
 
         private void OnRevivePlayer()
         {
             _deployButton.gameObject.SetActive(false);
+            _quitButton.gameObject.SetActive(false);
             _spawnReturningButton.gameObject.SetActive(false);
             ServiceLocator.Current.Get<IPlayerSystem>().EnablePlayer();
             _background.DOFade(TransparentValue, _duration);
@@ -57,11 +61,22 @@ namespace _Project.Scripts.GUi.Gameplay
             buttonColor.a = TransparentValue;
             Color textColor = _fontValue.color;
             textColor.a = TransparentValue;
+            
             _fontValue.color = textColor;
+            _secondFontValue.color = textColor;
+            
+            
             _deployButton.image.color = buttonColor;
             _deployButton.gameObject.SetActive(true);
             _deployButton.image.DOFade(AlphaValue, _duration);
+            
+            _quitButton.image.color = buttonColor;
+            _quitButton.gameObject.SetActive(true);
+            _quitButton.image.DOFade(AlphaValue, _duration);
+            
             _fontValue.DOFade(AlphaValue, _duration);
+            _secondFontValue.DOFade(AlphaValue, _duration);
+            
             _background.DOFade(AlphaValue, _duration);
             StartCoroutine(WaitUtils.WaitWithDelay(() => _spawnReturningButton.interactable = true, _enableDelay));
         }

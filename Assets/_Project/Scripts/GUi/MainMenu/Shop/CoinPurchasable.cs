@@ -1,4 +1,3 @@
-using System;
 using _Project.Scripts.Audio;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.Resources;

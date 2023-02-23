@@ -30,7 +30,7 @@ namespace _Project.Scripts.AI
         }
 
         private void OnAIRevive()
-        {
+        { 
             SkinsChanger.DisableMesh();
             UpdateBotData();
             EnableController();

@@ -176,7 +176,7 @@ namespace _Project.Scripts.AI
             Health -= damage;
 
             if (Health <= 0) OnDie();
-            else {Animator.SetTrigger(AnimationHash.Hit);}
+            else Animator.SetTrigger(AnimationHash.Hit);
         }
 
 

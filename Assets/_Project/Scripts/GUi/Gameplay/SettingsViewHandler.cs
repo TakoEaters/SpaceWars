@@ -24,6 +24,7 @@ namespace _Project.Scripts.GUi.Gameplay
 
         private bool _isSettingsEnabled;
         private bool _isOtherScreenEnabled = true;
+        private bool _isFinish;
 
 
         private void Awake()
@@ -36,6 +37,14 @@ namespace _Project.Scripts.GUi.Gameplay
             _resumeButton.onClick.AddListener(CloseSettings);
             _settingsButton.onClick.AddListener(OpenSettingsPopUp);
             _saveButton.onClick.AddListener(CloseSettingsPopUp);
+        }
+
+        [Sub]
+        private void OnFinish(FinishLevel reference)
+        {
+            _isOtherScreenEnabled = true;
+            _isFinish = true;
+            CloseSettings();
         }
 
         [Sub]
@@ -52,6 +61,7 @@ namespace _Project.Scripts.GUi.Gameplay
 
         private void Update()
         {
+            if (_isFinish) return;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (_isSettingsEnabled) CloseSettings();

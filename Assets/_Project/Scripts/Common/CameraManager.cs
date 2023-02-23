@@ -32,6 +32,12 @@ namespace _Project.Scripts.Common
             _inputProvider.enabled = true;
         }
 
+        [Sub]
+        private void OnFinishLevel(FinishLevel reference)
+        {
+            _inputProvider.enabled = false;
+        }
+
         public void DisableCameraInput()
         {
             _inputProvider.enabled = false;

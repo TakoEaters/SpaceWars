@@ -1,5 +1,6 @@
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.Signals;
 using Template.Scripts.General;
 using UnityEngine;
 
@@ -27,6 +28,13 @@ namespace _Project.Scripts.GUi.Interface
         {
             if (reference.Enable) _mainView.Enable();
             else _mainView.Disable();
+        }
+
+        [Sub]
+        private void OnFinishLevel(FinishLevel reference)
+        {
+            _healthUI.Disable();
+            _mainView.Disable();
         }
     }
 

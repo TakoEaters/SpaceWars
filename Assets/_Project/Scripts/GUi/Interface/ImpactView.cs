@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
@@ -20,6 +19,7 @@ namespace _Project.Scripts.GUi.Interface
 
         private Coroutine _viewRoutine;
         private Tween _tween;
+        private Tween _coinsTween;
         private int _previousDamage;
         private int _targetDamage;
         private int _currentValue;
@@ -53,6 +53,7 @@ namespace _Project.Scripts.GUi.Interface
         private void OnKillTarget(OnKillTarget reference)
         {
             _tween.Kill();
+            _coinsTween.Kill();
             string color = reference.Team == Team.Blue ? "blue" : "red";
             _killTargetText.text = "KILLED <color=" + color + ">" + reference.Name + "</color>";
             _tween = _killTargetText.transform.DOScale(1f, 0.35f);

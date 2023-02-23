@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.LevelHandlers;
+using _Project.Scripts.General.Signals;
 using MyBox;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Project.Scripts.General.GameEvents
@@ -31,6 +33,12 @@ namespace _Project.Scripts.General.GameEvents
                 yield return new WaitUntil(() => _eventWasFinished);
             }
             // ReSharper disable once IteratorNeverReturns
+        }
+
+        [Button()]
+        private void StopGame()
+        {
+            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = true});
         }
 
         [Sub]

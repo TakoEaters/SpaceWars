@@ -2,6 +2,7 @@ using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Utils;
+using _Project.Scripts.GUi.Interface;
 using UnityEngine;
 
 namespace _Project.Scripts.Player
@@ -9,8 +10,11 @@ namespace _Project.Scripts.Player
     public class PlayerSystem : MonoBehaviour, IPlayerSystem
     {
         [SerializeField, Range(0.5f, 2.0f)] private float _enableDelay = 1.0f;
+        [SerializeField, Range(10, 50)] private int _playerRewardPerEnemy = 25;
         [SerializeField] private Player _player;
         
+        public int PlayerReward { get; protected set; }
+
         public void Register()
         {
             ServiceLocator.Current.Register<IPlayerSystem>(this);
@@ -39,6 +43,12 @@ namespace _Project.Scripts.Player
         }
 
         [Sub]
+        private void OnKillEnemy(OnKillTarget reference)
+        {
+            PlayerReward += _playerRewardPerEnemy;
+        }
+
+        [Sub]
         private void OnPlayerDeath(PlayerDeath reference)
         {
             DisablePlayer();
@@ -47,6 +57,7 @@ namespace _Project.Scripts.Player
 
     public interface IPlayerSystem : IGameService
     {
+        public int PlayerReward { get; }
         public void InitializeSystem(Team playerTeam);
         public void EnablePlayer();
 

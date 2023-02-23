@@ -1,4 +1,6 @@
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
+using _Project.Scripts.General.Signals;
 using UnityEngine;
 
 namespace _Project.Scripts.General.InputHandlers
@@ -17,6 +19,12 @@ namespace _Project.Scripts.General.InputHandlers
         private void Awake()
         {
             _input = new PlayerInput();
+        }
+
+        [Sub]
+        private void OnFinishLevel(FinishLevel reference)
+        {
+            _input.Disable();
         }
 
         private void OnEnable()

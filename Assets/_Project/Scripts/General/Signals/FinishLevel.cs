@@ -1,4 +1,7 @@
-namespace _Project.Scripts.General.LevelHandlers
+namespace _Project.Scripts.General.Signals
 {
-    public struct FinishLevel { }
+    public struct FinishLevel
+    {
+        public bool IsWin;
+    }
 }

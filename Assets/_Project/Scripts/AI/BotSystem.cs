@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
 using UnityEngine;
 
@@ -29,6 +30,12 @@ namespace _Project.Scripts.AI
                     for (int i = _bots.Count / 2; i < _bots.Count; i++) InitializeData(_bots[i], team);
                 }
             }
+        }
+
+        [Sub]
+        private void OnFinishLevel(FinishLevel reference)
+        {
+            _bots.ForEach(x => x.DisableController());
         }
 
         private void InitializeData(Bot bot, Team team)

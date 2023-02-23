@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using _Project.Scripts.AI;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
@@ -22,6 +23,7 @@ namespace _Project.Scripts.Common
         private Coroutine _countRoutine;
         private IScoreSystem _score;
 
+        private Team _playerTeam;
         private readonly int _secondsInMinute = 60;
         private int _remainingTime;
         
@@ -29,9 +31,9 @@ namespace _Project.Scripts.Common
         [Sub]
         private void InitializeTeams(StartLevel reference)
         {
-            Team playerTeam = (Team)Random.Range(0, 2);
-            ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(playerTeam);
-            ServiceLocator.Current.Get<IBotSystem>().InitializeSystem(playerTeam);
+            _playerTeam = (Team)Random.Range(0, 2);
+            ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(_playerTeam);
+            ServiceLocator.Current.Get<IBotSystem>().InitializeSystem(_playerTeam);
 
             StartCounter();
         }
@@ -64,6 +66,12 @@ namespace _Project.Scripts.Common
             return winner != null;
         }
 
+        private void SendWinner()
+        {
+            TeamScore necessaryTeam = _teams.Find(x => x.Team == _playerTeam);
+            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = necessaryTeam.TotalAmount <= 0});
+        }
+
         // ReSharper disable Unity.PerformanceAnalysis
         private IEnumerator Count()
         {
@@ -72,11 +80,19 @@ namespace _Project.Scripts.Common
 
             while (_remainingTime > 0)
             {
-                if (IsAnyWinner()) yield break;
+                if (IsAnyWinner())
+                {
+                    SendWinner();
+                    yield break;
+                }
                 _score.SetCounterTime(_remainingTime);
                 _remainingTime -= 1;
                 yield return waitTime;
             }
+
+
+            var ordered = _teams.OrderBy(x => x.TotalAmount).ToList();
+            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = ordered.First().Team != _playerTeam});
         }
     }
 }

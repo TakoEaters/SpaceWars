@@ -13,8 +13,10 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [Range(1.0f, 20.0f)] public float OverheatAdditive = 1.25f;
         [Range(10, 100)] public int Damage;
 
+        public int WeaponPrice;
+        
         [HideInInspector] public int Level; 
-        public int Price;
+        [HideInInspector] public int UpgradePrice;
         
         public int InitialUpgradePrice; 
         public int AdditiveUpgradePrice;
@@ -33,7 +35,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         public void UpdateData()
         {
             Level = PlayerSaves.GetWeaponLevel(ID);
-            Price = InitialUpgradePrice + (AdditiveUpgradePrice * (Level - 1));
+            UpgradePrice = InitialUpgradePrice + (AdditiveUpgradePrice * (Level - 1));
             Damage = InitialDamage + (AdditiveDamage * (Level - 1));
             FireRate = InitialFireRate - (AdditiveFireRate * (Level - 1));
             OverheatAdditive = InitialOverheat - (AdditiveOverheat * (Level - 1));

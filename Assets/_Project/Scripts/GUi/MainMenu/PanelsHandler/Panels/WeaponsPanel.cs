@@ -33,7 +33,8 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             _backButton.onClick.AddListener(OnExitPanel);
             _weaponButtons.ForEach(x => x.Initialize(OnSelectWeapon));
             _currentWeapon = _weaponButtons.Find(x => x.Entity.ID == PlayerSaves.GetPlayerWeapon());
-            _upgradeButton.Initialize(OnUpgrade, _currentWeapon.Entity.Price, _currentWeapon.Entity.IsMaxLevel());
+            _upgradeButton.Initialize(OnUpgrade, _currentWeapon.Entity.UpgradePrice, _currentWeapon.Entity.IsMaxLevel());
+            _purchaseButton.Initialize(OnPurchase);
             _currentWeapon.Select();
             _purchaseButton.ShowData(_currentWeapon.Entity);
         }
@@ -49,10 +50,31 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             else _mainView.Disable();
         }
 
+        private void OnPurchase()
+        {
+            if (PlayerSaves.IsWeaponLocked(_currentWeapon.Entity.ID) == false) return;
+            int price = _currentWeapon.Entity.WeaponPrice;
+            if (price > SaveManager.GetResourcesAmount(Resource.Bullets))
+            {
+                ServiceLocator.Current.Get<IFXEmitter>().PlayFailedPurchaseSound();
+                Signal.Current.Fire<Navigate>(new Navigate { Destination = NavigationTab.Shop });
+                return;
+            }
+            
+            PlayerSaves.UnlockWeapon(_currentWeapon.Entity.ID);
+            _currentWeapon.UpdateView();
+            SaveManager.IncrementResourcesAmount(Resource.Bullets, -price);
+            ServiceLocator.Current.Get<IFXEmitter>().PlaySuccessfulPurchaseSound();
+            _upgradeButton.ShowPrice(_currentWeapon.Entity);
+            _purchaseButton.ShowData(_currentWeapon.Entity);
+            PlayerSaves.SetPlayerWeapon(_currentWeapon.Entity.ID);
+            ServiceLocator.Current.Get<ICharacterViewer>().UpdateWeapon();
+        }
+
         private void OnUpgrade()
         {
             if (PlayerSaves.GetWeaponLevel(_currentWeapon.Entity.ID) >= 10) return;
-            int price = _currentWeapon.Entity.Price;
+            int price = _currentWeapon.Entity.UpgradePrice;
             if (price > SaveManager.GetResourcesAmount(Resource.Coins))
             {
                 ServiceLocator.Current.Get<IFXEmitter>().PlayFailedPurchaseSound();

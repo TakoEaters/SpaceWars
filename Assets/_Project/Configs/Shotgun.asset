@@ -18,8 +18,9 @@ MonoBehaviour:
   FireRate: 0.84
   OverheatAdditive: 18.4
   Damage: 67
+  WeaponPrice: 7500
   Level: 1
-  Price: 5500
+  UpgradePrice: 5500
   InitialUpgradePrice: 5500
   AdditiveUpgradePrice: 3250
   InitialDamage: 67

@@ -1,7 +1,9 @@
+using System;
 using _Project.Scripts.General.Saves;
 using _Project.Scripts.Player.WeaponsSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Project.Scripts.GUi.MainMenu.Weapons
 {
@@ -10,6 +12,21 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         [SerializeField] private GameObject _purchaseInscription;
         [SerializeField] private GameObject _purchasedInscription;
         [SerializeField] private TextMeshProUGUI _price;
+        [SerializeField] private Button _purchaseButton;
+
+        private Action _onClick;
+        
+        public void Initialize(Action onPurchase)
+        {
+            _onClick = onPurchase;
+            _purchaseButton.onClick.AddListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            _onClick?.Invoke();
+        }
+
 
         public void ShowData(WeaponEntity entity)
         {
@@ -17,7 +34,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
             {
                 _purchaseInscription.SetActive(true);
                 _purchasedInscription.SetActive(false);
-                _price.text = entity.Price.ToString();
+                _price.text = entity.WeaponPrice.ToString();
                 return;
             }
             

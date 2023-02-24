@@ -23,8 +23,8 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         private bool _isSelected;
         
         public void Initialize(Action<WeaponButton> onPreview)
-        {
-            if (PlayerSaves.IsWeaponLocked(Entity.ID)) _lockView.SetActive(true);
+        { 
+            _lockView.SetActive(PlayerSaves.IsWeaponLocked(Entity.ID));
             Entity.UpdateData();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnPreview);
@@ -42,6 +42,11 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         {
             _isSelected = false;
             _selected.DOFade(0f, _selectDuration);
+        }
+
+        public void UpdateView()
+        {
+            _lockView.SetActive(false);
         }
         
         private void OnPreview()

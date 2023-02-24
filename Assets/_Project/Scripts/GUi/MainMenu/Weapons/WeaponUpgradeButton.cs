@@ -39,7 +39,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
             _button.interactable = !isLocked;
             _upgradeInscription.SetActive(!entity.IsMaxLevel());
             _upgradedInscription.SetActive(entity.IsMaxLevel());
-            _text.text = entity.Price.ToString();
+            _text.text = entity.UpgradePrice.ToString();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
     {
         [SerializeField] private List<WeaponButton> _weaponButtons = new List<WeaponButton>();
         [SerializeField] private WeaponUpgradeButton _upgradeButton;
+        [SerializeField] private WeaponPurchaseButton _purchaseButton;
         [SerializeField] private Button _backButton;
         [SerializeField] private View _mainView;
         
@@ -34,6 +35,7 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             _currentWeapon = _weaponButtons.Find(x => x.Entity.ID == PlayerSaves.GetPlayerWeapon());
             _upgradeButton.Initialize(OnUpgrade, _currentWeapon.Entity.Price, _currentWeapon.Entity.IsMaxLevel());
             _currentWeapon.Select();
+            _purchaseButton.ShowData(_currentWeapon.Entity);
         }
 
         [Sub]
@@ -49,6 +51,7 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
 
         private void OnUpgrade()
         {
+            if (PlayerSaves.GetWeaponLevel(_currentWeapon.Entity.ID) >= 10) return;
             int price = _currentWeapon.Entity.Price;
             if (price > SaveManager.GetResourcesAmount(Resource.Coins))
             {
@@ -70,6 +73,7 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             _currentWeapon = entity;
             _upgradeButton.ShowPrice(_currentWeapon.Entity);
             _statistics.Show(_currentWeapon.Entity);
+            _purchaseButton.ShowData(_currentWeapon.Entity);
             if (PlayerSaves.IsWeaponLocked(_currentWeapon.Entity.ID)) return;
             PlayerSaves.SetPlayerWeapon(_currentWeapon.Entity.ID);
             ServiceLocator.Current.Get<ICharacterViewer>().UpdateWeapon();

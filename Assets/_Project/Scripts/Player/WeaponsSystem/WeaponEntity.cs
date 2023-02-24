@@ -13,8 +13,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [Range(1.0f, 20.0f)] public float OverheatAdditive = 1.25f;
         [Range(10, 100)] public int Damage;
 
-        [HideInInspector] public int Level;
-        [HideInInspector] public int Price;
+        [HideInInspector] public int Level; 
+        public int Price;
         
         public int InitialUpgradePrice; 
         public int AdditiveUpgradePrice;

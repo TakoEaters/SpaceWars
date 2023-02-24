@@ -7,6 +7,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
     public class WeaponEntity : ScriptableObject
     {
         [Range(0, 5)] public int ID;
+        public string Name;
+        public string Description;
         [Range(1.0f, 100.0f)] public float MaxOverheat;
         [Range(1.0f, 50.0f)] public float CoolingPerSecond;
         [Range(0.01f, 2.0f)] public float FireRate;

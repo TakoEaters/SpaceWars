@@ -13,13 +13,16 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   ID: 0
+  Name: KL-141
+  Description: Small-caliber rifle
   MaxOverheat: 5
   CoolingPerSecond: 50
   FireRate: 0.34
   OverheatAdditive: 6.4
   Damage: 16
+  WeaponPrice: 0
   Level: 1
-  Price: 4500
+  UpgradePrice: 4500
   InitialUpgradePrice: 4500
   AdditiveUpgradePrice: 2250
   InitialDamage: 16

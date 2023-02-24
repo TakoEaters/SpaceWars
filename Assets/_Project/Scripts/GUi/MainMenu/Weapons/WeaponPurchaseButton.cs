@@ -12,6 +12,8 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         [SerializeField] private GameObject _purchaseInscription;
         [SerializeField] private GameObject _purchasedInscription;
         [SerializeField] private TextMeshProUGUI _price;
+        [SerializeField] private TextMeshProUGUI _weaponName;
+        [SerializeField] private TextMeshProUGUI _weaponDescription;
         [SerializeField] private Button _purchaseButton;
 
         private Action _onClick;
@@ -30,6 +32,8 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
 
         public void ShowData(WeaponEntity entity)
         {
+            _weaponName.text = entity.Name;
+            _weaponDescription.text = entity.Description;
             if (PlayerSaves.IsWeaponLocked(entity.ID))
             {
                 _purchaseInscription.SetActive(true);

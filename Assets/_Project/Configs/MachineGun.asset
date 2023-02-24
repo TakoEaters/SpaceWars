@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MachineGun
   m_EditorClassIdentifier: 
   ID: 2
+  Name: VG-177
+  Description: Pulse machine gun
   MaxOverheat: 5
   CoolingPerSecond: 50
   FireRate: 0.19

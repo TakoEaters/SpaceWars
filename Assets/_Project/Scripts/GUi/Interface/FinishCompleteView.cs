@@ -28,7 +28,7 @@ namespace _Project.Scripts.GUi.Interface
         private void Awake()
         {
             _onClaimButton.onClick.AddListener(OnClaim);
-            _onDoubleClaimButton.onClick.AddListener(OnDoubleClaim);
+            _onDoubleClaimButton.onClick.AddListener(() => ServiceLocator.Current.Get<IAdsManager>().ShowRewarded(OnDoubleClaim));
         }
 
         public void Enable(int additiveAmount, int bulletAdditive)
@@ -70,10 +70,15 @@ namespace _Project.Scripts.GUi.Interface
             LevelsManager.LoadMainMenu();
         }
 
-        private void OnDoubleClaim()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void OnDoubleClaim(bool showedRewarded)
         {
-            SaveManager.IncrementResourcesAmount(Resource.Bullets, _totalBulletsAmount * 2);
-            SaveManager.IncrementResourcesAmount(Resource.Coins, _totalCoinsAmount * 2);
+            if (showedRewarded)
+            {
+                SaveManager.IncrementResourcesAmount(Resource.Bullets, _totalBulletsAmount * 2);
+                SaveManager.IncrementResourcesAmount(Resource.Coins, _totalCoinsAmount * 2);   
+            }
+            
             LevelsManager.LoadMainMenu();
         }
     }

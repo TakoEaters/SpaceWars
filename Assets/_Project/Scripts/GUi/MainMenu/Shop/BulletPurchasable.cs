@@ -1,4 +1,5 @@
 using _Project.Scripts.Audio;
+using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.Resources;
 using _Project.Scripts.General.Saves;
@@ -21,18 +22,19 @@ namespace _Project.Scripts.GUi.MainMenu.Shop
         private void Awake()
         {
             _button = GetComponent<Button>();
-            _button.onClick.AddListener(OnPurchase);
+            _button.onClick.AddListener(OnWatchAd);
             _currentIndex = AdvertisementSaveSystem.GetCurrentTapIndex(_placement);
             _adsRemaining.text = "ADS REMAINING: " + (_requirementIndex - _currentIndex);
         }
 
         private void OnWatchAd()
         {
-            //SHOW OFFER
+            ServiceLocator.Current.Get<IAdsManager>().ShowRewarded(OnPurchase);
         }
 
-        private void OnPurchase()
+        private void OnPurchase(bool value)
         {
+            if (value == false) return;
             _currentIndex++;
             if (_currentIndex >= _requirementIndex)
             {

@@ -43,6 +43,8 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             {
                 _mainView.Enable();
             }
+            
+            else _mainView.Disable();
         }
 
         private void OnPreviewCharacter(int characterID)

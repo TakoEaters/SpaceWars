@@ -52,5 +52,19 @@ namespace _Project.Scripts.General.Saves
             string id = $"Player_Skin";
             PlayerPrefs.SetInt(id, skinID);
         }
+
+        public static bool IsSkinPurchased(int skinID)
+        {
+            string id = $"Skin_Purchasable_{skinID}";
+            int defaultValue = skinID == 0 ? 1 : 0;
+            return PlayerPrefs.GetInt(id, defaultValue) == 1;
+        }
+
+        public static void PurchaseSkin(int skinID)
+        {
+            string id = $"Skin_Purchasable_{skinID}";
+            PlayerPrefs.SetInt(id, 1);
+            SetSkinID(skinID);
+        }
     }
 }

@@ -1,6 +1,4 @@
 using System;
-using _Project.Scripts.Audio;
-using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.Saves;
 using _Project.Scripts.Player.WeaponsSystem;
 using DG.Tweening;
@@ -53,7 +51,6 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         {
             if (_isSelected) return;
             _selected.DOFade(1f, _selectDuration);
-            ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
             _onPreview?.Invoke(this);
             _isSelected = true;
         }

@@ -30,10 +30,16 @@ namespace _Project.Scripts.Player
             _currentView = _views[PlayerSaves.GetPlayerWeapon()];
             _currentView.Enable();
         }
+
+        public void UpdateSkin()
+        {
+            _changer.SetSkin();
+        }
     }
 
     public interface ICharacterViewer : IGameService
     {
         public void UpdateWeapon();
+        public void UpdateSkin();
     }
 }

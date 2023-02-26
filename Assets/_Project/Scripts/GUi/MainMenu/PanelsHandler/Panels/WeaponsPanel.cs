@@ -88,7 +88,7 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             _statistics.Show(_currentWeapon.Entity);
         }
 
-        private void OnSelectWeapon(WeaponButton entity)
+        private void OnSelectWeapon(WeaponButton entity, bool withSound)
         {
             _currentWeapon.Unselect();
             _currentWeapon = entity;
@@ -96,9 +96,9 @@ namespace _Project.Scripts.GUi.MainMenu.PanelsHandler.Panels
             _statistics.Show(_currentWeapon.Entity);
             _purchaseButton.ShowData(_currentWeapon.Entity);
             if (PlayerSaves.IsWeaponLocked(_currentWeapon.Entity.ID)) return;
-            PlayerSaves.SetPlayerWeapon(_currentWeapon.Entity.ID);
+            PlayerSaves.SetPlayerWeapon(_currentWeapon.Entity.ID); 
             ServiceLocator.Current.Get<ICharacterViewer>().UpdateWeapon();
-            ServiceLocator.Current.Get<IFXEmitter>().PlaySwitchSound();
+            if (withSound) ServiceLocator.Current.Get<IFXEmitter>().PlaySwitchSound();
         }
         
         private void OnExitPanel()

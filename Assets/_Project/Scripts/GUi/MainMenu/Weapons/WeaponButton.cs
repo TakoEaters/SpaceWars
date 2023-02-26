@@ -1,4 +1,6 @@
 using System;
+using _Project.Scripts.Audio;
+using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.Saves;
 using _Project.Scripts.Player.WeaponsSystem;
 using DG.Tweening;
@@ -17,10 +19,10 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         public WeaponEntity Entity => _entity;
         
         private Button _button;
-        private Action<WeaponButton> _onPreview;
+        private Action<WeaponButton, bool> _onPreview;
         private bool _isSelected;
         
-        public void Initialize(Action<WeaponButton> onPreview)
+        public void Initialize(Action<WeaponButton, bool> onPreview)
         { 
             _lockView.SetActive(PlayerSaves.IsWeaponLocked(Entity.ID));
             Entity.UpdateData();
@@ -32,7 +34,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         public void Select()
         {
             _isSelected = true;
-            _onPreview?.Invoke(this);
+            _onPreview?.Invoke(this, false);
             _selected.DOFade(1f, _selectDuration);
         }
 
@@ -51,7 +53,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         {
             if (_isSelected) return;
             _selected.DOFade(1f, _selectDuration);
-            _onPreview?.Invoke(this);
+            _onPreview?.Invoke(this, true);
             _isSelected = true;
         }
     }

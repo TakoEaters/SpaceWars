@@ -1,4 +1,5 @@
-using UnityEngine.SceneManagement;
+using _Project.Scripts.Core.LocatorServices;
+using _Project.Scripts.GUi;
 
 namespace _Project.Scripts.Common
 {
@@ -6,12 +7,12 @@ namespace _Project.Scripts.Common
     {
         public static void LoadMainMenu()
         {
-            SceneManager.LoadScene(1);
+            ServiceLocator.Current.Get<ILoadingScene>().Load(1);
         }
 
         public static void LoadGame()
         {
-            SceneManager.LoadScene(2);
+            ServiceLocator.Current.Get<ILoadingScene>().Load(2);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts.General.Saves;
 using UnityEngine;
 
@@ -39,8 +40,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
             Level = PlayerSaves.GetWeaponLevel(ID);
             UpgradePrice = InitialUpgradePrice + (AdditiveUpgradePrice * (Level - 1));
             Damage = InitialDamage + (AdditiveDamage * (Level - 1));
-            FireRate = InitialFireRate - (AdditiveFireRate * (Level - 1));
-            OverheatAdditive = InitialOverheat - (AdditiveOverheat * (Level - 1));
+            FireRate = (float)Math.Round(InitialFireRate - (AdditiveFireRate * (Level - 1)), 2);
+            OverheatAdditive = (float)Math.Round(InitialOverheat - (AdditiveOverheat * (Level - 1)), 2);
         }
 
         public void Upgrade()

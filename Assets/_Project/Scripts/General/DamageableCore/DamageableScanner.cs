@@ -8,7 +8,7 @@ namespace _Project.Scripts.General.DamageableCore
 {
     public class DamageableScanner : MonoBehaviour
     {
-        [SerializeField, Range(1.0f, 10.0f)] private float _scanRange;
+        [SerializeField, Range(1.0f, 100.0f)] private float _scanRange;
         [SerializeField, Range(0.1f, 2.0f)] private float _delay = 1f;
         public IDamageable LastDetected { get; private set; }
         

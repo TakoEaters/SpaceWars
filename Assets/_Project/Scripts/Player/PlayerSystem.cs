@@ -11,9 +11,11 @@ namespace _Project.Scripts.Player
     {
         [SerializeField, Range(0.5f, 2.0f)] private float _enableDelay = 1.0f;
         [SerializeField, Range(10, 50)] private int _playerRewardPerEnemy = 25;
+        [SerializeField, Range(2, 15)] private int _bulletRewardPerEnemy = 10;
         [SerializeField] private Player _player;
         
         public int PlayerReward { get; protected set; }
+        public int BulletReward { get; protected set; }
 
         public void Register()
         {
@@ -46,6 +48,7 @@ namespace _Project.Scripts.Player
         private void OnKillEnemy(OnKillTarget reference)
         {
             PlayerReward += _playerRewardPerEnemy;
+            BulletReward += _bulletRewardPerEnemy;
         }
 
         [Sub]
@@ -58,6 +61,7 @@ namespace _Project.Scripts.Player
     public interface IPlayerSystem : IGameService
     {
         public int PlayerReward { get; }
+        public int BulletReward { get; }
         public void InitializeSystem(Team playerTeam);
         public void EnablePlayer();
 

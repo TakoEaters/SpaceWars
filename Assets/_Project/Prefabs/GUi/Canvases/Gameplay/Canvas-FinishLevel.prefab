@@ -1248,7 +1248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _completeView: {fileID: 6296520819958921233}
   _failedView: {fileID: 4675064429990123090}
-  _completeAdditiveReward: 250
+  _coinsAdditiveReward: 250
+  _bulletAdditiveReward: 25
 --- !u!1 &2739148034871897640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,8 +2341,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289963671
-  m_fontColor: {r: 0.5921569, g: 0.6509804, b: 0.7019608, a: 1}
+    rgba: 4287073477
+  m_fontColor: {r: 0.77254903, g: 0.54901963, b: 0.5294118, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2629,7 +2630,7 @@ GameObject:
   - component: {fileID: 5600907267081367610}
   - component: {fileID: 7379476945187324316}
   m_Layer: 5
-  m_Name: Label_Exp
+  m_Name: Experience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3390,7 +3391,7 @@ GameObject:
   - component: {fileID: 7561201977536412952}
   - component: {fileID: 4035761970663361885}
   m_Layer: 5
-  m_Name: List
+  m_Name: Coins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4141,6 +4142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onClaimButton: {fileID: 1096438678571867959}
   _onDoubleClaimButton: {fileID: 8893653489335641755}
+  _coinsRewardAmount: {fileID: 2709718340602535877}
+  _bulletsRewardAmount: {fileID: 7609916410424850296}
 --- !u!1 &7491505201286048640
 GameObject:
   m_ObjectHideFlags: 0
@@ -4153,7 +4156,7 @@ GameObject:
   - component: {fileID: 7062405291534255315}
   - component: {fileID: 8818623338635082075}
   m_Layer: 5
-  m_Name: TextFrame
+  m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4284,7 +4287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2X EXP
+  m_text: 2X BLT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9b454495b7d24a7a933eb61bdfa0607, type: 2}
   m_sharedMaterial: {fileID: 7409485994217783921, guid: d9b454495b7d24a7a933eb61bdfa0607, type: 2}
@@ -4428,8 +4431,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289963671
-  m_fontColor: {r: 0.5921569, g: 0.6509804, b: 0.7019608, a: 1}
+    rgba: 4287073477
+  m_fontColor: {r: 0.7735849, g: 0.55017346, b: 0.52910286, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4576,7 +4579,7 @@ GameObject:
   - component: {fileID: 1502391500905504491}
   - component: {fileID: 5538275715881681189}
   m_Layer: 5
-  m_Name: TextFrame
+  m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5016,7 +5019,7 @@ GameObject:
   - component: {fileID: 4804636134421652666}
   - component: {fileID: 8198799438492854831}
   m_Layer: 5
-  m_Name: List_Focus
+  m_Name: Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5143,3 +5146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onClaimButton: {fileID: 1604914058370808605}
   _onDoubleClaimButton: {fileID: 8230909635995916820}
+  _coinsRewardAmount: {fileID: 7243517749235783688}
+  _bulletsRewardAmount: {fileID: 4884031158497283210}

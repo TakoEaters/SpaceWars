@@ -1764,10 +1764,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7277893738434131673, guid: 979abb598738583488726fa9ef83c04e, type: 3}
-      propertyPath: _totalSessionMinutes
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7277893738434131675, guid: 979abb598738583488726fa9ef83c04e, type: 3}
       propertyPath: m_Name
       value: MultiplayerHandler
@@ -13669,6 +13665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enableDelay: 1
   _playerRewardPerEnemy: 50
+  _bulletRewardPerEnemy: 10
   _player: {fileID: 1925399004}
 --- !u!4 &1079159373
 Transform:

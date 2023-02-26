@@ -271,6 +271,7 @@ MonoBehaviour:
   _switchButtonSound: {fileID: 8300000, guid: ec353dbb7139e8a4ea0582778aeb8faa, type: 3}
   _successfulPurchaseSound: {fileID: 8300000, guid: ad31fb3f405b5104991d87dfe98126c0, type: 3}
   _failedPurchaseSound: {fileID: 8300000, guid: 3528b32d7ea4fb644bb6bb668e0bd775, type: 3}
+  _countSound: {fileID: 8300000, guid: 6ffa264615171b34aadec9f6db8ec007, type: 3}
 --- !u!82 &680663068222453222
 AudioSource:
   m_ObjectHideFlags: 0

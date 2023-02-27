@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
@@ -11,9 +12,11 @@ namespace _Project.Scripts.Common
     public class CameraManager : MonoBehaviour, ICameraManager
     {
         [SerializeField, Range(0.1f, 2.0f)] private float _shakeIntensity = 0.55f;
+        [SerializeField] private CinemachineBrain _cineMachineBrain;
         [SerializeField] private CinemachineVirtualCamera _gameplayCamera;
         [SerializeField] private CinemachineVirtualCamera _playerCamera;
-        [SerializeField] private CinemachineInputProvider _inputProvider;
+        [SerializeField] private CinemachineVirtualCamera _aimingCamera;
+        [SerializeField] private List<CinemachineInputProvider> _inputProviders = new List<CinemachineInputProvider>();
         
         private CinemachineBasicMultiChannelPerlin _cineMachineBasicMultiChannelPerlin;
         private float _startingIntensity;
@@ -28,23 +31,25 @@ namespace _Project.Scripts.Common
 
         public void EnableCameraInput()
         {
+            _cineMachineBrain.m_DefaultBlend.m_Time = 0.25f;
             Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = true});
-            _inputProvider.enabled = true;
+            _inputProviders.ForEach(x => x.enabled = true);
         }
 
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
-            _inputProvider.enabled = false;
+            _inputProviders.ForEach(x => x.enabled = false);
         }
 
         public void DisableCameraInput()
         {
-            _inputProvider.enabled = false;
+            _inputProviders.ForEach(x => x.enabled = false);
         }
 
         public void EnableGameplayCamera()
         {
+            _cineMachineBrain.m_DefaultBlend.m_Time = 1.0f;
             _gameplayCamera.gameObject.SetActive(true);
         }
 
@@ -56,12 +61,19 @@ namespace _Project.Scripts.Common
             StartCoroutine(LerpCamera());
         }
 
+        public void ToggleDistance(bool isChanged)
+        {
+            _aimingCamera.gameObject.SetActive(isChanged);
+        }
+
         [Sub]
         private void OnEnableDeathCamera(PlayerDeath reference)
         {
+            _cineMachineBrain.m_DefaultBlend.m_Time = 1.0f;
             Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = false});
-            _inputProvider.enabled = false;
+            _inputProviders.ForEach(x => x.enabled = false);
             _playerCamera.gameObject.SetActive(false);
+            _aimingCamera.gameObject.SetActive(false);
         }
 
         [Sub]
@@ -93,5 +105,6 @@ namespace _Project.Scripts.Common
         public void DisableCameraInput();
         public void EnableGameplayCamera();
         public void ShakeCamera(float time);
+        public void ToggleDistance(bool isChanged);
     }
 }

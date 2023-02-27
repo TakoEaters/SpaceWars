@@ -178,6 +178,7 @@ namespace _Project.Scripts.Player
 
         private void InitializeWeapon()
         {
+	        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(false);
             _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
             _currentWeapon = _views[_weaponEntity.ID];
             _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage);
@@ -191,9 +192,8 @@ namespace _Project.Scripts.Player
 	        if (_isDisabled) return;
 	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
-	        
-	        
-            if (Inputs.IsShooting)
+
+	        if (Inputs.IsShooting)
             {
                 RotateToCamera(transform);
                 if (!_isOverheat)
@@ -209,6 +209,22 @@ namespace _Project.Scripts.Player
                     }
                 }
             }
+        }
+
+        // ReSharper disable Unity.PerformanceAnalysis
+        protected void UpdateAiming()
+        {
+	        if (_isDisabled) return;
+
+	        if (Inputs.IsAimingPressed)
+	        {
+		        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(true);
+	        }
+	        
+	        else if (Inputs.IsAimingReleased)
+	        {
+		        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(false);
+	        }
         }
 
         // ReSharper disable Unity.PerformanceAnalysis

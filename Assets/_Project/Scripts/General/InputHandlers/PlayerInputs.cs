@@ -8,10 +8,9 @@ namespace _Project.Scripts.General.InputHandlers
     public class PlayerInputs : MonoBehaviour, IPlayerInputs
     {
         public Vector2 Movement => _input.Player.Joystick.ReadValue<Vector2>();
-        public Vector2 Rotation => _input.Player.Rotation.ReadValue<Vector2>();
-    
-        public bool IsShootingPressed => _input.Player.Shooting.WasPressedThisFrame();
-        public bool IsShootingReleased => _input.Player.Shooting.WasReleasedThisFrame();
+        public bool IsAimingPressed => _input.Player.Aiming.WasPressedThisFrame();
+        public bool IsAimingReleased => _input.Player.Aiming.WasReleasedThisFrame();
+        public bool IsAiming => _input.Player.Aiming.ReadValue<float>() > 0;
         public bool IsShooting => _input.Player.Shooting.ReadValue<float>() > 0;
     
         private PlayerInput _input;

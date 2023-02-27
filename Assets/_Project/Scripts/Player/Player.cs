@@ -24,6 +24,7 @@ namespace _Project.Scripts.Player
         {
             UpdateMovement(); 
             UpdateWeapon();
+            UpdateAiming();
             UpdateOverheat();
         }
 

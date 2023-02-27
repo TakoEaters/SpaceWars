@@ -53,6 +53,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Aiming"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ef12ace-d60e-476b-855f-1c6c169e016e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d13da101-8ff9-491f-a5f7-af3e70b8b418"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aiming"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -220,6 +240,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Joystick = m_Player.FindAction("Joystick", throwIfNotFound: true);
         m_Player_Shooting = m_Player.FindAction("Shooting", throwIfNotFound: true);
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
+        m_Player_Aiming = m_Player.FindAction("Aiming", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +303,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Joystick;
     private readonly InputAction m_Player_Shooting;
     private readonly InputAction m_Player_Rotation;
+    private readonly InputAction m_Player_Aiming;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -289,6 +311,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Joystick => m_Wrapper.m_Player_Joystick;
         public InputAction @Shooting => m_Wrapper.m_Player_Shooting;
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
+        public InputAction @Aiming => m_Wrapper.m_Player_Aiming;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -307,6 +330,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Rotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Rotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Rotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @Aiming.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAiming;
+                @Aiming.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAiming;
+                @Aiming.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAiming;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -320,6 +346,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Rotation.started += instance.OnRotation;
                 @Rotation.performed += instance.OnRotation;
                 @Rotation.canceled += instance.OnRotation;
+                @Aiming.started += instance.OnAiming;
+                @Aiming.performed += instance.OnAiming;
+                @Aiming.canceled += instance.OnAiming;
             }
         }
     }
@@ -329,5 +358,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnJoystick(InputAction.CallbackContext context);
         void OnShooting(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnAiming(InputAction.CallbackContext context);
     }
 }

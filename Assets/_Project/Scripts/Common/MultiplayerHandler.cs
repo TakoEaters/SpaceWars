@@ -32,7 +32,7 @@ namespace _Project.Scripts.Common
         [Sub]
         private void InitializeTeams(StartLevel reference)
         {
-            _playerTeam = (Team)Random.Range(0, 2);
+            _playerTeam = Team.Blue;
             ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(_playerTeam);
             ServiceLocator.Current.Get<IBotSystem>().InitializeSystem(_playerTeam);
 

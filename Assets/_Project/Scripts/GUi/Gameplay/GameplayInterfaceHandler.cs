@@ -1,3 +1,4 @@
+using _Project.Scripts.AI;
 using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
@@ -43,6 +44,7 @@ namespace _Project.Scripts.GUi.Gameplay
             _deployButton.gameObject.SetActive(false);
             _quitButton.gameObject.SetActive(false);
             _spawnReturningButton.gameObject.SetActive(false);
+            ServiceLocator.Current.Get<IBotSystem>().EnableOneTime();
             ServiceLocator.Current.Get<IPlayerSystem>().EnablePlayer();
             _background.DOFade(TransparentValue, _duration);
         }

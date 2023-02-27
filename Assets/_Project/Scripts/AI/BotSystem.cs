@@ -11,6 +11,8 @@ namespace _Project.Scripts.AI
     {
         [SerializeField] private List<Bot> _bots = new List<Bot>();
 
+        private bool _enablePerTime;
+        
         public void Register()
         {
             ServiceLocator.Current.Register<IBotSystem>(this);
@@ -32,6 +34,13 @@ namespace _Project.Scripts.AI
             }
         }
 
+        public void EnableOneTime()
+        {
+            if (_enablePerTime) return;
+            _enablePerTime = true;
+            _bots.ForEach(x => x.EnableController());
+        }
+
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
@@ -42,11 +51,11 @@ namespace _Project.Scripts.AI
         {
             bot.Initialize(team);
             bot.UpdateBotData(); 
-            bot.EnableController();
         }
     }
     public interface IBotSystem : IGameService
     {
         public void InitializeSystem(Team friendlyTeam);
+        public void EnableOneTime();
     }
 }

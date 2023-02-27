@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 23316474446550882}
   m_Layer: 0
   m_Name: SM_Rock_4_LOD1
-  m_TagString: Untagged
+  m_TagString: Ignorabe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

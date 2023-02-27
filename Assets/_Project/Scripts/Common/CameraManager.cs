@@ -24,6 +24,7 @@ namespace _Project.Scripts.Common
         
         public void Register()
         {
+            _cineMachineBrain.m_DefaultBlend.m_Time = 1.0f;
             ServiceLocator.Current.Register<ICameraManager>(this);
             _cineMachineBasicMultiChannelPerlin =
                 _playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
@@ -44,12 +45,13 @@ namespace _Project.Scripts.Common
 
         public void DisableCameraInput()
         {
-            _inputProviders.ForEach(x => x.enabled = false);
+            _cineMachineBrain.m_DefaultBlend.m_Time = 1.0f;
+            _inputProviders.ForEach(x => x.enabled = false); 
+            ToggleDistance(false);
         }
 
         public void EnableGameplayCamera()
         {
-            _cineMachineBrain.m_DefaultBlend.m_Time = 1.0f;
             _gameplayCamera.gameObject.SetActive(true);
         }
 

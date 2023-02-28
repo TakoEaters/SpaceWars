@@ -195,13 +195,13 @@ namespace _Project.Scripts.Player
         {
 	        if (_isDisabled) return;
 	        if (Inputs.IsReloadingPressed) OnReload();
+	        if (Count == 0) return;
 	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
 
 	        if (Inputs.IsShooting)
             {
                 RotateToCamera(transform);
-                if (_isReloading) return;
                 if (Count > 0)
                 {
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
@@ -244,19 +244,37 @@ namespace _Project.Scripts.Player
 	        IsReloading?.Invoke(_weaponEntity.ReloadingDuration);
 	        StartCoroutine(WaitUtils.WaitWithDelay(() =>
 	        {
-		        int necessaryAmmoCount = _weaponEntity.MagazineAmmo;
-		        if (necessaryAmmoCount > Remaining)
+		        if (Count > 0)
 		        {
-			        Count = Remaining;
-			        Remaining = 0;
+			        int ammoDelta = _weaponEntity.MagazineAmmo - Count;
+			        if (ammoDelta > Remaining)
+			        {
+				        Count += Remaining;
+				        Remaining = 0;
+			        }
+			        else
+			        {
+				        Count += ammoDelta;
+				        Remaining -= ammoDelta;
+			        }
 		        }
 
 		        else
 		        {
-			        Count = necessaryAmmoCount;
-			        Remaining -= Count;
+			        int necessaryAmmoCount = _weaponEntity.MagazineAmmo;
+			        if (necessaryAmmoCount > Remaining)
+			        {
+				        Count = Remaining;
+				        Remaining = 0;
+			        }
+			        
+			        else
+			        {
+				        Count = necessaryAmmoCount;
+				        Remaining -= Count;
+			        }
 		        }
-		    
+
 		        _isReloading = false;
 	        }, _weaponEntity.ReloadingDuration));
         }

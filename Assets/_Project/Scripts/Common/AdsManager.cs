@@ -7,6 +7,8 @@ namespace _Project.Scripts.Common
 {
     public class AdsManager : MonoBehaviour, IAdsManager
     {
+        [SerializeField] private bool _testMode = true;
+        
         private float _lastInterstitialTime;
         
         public void Register()
@@ -21,6 +23,11 @@ namespace _Project.Scripts.Common
         // ReSharper disable Unity.PerformanceAnalysis
         public void ShowRewarded(Action<bool> onFinish)
         {
+            if (_testMode)
+            {
+                onFinish?.Invoke(true);
+                return;
+            }
             CrazyAds.Instance.beginAdBreakRewarded(
                 () => onFinish?.Invoke(true), 
                 () => onFinish?.Invoke(false));
@@ -28,6 +35,7 @@ namespace _Project.Scripts.Common
 
         public void ShowInterstitial()
         { 
+            if (_testMode) return;
             CrazyAds.Instance.beginAdBreak();
         }
 

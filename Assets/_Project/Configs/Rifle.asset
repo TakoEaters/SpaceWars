@@ -17,15 +17,15 @@ MonoBehaviour:
   Description: Small-caliber rifle
   MaxOverheat: 5
   CoolingPerSecond: 50
-  FireRate: 0.34
-  OverheatAdditive: 6.4
-  Damage: 16
+  FireRate: 0.26
+  OverheatAdditive: 5.6
+  Damage: 24
   WeaponPrice: 0
-  Level: 1
-  UpgradePrice: 4500
+  Level: 9
+  UpgradePrice: 7500
   InitialUpgradePrice: 1500
   AdditiveUpgradePrice: 750
-  InitialDamage: 16
+  InitialDamage: 20
   AdditiveDamage: 1
   InitialOverheat: 6.4
   AdditiveOverheat: 0.1

@@ -193,9 +193,8 @@ namespace _Project.Scripts.Player
         // ReSharper disable Unity.PerformanceAnalysis
         protected void UpdateWeapon()
         {
-	        if (_isDisabled) return;
+	        if (_isDisabled || _isReloading) return;
 	        if (Inputs.IsReloadingPressed) OnReload();
-	        if (Count == 0) return;
 	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
 

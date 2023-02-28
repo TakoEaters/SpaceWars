@@ -1,5 +1,4 @@
 using _Project.Scripts.General.InputHandlers;
-using _Project.Scripts.General.Signals;
 using _Project.Scripts.Player.SkinChanger;
 using UnityEngine;
 

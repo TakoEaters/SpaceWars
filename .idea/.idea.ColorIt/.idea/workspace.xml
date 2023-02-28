@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/CameraManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/General/CameraManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/InputHandlers/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/InputHandlers/PlayerInputs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/AnimationHash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/AnimationHash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

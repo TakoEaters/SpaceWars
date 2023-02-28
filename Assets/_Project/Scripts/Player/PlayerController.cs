@@ -30,8 +30,6 @@ namespace _Project.Scripts.Player
         protected Camera Camera;
 
         private ISpawnerSystem _spawnerSystem;
-        private AimIK _aimIK;
-        private LookAtIK _lookAtIK;
         private bool _isDisabled = true;
 
         protected void FindServices()
@@ -40,8 +38,6 @@ namespace _Project.Scripts.Player
 	        HealthViewer = ServiceLocator.Current.Get<IHealthViewer>();
             _effectsModifier = ServiceLocator.Current.Get<IEffectsModifier>();
             _views = GetComponentsInChildren<WeaponView>(true).ToList();
-            _aimIK = GetComponent<AimIK>();
-            _lookAtIK = GetComponent<LookAtIK>();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -78,6 +74,7 @@ namespace _Project.Scripts.Player
         
         private Vector3 _movementVector;
         private Vector3 _desiredMoveDirection;
+        private float _movementVelocity;
         private float _inputX;
         private float _inputZ;
         private float _speed;
@@ -97,7 +94,11 @@ namespace _Project.Scripts.Player
         }
         
         private void PlayerMoveAndRotation()
-		{
+        {
+	        bool isRunning = Inputs.IsRunning;
+	        PlayerAnimator.SetBool(AnimationHash.Running, isRunning);
+	        _movementVelocity = isRunning ? _configs.RunningVelocity : _configs.Velocity;
+			
 			_inputX = Inputs.Movement.x;
 			_inputZ = Inputs.Movement.y;
 			
@@ -117,12 +118,12 @@ namespace _Project.Scripts.Player
 				//Camera
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_desiredMoveDirection),
 					_desiredRotationSpeed);
-				Controller.Move(_desiredMoveDirection * Time.deltaTime * _configs.Velocity);
+				Controller.Move(_desiredMoveDirection * Time.deltaTime * _movementVelocity);
 			}
 			else
 			{
 				//Strafe
-				Controller.Move((transform.forward * _inputZ + transform.right * _inputX) * Time.deltaTime * _configs.Velocity);
+				Controller.Move((transform.forward * _inputZ + transform.right * _inputX) * Time.deltaTime * _movementVelocity);
 			}
 		}
 
@@ -271,8 +272,6 @@ namespace _Project.Scripts.Player
         private void InitializeHealth()
         {
 	        PlayerAnimator.enabled = true; 
-	        _lookAtIK.enabled = true;
-	     //   _aimIK.enabled = true;
 	        Health = _configs.Health;
 	        HealthViewer.UpdateView(Health, Health);
 	        _healthRoutine = StartCoroutine(RestoreHealth());
@@ -300,8 +299,6 @@ namespace _Project.Scripts.Player
         {
 	        if (_healthRoutine != null) StopCoroutine(_healthRoutine);
 	        PlayerAnimator.enabled = false;
-	        _lookAtIK.enabled = false;
-	        _aimIK.enabled = false;
 	        Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
 	        _effectsModifier.UpdateVignette(0);
         }

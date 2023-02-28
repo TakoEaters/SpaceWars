@@ -49,7 +49,7 @@ namespace _Project.Scripts.Player
     {
         public Team Team;
         [Range(1.0f, 5.0f)] public float Velocity = 3.5f;
-        public float RotationSpeed;
+        [Range(1.0f, 7.0f)] public float RunningVelocity = 4.5f;
 
         public int Health;
         public float HealthRestorationDelay;

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace _Project.Scripts.Player
 {
-    public abstract class Character : CorePoolElement, IDamageable
+    public abstract class Character : CorePoolElement, IDamageable, IAmmo
     {
         [SerializeField] private DamageableLayer _layer;
         [SerializeField] protected CharacterConfigs _configs;
@@ -21,6 +21,10 @@ namespace _Project.Scripts.Player
         public bool IsAlive => Health > 0;
         public bool IsInSafeZone { get; set; }
         public Vector3 Position => transform.position;
+        
+        public abstract int Count { get; protected set; }
+        public abstract int Remaining { get; protected set; }
+        public abstract Action<float> IsReloading { get; protected set; }
 
         protected IHealthViewer HealthViewer;
         protected int Health;

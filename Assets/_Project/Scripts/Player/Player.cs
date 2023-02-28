@@ -23,7 +23,6 @@ namespace _Project.Scripts.Player
             UpdateMovement(); 
             UpdateWeapon();
             UpdateAiming();
-            UpdateOverheat();
         }
 
         private void LateUpdate()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Common;
@@ -11,9 +12,7 @@ using _Project.Scripts.General.Utils;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
-using DG.Tweening;
 using MoreMountains.NiceVibrations;
-using RootMotion.FinalIK;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -167,23 +166,27 @@ namespace _Project.Scripts.Player
         #endregion
         
         #region SHOOTING
+        
+        public override int Count { get; protected set; }
+        public override int Remaining { get; protected set; }
+        public override Action<float> IsReloading { get; protected set; }
 
         private List<WeaponView> _views;
         private WeaponEntity _weaponEntity;
         private WeaponView _currentWeapon;
         private float _lastShootingTime;
-        private float _lastCoolingTime;
-        private float _overheat;
-        private bool _sentOverheatEvent;
-        private bool _isOverheat;
+        private bool _isReloading;
 
         private void InitializeWeapon()
         {
+	        ServiceLocator.Current.Get<IAmmoViewer>().Subscribe(this);
 	        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(false);
             _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
             _currentWeapon = _views[_weaponEntity.ID];
             _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage);
             _currentWeapon.Enable();
+            Count = _weaponEntity.MagazineAmmo;
+            Remaining = _weaponEntity.TotalAmmo - Count;
         }
 
 
@@ -191,24 +194,26 @@ namespace _Project.Scripts.Player
         protected void UpdateWeapon()
         {
 	        if (_isDisabled) return;
+	        if (Inputs.IsReloadingPressed) OnReload();
 	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
 
 	        if (Inputs.IsShooting)
             {
                 RotateToCamera(transform);
-                if (!_isOverheat)
+                if (_isReloading) return;
+                if (Count > 0)
                 {
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
                     {
+	                    Count--;
                         _currentWeapon.ShootProjectile();
                         ServiceLocator.Current.Get<ICameraManager>().ShakeCamera(0.1f);
-                        _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
-                        MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
                         _lastShootingTime = Time.time;
-                        Signal.Current.Fire<Modifier>(new Modifier { Percentage = _overheat / 100f });
                     }
                 }
+
+                else OnReload();
             }
         }
 
@@ -228,38 +233,32 @@ namespace _Project.Scripts.Player
 	        }
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
-        protected void UpdateOverheat()
+        private void OnReload()
         {
-	        if (_isDisabled) return;
+	        if (Remaining <= 0)
+	        {
+		        Remaining = 0;
+		        return;
+	        }
+	        _isReloading = true;
+	        IsReloading?.Invoke(_weaponEntity.ReloadingDuration);
+	        StartCoroutine(WaitUtils.WaitWithDelay(() =>
+	        {
+		        int necessaryAmmoCount = _weaponEntity.MagazineAmmo;
+		        if (necessaryAmmoCount > Remaining)
+		        {
+			        Count = Remaining;
+			        Remaining = 0;
+		        }
 
-            if (Time.time - _lastCoolingTime > 0.1f && Time.time - _lastShootingTime > _weaponEntity.FireRate + .1f)
-            {
-                _overheat = Mathf.Clamp(_overheat - _weaponEntity.CoolingPerSecond * .1f, 0f, 100f);
-                Signal.Current.Fire<Modifier>(new Modifier { Percentage = _overheat / 100f });
-                _lastCoolingTime = Time.time;
-            }
-
-            if (_overheat >= 99) _isOverheat = true;
-            else if (_overheat < _weaponEntity.MaxOverheat) _isOverheat = false;
-            if (_isOverheat && _sentOverheatEvent == false)
-            {
-                MMVibrationManager.Haptic(HapticTypes.Failure, false, true, this);
-                _sentOverheatEvent = true;
-                OnOverheat();
-                //     _onOverheat?.Invoke();
-            }
-
-            if (_overheat < 5f)
-            {
-                _sentOverheatEvent = false;
-            }
-        }
-
-        private void OnOverheat()
-        {
-	        CorePoolAudio overHeat = CorePool.Current.Get(_overHeatClip);
-	        overHeat.Play(); 
+		        else
+		        {
+			        Count = necessaryAmmoCount;
+			        Remaining -= Count;
+		        }
+		    
+		        _isReloading = false;
+	        }, _weaponEntity.ReloadingDuration));
         }
 
         #endregion

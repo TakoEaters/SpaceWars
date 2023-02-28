@@ -71,6 +71,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reloading"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6ed10ee-f2c4-49f0-8773-72f3e5a6b05c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -249,6 +258,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Running"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24674d19-258f-4d5e-821a-eaf95d238592"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reloading"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -262,6 +282,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_Aiming = m_Player.FindAction("Aiming", throwIfNotFound: true);
         m_Player_Running = m_Player.FindAction("Running", throwIfNotFound: true);
+        m_Player_Reloading = m_Player.FindAction("Reloading", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +347,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_Aiming;
     private readonly InputAction m_Player_Running;
+    private readonly InputAction m_Player_Reloading;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -335,6 +357,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputAction @Aiming => m_Wrapper.m_Player_Aiming;
         public InputAction @Running => m_Wrapper.m_Player_Running;
+        public InputAction @Reloading => m_Wrapper.m_Player_Reloading;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -359,6 +382,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Running.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
                 @Running.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
                 @Running.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRunning;
+                @Reloading.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReloading;
+                @Reloading.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReloading;
+                @Reloading.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReloading;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -378,6 +404,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Running.started += instance.OnRunning;
                 @Running.performed += instance.OnRunning;
                 @Running.canceled += instance.OnRunning;
+                @Reloading.started += instance.OnReloading;
+                @Reloading.performed += instance.OnReloading;
+                @Reloading.canceled += instance.OnReloading;
             }
         }
     }
@@ -389,5 +418,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnRotation(InputAction.CallbackContext context);
         void OnAiming(InputAction.CallbackContext context);
         void OnRunning(InputAction.CallbackContext context);
+        void OnReloading(InputAction.CallbackContext context);
     }
 }

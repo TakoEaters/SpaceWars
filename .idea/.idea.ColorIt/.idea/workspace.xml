@@ -3,25 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/BattleRoyaleHeroesPBR/Material/PBRDefault/WeaponsPBRDefault.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/BattleRoyaleHeroesPBR/Material/PBRDefault/WeaponsPBRDefault.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/ColorSkies/Skies/Sky_8.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/ColorSkies/Skies/Sky_8.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Epic Toon FX/Demo/Materials/Skybox/BlueSkybox.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/PolygonSciFiWorlds/Materials/Alts/PolygonScifiWorlds_Mat_01_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/PolygonSciFiWorlds/Materials/Alts/PolygonScifiWorlds_Mat_01_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/PolygonSciFiWorlds/Materials/Alts/PolygonScifiWorlds_Mat_03_A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/PolygonSciFiWorlds/Materials/Alts/PolygonScifiWorlds_Mat_03_A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Materials/Rock_4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Materials/Rock_4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Materials/Rock_5.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Materials/Rock_5.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Materials/Tree.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Materials/Tree.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Scenes/_TerrainAutoUpgrade/layer_Ground_1_ASand_1_N(10.000,10.000)(0.000,0.000)(0.000,0.000,0.000),0.000,0.789.terrainlayer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Scenes/_TerrainAutoUpgrade/layer_Ground_1_ASand_1_N(10.000,10.000)(0.000,0.000)(0.000,0.000,0.000),0.000,0.789.terrainlayer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Scenes/_TerrainAutoUpgrade/layer_Ground_3_ASand_1_N(10.000,10.000)(0.000,0.000)(0.000,0.000,0.000),0.000,0.791.terrainlayer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Stylized_Desert_Nature/Scenes/_TerrainAutoUpgrade/layer_Ground_3_ASand_1_N(10.000,10.000)(0.000,0.000)(0.000,0.000,0.000),0.000,0.791.terrainlayer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/New Terrain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/UI - BUILDER/Source Files/Fonts/OpenSans-Familiy/OpenSans-Light SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/UI - BUILDER/Source Files/Fonts/OpenSans-Familiy/OpenSans-Light SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/MachineGun.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Rifle.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet/NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet/ReflectionProbe-0.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet/ReflectionProbe-0.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Common/AdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Configs/Shotgun.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Gameplay/Canvas-GUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/GUi/Canvases/Gameplay/Canvas-GUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Sprites/Fonts/E1234Italic-DO3md SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Sprites/Fonts/E1234Italic-DO3md SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +36,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Common/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Common/Sensitivity/SensitivitySlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Gameplay/GameplayInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/AmmoUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/OverheatingView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/ScoreTeamView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/UserInterfaceHandler.cs" root0="FORCE_HIGHLIGHTING" />

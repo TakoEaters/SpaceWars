@@ -19,7 +19,7 @@ MonoBehaviour:
   CoolingPerSecond: 50
   FireRate: 0.19
   OverheatAdditive: 3.4
-  Damage: 11
+  Damage: 15
   WeaponPrice: 10000
   Level: 1
   UpgradePrice: 3500
@@ -31,3 +31,6 @@ MonoBehaviour:
   AdditiveOverheat: 0.1
   InitialFireRate: 0.19
   AdditiveFireRate: 0.01
+  MagazineAmmo: 50
+  TotalAmmo: 250
+  ReloadingDuration: 1.25

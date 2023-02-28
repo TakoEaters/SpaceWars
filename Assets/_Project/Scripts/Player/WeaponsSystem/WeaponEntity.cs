@@ -33,6 +33,11 @@ namespace _Project.Scripts.Player.WeaponsSystem
         public float InitialFireRate; 
         public float AdditiveFireRate;
 
+        [Header("Ammo")] 
+        public int MagazineAmmo;
+        public int TotalAmmo;
+        public float ReloadingDuration;
+
         private readonly int _maxLevel = 10;
 
         public void UpdateData()

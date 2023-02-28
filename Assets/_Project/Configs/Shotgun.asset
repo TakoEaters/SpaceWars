@@ -22,7 +22,7 @@ MonoBehaviour:
   Damage: 67
   WeaponPrice: 7500
   Level: 1
-  UpgradePrice: 5500
+  UpgradePrice: 2500
   InitialUpgradePrice: 2500
   AdditiveUpgradePrice: 1250
   InitialDamage: 67
@@ -31,3 +31,6 @@ MonoBehaviour:
   AdditiveOverheat: 0.1
   InitialFireRate: 0.84
   AdditiveFireRate: 0.01
+  MagazineAmmo: 8
+  TotalAmmo: 64
+  ReloadingDuration: 1

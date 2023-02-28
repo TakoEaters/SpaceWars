@@ -12,7 +12,7 @@ namespace _Project.Scripts.General.Saves
         public static int GetResourcesAmount(Resource resource)
         {
             string id = $"Resource_{resource}_Amount";
-            return PlayerPrefs.GetInt(id, 0);
+            return PlayerPrefs.GetInt(id, 10000);
         }
 
         public static void SetResourcesAmount(Resource resource, int amount)

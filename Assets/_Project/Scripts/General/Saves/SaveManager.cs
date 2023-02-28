@@ -43,6 +43,18 @@ namespace _Project.Scripts.General.Saves
             return PlayerPrefs.GetInt(id, 2);
         }
 
+        public static float GetSensitivityMultiplier()
+        {
+            string id = $"SENSITIVITY";
+            return PlayerPrefs.GetFloat(id, 1.0f);
+        }
+
+        public static void SetSensitivityMultiplier(float percentage)
+        {
+            string id = $"SENSITIVITY"; 
+            PlayerPrefs.SetFloat(id, percentage);
+        }
+
         #endregion
     }
 }

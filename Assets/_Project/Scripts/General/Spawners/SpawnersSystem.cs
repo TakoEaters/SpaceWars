@@ -25,7 +25,6 @@ namespace _Project.Scripts.General.Spawners
             bool isChangedSpawners = randomize == 1;
             List<Spawner> blueSpawners = new List<Spawner>(_allSpawners.FindAll(x => x.TeamSpawner == Team.Blue));
             List<Spawner> redSpawners = new List<Spawner>(_allSpawners.FindAll(x => x.TeamSpawner == Team.Red));
-            print(isChangedSpawners);
             if (isChangedSpawners)
             {
                 blueSpawners.ForEach(x => x.ChangeRandomTeam(Team.Red));

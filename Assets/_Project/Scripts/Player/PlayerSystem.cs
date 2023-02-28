@@ -22,9 +22,9 @@ namespace _Project.Scripts.Player
             ServiceLocator.Current.Register<IPlayerSystem>(this);
         }
 
-        public void InitializeSystem(Team playerTeam)
+        public void InitializeSystem()
         {
-            _player.Initialize(playerTeam);
+            _player.Initialize();
             _player.UpdatePlayerData();
         }
 
@@ -62,7 +62,7 @@ namespace _Project.Scripts.Player
     {
         public int PlayerReward { get; }
         public int BulletReward { get; }
-        public void InitializeSystem(Team playerTeam);
+        public void InitializeSystem();
         public void EnablePlayer();
 
         public void UpdatePlayer();

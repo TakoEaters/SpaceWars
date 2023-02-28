@@ -9,5 +9,10 @@ namespace _Project.Scripts.General.Spawners
 
         public Vector3 SpawnPosition => transform.position;
         public Team TeamSpawner => _team;
+
+        public void ChangeRandomTeam(Team team)
+        {
+            _team = team;
+        }
     }
 }

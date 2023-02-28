@@ -33,7 +33,7 @@ namespace _Project.Scripts.Common
         private void InitializeTeams(StartLevel reference)
         {
             _playerTeam = Team.Blue;
-            ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem(_playerTeam);
+            ServiceLocator.Current.Get<IPlayerSystem>().InitializeSystem();
             ServiceLocator.Current.Get<IBotSystem>().InitializeSystem(_playerTeam);
 
             StartCounter();

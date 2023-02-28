@@ -7,10 +7,9 @@ namespace _Project.Scripts.Player
 {
     public class Player : PlayerController
     {
-        public void Initialize(Team playerTeam)
+        public void Initialize()
         {
             GetComponentInChildren<SkinsChanger>().SetSkin();
-            _configs.Team = playerTeam;
             FindServices();
             PlayerAnimator = GetComponent<Animator>();
             Controller = GetComponent<CharacterController>();

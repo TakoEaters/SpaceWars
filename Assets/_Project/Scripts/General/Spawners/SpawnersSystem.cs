@@ -16,6 +16,21 @@ namespace _Project.Scripts.General.Spawners
         {
             ServiceLocator.Current.Register<ISpawnerSystem>(this);
             _allSpawners = GetComponentsInChildren<Spawner>().ToList();
+            RandomizeSpawners();
+        }
+
+        private void RandomizeSpawners()
+        {
+            int randomize = Random.Range(0, 2);
+            bool isChangedSpawners = randomize == 1;
+            List<Spawner> blueSpawners = new List<Spawner>(_allSpawners.FindAll(x => x.TeamSpawner == Team.Blue));
+            List<Spawner> redSpawners = new List<Spawner>(_allSpawners.FindAll(x => x.TeamSpawner == Team.Red));
+            print(isChangedSpawners);
+            if (isChangedSpawners)
+            {
+                blueSpawners.ForEach(x => x.ChangeRandomTeam(Team.Red));
+                redSpawners.ForEach(x => x.ChangeRandomTeam(Team.Blue));
+            }
         }
 
         public Spawner GetRandomSpawner(Team necessarySpawnTeam)

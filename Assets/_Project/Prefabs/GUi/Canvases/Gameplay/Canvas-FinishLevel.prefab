@@ -1248,8 +1248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _completeView: {fileID: 6296520819958921233}
   _failedView: {fileID: 4675064429990123090}
-  _coinsAdditiveReward: 250
-  _bulletAdditiveReward: 25
+  _coinsAdditiveReward: 750
+  _bulletAdditiveReward: 55
 --- !u!1 &2739148034871897640
 GameObject:
   m_ObjectHideFlags: 0

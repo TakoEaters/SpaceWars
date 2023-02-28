@@ -23,8 +23,8 @@ MonoBehaviour:
   WeaponPrice: 0
   Level: 1
   UpgradePrice: 4500
-  InitialUpgradePrice: 4500
-  AdditiveUpgradePrice: 2250
+  InitialUpgradePrice: 1500
+  AdditiveUpgradePrice: 750
   InitialDamage: 16
   AdditiveDamage: 1
   InitialOverheat: 6.4

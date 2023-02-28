@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Project.Scripts.AI
@@ -38,6 +40,7 @@ namespace _Project.Scripts.AI
         {
             if (_enablePerTime) return;
             _enablePerTime = true;
+            Signal.Current.Fire<StartCounter>(new StartCounter());
             _bots.ForEach(x => x.EnableController());
         }
 

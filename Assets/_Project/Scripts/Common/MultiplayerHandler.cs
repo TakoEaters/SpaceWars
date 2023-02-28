@@ -43,7 +43,6 @@ namespace _Project.Scripts.Common
         {
             _score = ServiceLocator.Current.Get<IScoreSystem>();
             _score.SetMaxScore(_necessaryWinScore);
-            _countRoutine = StartCoroutine(Count());
         }
 
         [Sub]
@@ -59,6 +58,12 @@ namespace _Project.Scripts.Common
             currentTeam.TotalAmount -= _removeScore;
             currentTeam.TotalAmount = Mathf.Clamp(currentTeam.TotalAmount, 0, _necessaryWinScore);
             _score.SetTeamScore(currentTeam);
+        }
+
+        [Sub]
+        private void OnStartCounter(StartCounter reference)
+        {
+            _countRoutine = StartCoroutine(Count());
         }
 
         private bool IsAnyWinner()
@@ -96,4 +101,6 @@ namespace _Project.Scripts.Common
             Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = ordered.First().Team != _playerTeam});
         }
     }
+    
+    public struct StartCounter { }
 }

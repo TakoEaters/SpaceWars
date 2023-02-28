@@ -18,6 +18,7 @@ namespace _Project.Scripts.Common
             return true;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         public void ShowRewarded(Action<bool> onFinish)
         {
             CrazyAds.Instance.beginAdBreakRewarded(

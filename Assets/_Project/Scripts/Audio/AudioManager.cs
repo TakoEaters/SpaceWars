@@ -36,7 +36,7 @@ namespace _Project.Scripts.Audio
                 if (audioClip.Audio == type)
                 {
                     audioClip.SetVolume(percentage);   
-                }   
+                }  
             }
         }
     }

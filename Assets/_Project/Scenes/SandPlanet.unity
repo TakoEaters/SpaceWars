@@ -4696,6 +4696,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1635916257529229506, guid: 279691004cfc197458746adbde696e9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635916257529229506, guid: 279691004cfc197458746adbde696e9d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1948117962303514347, guid: 279691004cfc197458746adbde696e9d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -16101,42 +16109,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 263515894}
-    - target: {fileID: 3661858213000452010, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_VerticalAxis.m_MaxSpeed
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3661858213000452010, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_HorizontalAxis.m_MaxSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506386811211107900, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_BiasX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506386811211107900, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_BiasY
-      value: -0.00000008195639
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506386811211107900, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_ScreenX
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506386811211107900, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_ScreenY
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506386811211107900, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_CameraDistance
-      value: 2.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4506386811211107900, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_TrackedObjectOffset.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4762200968942475222, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_DefaultBlend.m_Time
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4762200969218064492, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -16193,11 +16165,9 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1579074372}
-    - target: {fileID: 7017592613807508527, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-      propertyPath: m_ComponentOwner
-      value: 
-      objectReference: {fileID: 1303703272}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8164426968657353227, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
+    - {fileID: 7017592613807508521, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
 --- !u!1001 &1242305568
 PrefabInstance:
@@ -17119,11 +17089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8083b172a3a94c04ab582610ac4eb69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1303703272 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8737176393617520888, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-  m_PrefabInstance: {fileID: 1239508684}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1305090554
 PrefabInstance:
   m_ObjectHideFlags: 0

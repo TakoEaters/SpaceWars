@@ -17,6 +17,7 @@ namespace _Project.Scripts.Common
         [SerializeField] private CinemachineVirtualCamera _gameplayCamera;
         [SerializeField] private CinemachineVirtualCamera _playerCamera;
         [SerializeField] private CinemachineVirtualCamera _aimingCamera;
+        [SerializeField] private CinemachineVirtualCamera _deathCamera;
         [SerializeField] private List<CinemachineInputProvider> _inputProviders = new List<CinemachineInputProvider>();
         
         private CinemachineBasicMultiChannelPerlin _cineMachineBasicMultiChannelPerlin;
@@ -33,7 +34,7 @@ namespace _Project.Scripts.Common
 
         public void EnableCameraInput()
         {
-            _cineMachineBrain.m_DefaultBlend.m_Time = 0.25f;
+            _cineMachineBrain.m_DefaultBlend.m_Time = 0.1f;
             Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = true});
             _inputProviders.ForEach(x => x.enabled = true);
         }
@@ -53,7 +54,8 @@ namespace _Project.Scripts.Common
 
         public void EnableGameplayCamera()
         {
-            _gameplayCamera.gameObject.SetActive(true);
+            _deathCamera.Priority = 0;
+            _gameplayCamera.Priority = 3;
         }
 
         public void ShakeCamera(float time)
@@ -66,24 +68,22 @@ namespace _Project.Scripts.Common
 
         public void ToggleDistance(bool isChanged)
         {
-            _aimingCamera.gameObject.SetActive(isChanged);
+            _aimingCamera.Priority = isChanged ? 2 : 0;
         }
 
         [Sub]
         private void OnEnableDeathCamera(PlayerDeath reference)
         {
+            _deathCamera.Priority = 3;
             _cineMachineBrain.m_DefaultBlend.m_Time = 1.0f;
             Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = false});
             _inputProviders.ForEach(x => x.enabled = false);
-            _playerCamera.gameObject.SetActive(false);
-            _aimingCamera.gameObject.SetActive(false);
         }
 
         [Sub]
         private void OnRevivePlayer(PlayerDeploy reference)
         {
-            _gameplayCamera.gameObject.SetActive(false);
-            _playerCamera.gameObject.SetActive(true);
+            _gameplayCamera.Priority = 0;
         }
         
         private IEnumerator LerpCamera()

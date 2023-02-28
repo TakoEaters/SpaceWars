@@ -16166,9 +16166,7 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1579074372}
-    m_RemovedComponents:
-    - {fileID: 8164426968657353227, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
-    - {fileID: 7017592613807508521, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29c0eeca44fa39a4ebb1745a182fba72, type: 3}
 --- !u!1001 &1242305568
 PrefabInstance:

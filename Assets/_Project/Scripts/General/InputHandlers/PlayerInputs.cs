@@ -16,6 +16,7 @@ namespace _Project.Scripts.General.InputHandlers
         public bool IsRunning => _input.Player.Running.ReadValue<float>() > 0;
     
         private PlayerInput _input;
+        private bool _isFinishScreen;
 
         private void Awake()
         {
@@ -25,11 +26,13 @@ namespace _Project.Scripts.General.InputHandlers
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
+            _isFinishScreen = true;
             _input.Disable();
         }
 
         private void OnEnable()
         {
+            if (_isFinishScreen) return;
             _input.Enable();
         }
 

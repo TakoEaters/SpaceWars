@@ -23,6 +23,7 @@ namespace _Project.Scripts.Common
         private CinemachineBasicMultiChannelPerlin _cineMachineBasicMultiChannelPerlin;
         private float _startingIntensity;
         private float _shakeTimer;
+        private bool _isFinish;
         
         public void Register()
         {
@@ -34,14 +35,16 @@ namespace _Project.Scripts.Common
 
         public void EnableCameraInput()
         {
+            if (_isFinish) return;
             _cineMachineBrain.m_DefaultBlend.m_Time = 0.1f;
-            Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI {Enable = true});
+            Signal.Current.Fire<ToggleGameplayUI>(new ToggleGameplayUI { Enable = true });
             _inputProviders.ForEach(x => x.enabled = true);
         }
 
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
+            _isFinish = true;
             _inputProviders.ForEach(x => x.enabled = false);
         }
 

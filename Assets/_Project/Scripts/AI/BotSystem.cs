@@ -14,7 +14,7 @@ namespace _Project.Scripts.AI
         [SerializeField] private List<Bot> _bots = new List<Bot>();
 
         private bool _enablePerTime;
-        
+
         public void Register()
         {
             ServiceLocator.Current.Register<IBotSystem>(this);
@@ -47,7 +47,7 @@ namespace _Project.Scripts.AI
         [Sub]
         private void OnFinishLevel(FinishLevel reference)
         {
-            _bots.ForEach(x => x.DisableController());
+            _bots.ForEach(x => x.DisableAtFinish());
         }
 
         private void InitializeData(Bot bot, Team team)

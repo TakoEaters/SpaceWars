@@ -9,7 +9,6 @@ using _Project.Scripts.General.Spawners;
 using _Project.Scripts.General.Utils;
 using _Project.Scripts.Player.SkinChanger;
 using _Project.Scripts.Player.WeaponsSystem;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -28,6 +27,7 @@ namespace _Project.Scripts.AI
         private ISpawnerSystem _spawnerSystem;
         private NavMeshAgent _agent;
         private bool _isDisabled = true;
+        private bool _isFinish;
 
         protected void FindServices()
         {
@@ -40,6 +40,7 @@ namespace _Project.Scripts.AI
         // ReSharper disable Unity.PerformanceAnalysis
         public void EnableController()
         {
+            if (_isFinish) return;
             _isDisabled = false;
             Scanner.StartScanning(OnDetectEnemy, DamageableLayer, _configs.Team);
             States.Enable();
@@ -48,12 +49,19 @@ namespace _Project.Scripts.AI
         // ReSharper disable Unity.PerformanceAnalysis
         public void UpdateBotData()
         {
+            if (_isFinish) return;
             Collider.enabled = true;
             transform.position = _spawnerSystem.GetRandomSpawner(_configs.Team).SpawnPosition;
             Animator.Rebind();
             InitializeHealth();
             InitializeWeapon();
             SkinsChanger.EnableMesh();
+        }
+
+        public void DisableAtFinish()
+        {
+            _isFinish = true;
+            DisableController();
         }
 
         public void DisableController()

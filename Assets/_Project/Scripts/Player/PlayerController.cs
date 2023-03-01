@@ -169,7 +169,7 @@ namespace _Project.Scripts.Player
         
         public override int Count { get; protected set; }
         public override int Remaining { get; protected set; }
-        public override Action<float> IsReloading { get; protected set; }
+        public override Action<float> IsReloading { get; set; }
 
         private List<WeaponView> _views;
         private WeaponEntity _weaponEntity;

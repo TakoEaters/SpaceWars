@@ -40,7 +40,6 @@ namespace _Project.Scripts.AI
         private void Update()
         {
             OnAttack();
-            UpdateOverheat();
             UpdateAnimator();
             UpdateStates();
         }

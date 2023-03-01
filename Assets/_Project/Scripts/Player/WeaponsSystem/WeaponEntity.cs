@@ -10,10 +10,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [Range(0, 5)] public int ID;
         public string Name;
         public string Description;
-        [Range(1.0f, 100.0f)] public float MaxOverheat;
-        [Range(1.0f, 50.0f)] public float CoolingPerSecond;
         [Range(0.01f, 2.0f)] public float FireRate;
-        [Range(1.0f, 20.0f)] public float OverheatAdditive = 1.25f;
         [Range(10, 100)] public int Damage;
 
         public int WeaponPrice;
@@ -26,17 +23,16 @@ namespace _Project.Scripts.Player.WeaponsSystem
         
         public int InitialDamage; 
         public int AdditiveDamage;
-        
-        public float InitialOverheat; 
-        public float AdditiveOverheat;
-        
+
         public float InitialFireRate; 
         public float AdditiveFireRate;
 
         [Header("Ammo")] 
         public int MagazineAmmo;
         public int TotalAmmo;
-        public float ReloadingDuration;
+        public float InitialReloadingDuration;
+        [HideInInspector] public float ReloadingDuration;
+        public float ReloadingAdditive;
 
         private readonly int _maxLevel = 10;
 
@@ -46,7 +42,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             UpgradePrice = InitialUpgradePrice + (AdditiveUpgradePrice * (Level - 1));
             Damage = InitialDamage + (AdditiveDamage * (Level - 1));
             FireRate = (float)Math.Round(InitialFireRate - (AdditiveFireRate * (Level - 1)), 2);
-            OverheatAdditive = (float)Math.Round(InitialOverheat - (AdditiveOverheat * (Level - 1)), 2);
+            ReloadingDuration = (float)Math.Round(InitialReloadingDuration - (ReloadingAdditive * (Level - 1)), 2);
         }
 
         public void Upgrade()

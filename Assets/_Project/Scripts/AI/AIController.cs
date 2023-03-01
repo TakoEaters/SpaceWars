@@ -9,6 +9,7 @@ using _Project.Scripts.General.Spawners;
 using _Project.Scripts.General.Utils;
 using _Project.Scripts.Player.SkinChanger;
 using _Project.Scripts.Player.WeaponsSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -89,9 +90,8 @@ namespace _Project.Scripts.AI
         private WeaponView _currentWeapon;
 
         private float _lastShootingTime;
-        private float _lastCoolingTime;
-        private float _overheat;
-        private bool _isOverheat;
+        private int _ammoCount;
+        private bool _isReloading;
         private bool _isShooting;
 
         private void InitializeWeapon()
@@ -100,6 +100,7 @@ namespace _Project.Scripts.AI
             _currentWeapon = _views[_weaponEntity.ID];
             _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage);
             _currentWeapon.Enable();
+            _ammoCount = _weaponEntity.MagazineAmmo;
         }
 
         private void OnDetectEnemy(IDamageable target)
@@ -125,37 +126,29 @@ namespace _Project.Scripts.AI
                 if (_isDisabled) return;
                 States.MoveRandom();
             }
-            
             if (_currentTarget is { IsAlive: true })
             {
-                if (!_isOverheat)
+                if (!_isReloading)
                 {
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
                     {
                         _isShooting = true;
                         _currentWeapon.ShootProjectile(_currentTarget);
-                        _overheat = Mathf.Clamp(_overheat + _weaponEntity.OverheatAdditive, 0f, 100f);
                         _lastShootingTime = Time.time;
+                        _ammoCount--;
+                        if (_ammoCount <= 0) OnReload();
                     }
                 }
             }
         }
-        
-        protected void UpdateOverheat()
-        {
-            if (_isDisabled) return;
-            if (Time.time - _lastCoolingTime > 0.1f && Time.time - _lastShootingTime > _weaponEntity.FireRate + .1f)
-            {
-                _overheat = Mathf.Clamp(_overheat - _weaponEntity.CoolingPerSecond * .1f, 0f, 100f);
-                _lastCoolingTime = Time.time;
-            }
 
-            if (_overheat >= 99) _isOverheat = true;
-            else if (_overheat < _weaponEntity.MaxOverheat) _isOverheat = false;
-            if (_isOverheat)
+        private void OnReload()
+        {
+            _isReloading = true;
+            StartCoroutine(WaitUtils.WaitWithDelay(() =>
             {
-              //  OnOverheat();
-            }
+                _ammoCount = _weaponEntity.MagazineAmmo;
+            }, _weaponEntity.ReloadingDuration));
         }
 
         #endregion

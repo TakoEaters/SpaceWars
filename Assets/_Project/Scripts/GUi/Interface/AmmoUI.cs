@@ -2,6 +2,7 @@ using System;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
+using DG.Tweening;
 using Template.Scripts.General;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace _Project.Scripts.GUi.Interface
         [SerializeField] private TextMeshProUGUI _ammoText;
 
         private IAmmo _ammo;
+        private bool _isReloading;
         
         public void Register()
         {
@@ -24,10 +26,22 @@ namespace _Project.Scripts.GUi.Interface
         {
             if (ammoDisposer != null && _ammo == ammoDisposer) return;
             _ammo = ammoDisposer;
+            if (_ammo != null) _ammo.IsReloading = OnReload;
+        }
+
+        private void OnReload(float duration)
+        {
+            _isReloading = true;
+            _ammoText.text = "RELOADING...";
+            _ammoText.DOFade(0.85f, duration).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
+            {
+                _isReloading = false;
+            });
         }
 
         private void LateUpdate()
         {
+            if (_isReloading) return;
             _ammoText.text = _ammo.Count + "/" + _ammo.Remaining;
         }
 
@@ -55,6 +69,6 @@ namespace _Project.Scripts.GUi.Interface
     {
         public int Count { get; }
         public int Remaining { get; }
-        public Action<float> IsReloading { get; }
+        public Action<float> IsReloading { get; set; }
     }
 }

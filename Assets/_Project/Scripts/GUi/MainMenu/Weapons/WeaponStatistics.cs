@@ -10,7 +10,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
     {
         [SerializeField] private TextMeshProUGUI _damageText;
         [SerializeField] private TextMeshProUGUI _fireRateText;
-        [SerializeField] private TextMeshProUGUI _overheatingText;
+        [SerializeField] private TextMeshProUGUI _reloadingText;
         [SerializeField] private TextMeshProUGUI _weaponLevel;
         [SerializeField] private Slider _upgradeSlider;
         [SerializeField] private List<float> _values = new List<float>();
@@ -20,7 +20,7 @@ namespace _Project.Scripts.GUi.MainMenu.Weapons
         {
             _damageText.text = entity.Damage.ToString();
             _fireRateText.text = entity.FireRate + "s";
-            _overheatingText.text = entity.OverheatAdditive + "s";
+            _reloadingText.text = entity.ReloadingDuration + "s";
             int level = Mathf.Clamp(entity.Level - 1, 0, _values.Count - 1);
             _upgradeSlider.value = _values[level];
             _weaponLevel.text = "LV <size=50>" + entity.Level;

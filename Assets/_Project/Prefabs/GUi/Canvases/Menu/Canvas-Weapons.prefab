@@ -640,7 +640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Overheat
+  m_text: Reloading
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38aecd77a18d544bfb836befe83883b7, type: 2}
   m_sharedMaterial: {fileID: 6434564289584660316, guid: 38aecd77a18d544bfb836befe83883b7, type: 2}
@@ -2323,7 +2323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageText: {fileID: 6313799917606415769}
   _fireRateText: {fileID: 1804805158306684031}
-  _overheatingText: {fileID: 5538457285198067219}
+  _reloadingText: {fileID: 5538457285198067219}
   _weaponLevel: {fileID: 3726283696570416547}
   _upgradeSlider: {fileID: 348827590418370580}
   _values:

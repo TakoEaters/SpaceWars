@@ -24,7 +24,7 @@ namespace _Project.Scripts.Player
         
         public abstract int Count { get; protected set; }
         public abstract int Remaining { get; protected set; }
-        public abstract Action<float> IsReloading { get; protected set; }
+        public abstract Action<float> IsReloading { get; set; }
 
         protected IHealthViewer HealthViewer;
         protected int Health;

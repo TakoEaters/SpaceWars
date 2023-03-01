@@ -70,6 +70,8 @@ namespace _Project.Scripts.Player
         [SerializeField] private bool _blockRotationPlayer;
         [SerializeField] private float _allowPlayerRotation = 0.1f;
         [SerializeField] private float _verticalVel = -0.5f;
+        [SerializeField] private float _groundedOffset = 0.1f;
+        [SerializeField] private LayerMask _groundLayer;
         
         private Vector3 _movementVector;
         private Vector3 _desiredMoveDirection;
@@ -88,8 +90,24 @@ namespace _Project.Scripts.Player
 	        if (_isGrounded) _verticalVel -= 0;
 	        else _verticalVel -= 1;
 
+	        if (Inputs.JumpingPressed)
+	        {
+		        GroundedCheck();
+		        if (_isGrounded == false) return;
+		        _verticalVel = _configs.JumpSpeed;
+		        PlayerAnimator.SetTrigger(AnimationHash.Jumping);
+	        }
+	        
 	        _movementVector = new Vector3(0, _verticalVel * .2f * Time.deltaTime, 0);
 	        Controller.Move(_movementVector);
+        }
+        
+        
+        private void GroundedCheck()
+        {
+	        // set sphere position, with offset
+	        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - _groundedOffset, transform.position.z);
+	        _isGrounded = Physics.CheckSphere(spherePosition, 0.2f, _groundLayer, QueryTriggerInteraction.Ignore);
         }
         
         private void PlayerMoveAndRotation()

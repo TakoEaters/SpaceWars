@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ColorIt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/AmmoUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/GUi/Interface/AmmoUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomAssets/Jammo-Character/Materials/m_ground.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomAssets/Jammo-Character/Materials/m_ground.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/HighPreset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/HighPreset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Template/Scripts/InputManager/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scenes/SandPlanet.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/InputHandlers/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/InputHandlers/PlayerInputs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/AnimationHash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/General/Utils/AnimationHash.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/WeaponsSystem/WeaponEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +191,7 @@
       <workItem from="1677524829367" duration="3826000" />
       <workItem from="1677571553029" duration="2468000" />
       <workItem from="1677578999188" duration="2579000" />
-      <workItem from="1677665108373" duration="1012000" />
+      <workItem from="1677665108373" duration="4149000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

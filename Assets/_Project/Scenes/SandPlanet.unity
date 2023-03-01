@@ -26722,6 +26722,7 @@ MonoBehaviour:
     Team: 0
     Velocity: 4.5
     RunningVelocity: 7
+    JumpSpeed: 20
     Health: 100
     HealthRestorationDelay: 0.5
     HealthRestorationAmount: 1
@@ -26733,6 +26734,10 @@ MonoBehaviour:
   _blockRotationPlayer: 0
   _allowPlayerRotation: 0.1
   _verticalVel: -0.5
+  _groundedOffset: 0.1
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!208 &1925399005
 NavMeshObstacle:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ namespace _Project.Scripts.General.Utils
     {
         public static readonly string Shooting = "shooting";
         public static readonly string Running = "IsRunning";
+        public static readonly string Jumping = "IsJumping";
         public static readonly string Hit = "Hit";
         public static readonly string Blend = "Blend";
         public static readonly string Y = "Y";

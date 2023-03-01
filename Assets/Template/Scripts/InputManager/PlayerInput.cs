@@ -80,6 +80,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""IsJumping"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8f8bba3-f32f-4703-ad66-546ff4eb56a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Reloading"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0576ff6-d5a9-4bc4-8f93-ef090cb9aada"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IsJumping"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -283,6 +303,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Aiming = m_Player.FindAction("Aiming", throwIfNotFound: true);
         m_Player_Running = m_Player.FindAction("Running", throwIfNotFound: true);
         m_Player_Reloading = m_Player.FindAction("Reloading", throwIfNotFound: true);
+        m_Player_IsJumping = m_Player.FindAction("IsJumping", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,6 +369,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Aiming;
     private readonly InputAction m_Player_Running;
     private readonly InputAction m_Player_Reloading;
+    private readonly InputAction m_Player_IsJumping;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -358,6 +380,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Aiming => m_Wrapper.m_Player_Aiming;
         public InputAction @Running => m_Wrapper.m_Player_Running;
         public InputAction @Reloading => m_Wrapper.m_Player_Reloading;
+        public InputAction @IsJumping => m_Wrapper.m_Player_IsJumping;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +408,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Reloading.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReloading;
                 @Reloading.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReloading;
                 @Reloading.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReloading;
+                @IsJumping.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIsJumping;
+                @IsJumping.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIsJumping;
+                @IsJumping.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnIsJumping;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -407,6 +433,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Reloading.started += instance.OnReloading;
                 @Reloading.performed += instance.OnReloading;
                 @Reloading.canceled += instance.OnReloading;
+                @IsJumping.started += instance.OnIsJumping;
+                @IsJumping.performed += instance.OnIsJumping;
+                @IsJumping.canceled += instance.OnIsJumping;
             }
         }
     }
@@ -419,5 +448,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnAiming(InputAction.CallbackContext context);
         void OnRunning(InputAction.CallbackContext context);
         void OnReloading(InputAction.CallbackContext context);
+        void OnIsJumping(InputAction.CallbackContext context);
     }
 }

@@ -54,6 +54,7 @@ namespace _Project.Scripts.Player
         public Team Team;
         [Range(1.0f, 5.0f)] public float Velocity = 3.5f;
         [Range(1.0f, 7.0f)] public float RunningVelocity = 4.5f;
+        [Range(10.0f, 30.0f)] public float JumpSpeed = 15.0f;
 
         public int Health;
         public float HealthRestorationDelay;

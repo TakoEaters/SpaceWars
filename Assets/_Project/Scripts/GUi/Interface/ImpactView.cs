@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
@@ -16,7 +17,6 @@ namespace _Project.Scripts.GUi.Interface
         [SerializeField] private TextMeshProUGUI _enemyDamageText;
         [SerializeField] private TextMeshProUGUI _killTargetText;
         [SerializeField] private TextMeshProUGUI _headshotText;
-        [SerializeField] private TextMeshProUGUI _multipleText;
         [SerializeField, Range(1.0f, 5.0f)] private float _viewDelay = 3.0f;
         [SerializeField, Range(1.0f, 15.0f)] private float _lerpSpeed = 3.0f;
 
@@ -58,15 +58,19 @@ namespace _Project.Scripts.GUi.Interface
         {
             _tween.Kill();
             _headShotTween.Kill();
-            string color = reference.Team == Team.Blue ? "blue" : "red";
-            _killTargetText.text = "KILLED <color=" + color + ">" + reference.Name + "</color>";
+            string multiplier = reference.Multiplier > 0 ? " x" + (reference.Multiplier + 1) : String.Empty;
+            _killTargetText.text = "KILLED <color=red>" + reference.Name + multiplier + "</color>";
             _tween = _killTargetText.transform.DOScale(1f, 0.35f);
 
             if (reference.Headshot)
             {
-                _headshotText.color = Color.white;
-                _headShotTween = _headshotText.transform.DOScale(1f, 0.35f);
-                _headshotText.DOColor(_headShotColor, 0.35f);
+                _headShotTween = _headshotText.transform.DOScale(1f, 0.35f).OnComplete(() =>
+                {
+                    _headshotText.DOColor(_headShotColor, 0.35f).OnComplete(() =>
+                    {
+                        _headshotText.DOColor(Color.white, 0.35f);
+                    });
+                });
             }
             
             StartCoroutine(WaitUtils.WaitWithDelay(() =>
@@ -100,6 +104,7 @@ namespace _Project.Scripts.GUi.Interface
     {
         public string Name;
         public Team Team;
+        public int Multiplier;
         public bool Headshot;
     }
 }

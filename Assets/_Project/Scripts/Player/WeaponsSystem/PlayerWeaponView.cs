@@ -14,10 +14,12 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [SerializeField] private ETFXProjectileScript _projectile;
 
         private Team _weaponTeam;
+        private int _multiKill;
         private string _nickName;
 
         public override void InitializeData(Team preferredTeam, int damage, string nickname)
         {
+            _multiKill = 0;
             _weaponTeam = preferredTeam;
             MainCamera = Camera.main;
             Damage = damage;
@@ -43,10 +45,14 @@ namespace _Project.Scripts.Player.WeaponsSystem
         {
             
         }
-
         private void OnKillTarget(string nickname, Team team)
         {
-            Signal.Current.Fire<OnKillTarget>(new OnKillTarget {Name = nickname, Team = team});
+            int random = (int)Random.Range(0, 2);
+            Signal.Current.Fire<OnKillTarget>(new OnKillTarget
+            {
+                Name = nickname, Team = team, Headshot = random == 1, Multiplier =  _multiKill
+            });
+            _multiKill++;
         }
 
         private Vector3 Position()

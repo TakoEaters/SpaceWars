@@ -18,12 +18,18 @@ namespace _Project.Scripts.GUi.Interface
         [SerializeField] private Button _onDoubleClaimButton;
         [SerializeField] private TextMeshProUGUI _coinsRewardAmount;
         [SerializeField] private TextMeshProUGUI _bulletsRewardAmount;
+        [SerializeField] private TextMeshProUGUI _kills;
+        [SerializeField] private TextMeshProUGUI _multiKills;
+        [SerializeField] private TextMeshProUGUI _headshots;
 
         private readonly int _delay = 3;
         
         private int _countDelay = 3;
         private int _totalCoinsAmount;
         private int _totalBulletsAmount;
+        private int _totalKills;
+        private int _totalMultiKills;
+        private int _totalHeadshots;
 
         private void Awake()
         {
@@ -34,8 +40,12 @@ namespace _Project.Scripts.GUi.Interface
         public void Enable(int additiveAmount, int bulletAdditive)
         {
             gameObject.SetActive(true);
-            _totalCoinsAmount = ServiceLocator.Current.Get<IPlayerSystem>().PlayerReward + additiveAmount;
-            _totalBulletsAmount = ServiceLocator.Current.Get<IPlayerSystem>().BulletReward + bulletAdditive;
+            var playerSystem = ServiceLocator.Current.Get<IPlayerSystem>();
+            _totalKills = playerSystem.TotalKills;
+            _totalHeadshots = playerSystem.TotalHeadshots;
+            _totalMultiKills = playerSystem.TotalMultiKills;
+            _totalCoinsAmount = playerSystem.PlayerReward + additiveAmount;
+            _totalBulletsAmount = playerSystem.BulletReward + bulletAdditive;
             StartCoroutine(Count());
         }
 
@@ -51,8 +61,14 @@ namespace _Project.Scripts.GUi.Interface
                 _countDelay++;
                 int value = (int)Mathf.Lerp(initial, _totalCoinsAmount, elapsedTime / duration);
                 int bulletValue = (int)Mathf.Lerp(initial, _totalBulletsAmount, elapsedTime / duration);
+                int killsValue = (int)Mathf.Lerp(initial, _totalKills, elapsedTime / duration);
+                int multiKillsValue = (int)Mathf.Lerp(initial, _totalMultiKills, elapsedTime / duration);
+                int headShotsValue = (int)Mathf.Lerp(initial, _totalHeadshots, elapsedTime / duration);
                 _coinsRewardAmount.text = value.ToString();
                 _bulletsRewardAmount.text = bulletValue.ToString();
+                _kills.text = "KILLS - " + killsValue;
+                _multiKills.text = "MULTIKILLS - " + multiKillsValue;
+                _headshots.text = "HEADSHOTS - " + headShotsValue;
                 if (_countDelay >= _delay) ServiceLocator.Current.Get<IFXEmitter>().PlayCountSound();
                 else _countDelay = 0;
                 elapsedTime += Time.deltaTime;
@@ -61,6 +77,9 @@ namespace _Project.Scripts.GUi.Interface
             
             _coinsRewardAmount.text = _totalCoinsAmount.ToString();
             _bulletsRewardAmount.text = _totalBulletsAmount.ToString();
+            _kills.text = "KILLS - " + _totalKills;
+            _headshots.text = "HEADSHOTS - " + _totalHeadshots;
+            _multiKills.text = "MULTIKILLS - " + _totalMultiKills;
         }
         
         private void OnClaim()

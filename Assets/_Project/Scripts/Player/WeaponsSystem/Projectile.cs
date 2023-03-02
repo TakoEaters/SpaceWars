@@ -8,6 +8,7 @@ using _Project.Scripts.GUi.Gameplay;
 using _Project.Scripts.GUi.Interface;
 using Template.Scripts.Pool;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Player.WeaponsSystem
 {

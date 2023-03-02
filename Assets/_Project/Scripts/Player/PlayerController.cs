@@ -21,7 +21,7 @@ namespace _Project.Scripts.Player
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputs))]
     public class PlayerController : Character
     {
-	    [SerializeField] private CorePoolAudio _overHeatClip;
+	    [SerializeField] private CorePoolAudio _reloadingClip;
 	    
         protected CharacterController Controller;
         protected PlayerInputs Inputs;
@@ -192,7 +192,7 @@ namespace _Project.Scripts.Player
         private List<WeaponView> _views;
         private WeaponEntity _weaponEntity;
         private WeaponView _currentWeapon;
-        private string _nick = "Player";
+        private readonly string _nick = "Player";
         private float _lastShootingTime;
         private bool _isReloading;
 

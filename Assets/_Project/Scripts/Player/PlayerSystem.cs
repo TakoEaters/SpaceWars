@@ -13,9 +13,14 @@ namespace _Project.Scripts.Player
         [SerializeField, Range(10, 50)] private int _playerRewardPerEnemy = 25;
         [SerializeField, Range(2, 15)] private int _bulletRewardPerEnemy = 10;
         [SerializeField] private Player _player;
-        
+
+        public int TotalKills { get; protected set;}
+        public int TotalMultiKills { get; protected set; }
+        public int TotalHeadshots { get; protected set;}
         public int PlayerReward { get; protected set; }
         public int BulletReward { get; protected set; }
+
+        private bool _isReboot = true;
 
         public void Register()
         {
@@ -47,19 +52,30 @@ namespace _Project.Scripts.Player
         [Sub]
         private void OnKillEnemy(OnKillTarget reference)
         {
+            TotalKills += 1;
+            if (reference.Headshot) TotalHeadshots += 1;
             PlayerReward += _playerRewardPerEnemy;
             BulletReward += _bulletRewardPerEnemy;
+            if (_isReboot)
+            {
+                TotalMultiKills += 1;
+                _isReboot = false;
+            }
         }
 
         [Sub]
         private void OnPlayerDeath(PlayerDeath reference)
         {
+            _isReboot = true;
             DisablePlayer();
         }
     }
 
     public interface IPlayerSystem : IGameService
     {
+        public int TotalKills { get; }
+        public int TotalMultiKills { get; }
+        public int TotalHeadshots { get; }
         public int PlayerReward { get; }
         public int BulletReward { get; }
         public void InitializeSystem();

@@ -216,7 +216,6 @@ namespace _Project.Scripts.Player
 	        if (Inputs.IsReloadingPressed) OnReload();
 	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
 	        _blockRotationPlayer = Inputs.IsShooting;
-
 	        if (Inputs.IsShooting)
             {
                 RotateToCamera(transform);
@@ -261,6 +260,7 @@ namespace _Project.Scripts.Player
 	        _isReloading = true;
 	        IsReloading?.Invoke(_weaponEntity.ReloadingDuration);
 	        CorePool.Current.Get(_reloadingClip).Play();
+	        PlayerAnimator.SetTrigger(AnimationHash.Reloading);
 	        StartCoroutine(WaitUtils.WaitWithDelay(() =>
 	        {
 		        if (Count > 0)

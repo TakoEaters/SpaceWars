@@ -11,6 +11,7 @@ using _Project.Scripts.General.Spawners;
 using _Project.Scripts.General.Utils;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
+using _Project.Scripts.Player.SkinChanger;
 using _Project.Scripts.Player.WeaponsSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -23,10 +24,11 @@ namespace _Project.Scripts.Player
 	    [SerializeField] private CorePoolAudio _reloadingClip;
 	    
         protected CharacterController Controller;
+        protected SkinsChanger Changer;
         protected PlayerInputs Inputs;
         protected Animator PlayerAnimator;
         protected Camera Camera;
-
+        
         private ISpawnerSystem _spawnerSystem;
         private bool _isDisabled = true;
 
@@ -58,6 +60,7 @@ namespace _Project.Scripts.Player
         public void DisableController()
         {
 	        _isDisabled = true;
+	        Changer.ToggleTransparency(false);
         }
 
         #region MOVEMENT
@@ -212,13 +215,15 @@ namespace _Project.Scripts.Player
         protected void UpdateWeapon()
         {
 	        if (_isDisabled) return;
+	        if (Inputs.IsShooting | Inputs.IsAiming) RotateToCamera(transform);
 	        if (_isReloading) return;
 	        if (Inputs.IsReloadingPressed) OnReload();
-	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting);
-	        _blockRotationPlayer = Inputs.IsShooting;
+	        PlayerAnimator.SetBool(AnimationHash.Shooting, Inputs.IsShooting | Inputs.IsAiming);
+	        _blockRotationPlayer = Inputs.IsShooting | Inputs.IsAiming;
+
+
 	        if (Inputs.IsShooting)
             {
-                RotateToCamera(transform);
                 if (Count > 0)
                 {
                     if (Time.time - _lastShootingTime >= _weaponEntity.FireRate)
@@ -241,11 +246,13 @@ namespace _Project.Scripts.Player
 
 	        if (Inputs.IsAimingPressed)
 	        {
+		        Changer.ToggleTransparency(true);
 		        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(true);
 	        }
 	        
 	        else if (Inputs.IsAimingReleased)
 	        {
+		        Changer.ToggleTransparency(false);
 		        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(false);
 	        }
         }

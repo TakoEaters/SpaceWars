@@ -11,7 +11,8 @@ namespace _Project.Scripts.Player
     {
         public void Initialize()
         {
-            GetComponentInChildren<SkinsChanger>().SetSkin();
+            Changer = GetComponentInChildren<SkinsChanger>();
+            Changer.SetSkin();
             FindServices();
             PlayerAnimator = GetComponent<Animator>();
             Controller = GetComponent<CharacterController>();

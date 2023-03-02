@@ -13,6 +13,7 @@ namespace _Project.Scripts.General.InputHandlers
         public bool IsAimingReleased => _input.Player.Aiming.WasReleasedThisFrame();
         public bool JumpingPressed => _input.Player.IsJumping.WasPressedThisFrame();
         public bool IsShooting => _input.Player.Shooting.ReadValue<float>() > 0;
+        public bool IsAiming => _input.Player.Aiming.ReadValue<float>() > 0;
         public bool IsRunning => _input.Player.Running.ReadValue<float>() > 0;
     
         private PlayerInput _input;

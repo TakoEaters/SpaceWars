@@ -72,6 +72,7 @@ namespace _Project.Scripts.GUi.Gameplay
         // ReSharper disable Unity.PerformanceAnalysis
         private void OpenSettings()
         {
+            ServiceLocator.Current.Get<ILeaderboardView>().Disable();
             ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
             ServiceLocator.Current.Get<IPlayerInputs>().DisableInputs();
             ServiceLocator.Current.Get<ICameraManager>().DisableCameraInput();
@@ -100,6 +101,7 @@ namespace _Project.Scripts.GUi.Gameplay
         // ReSharper disable Unity.PerformanceAnalysis
         private void CloseSettings()
         {
+            ServiceLocator.Current.Get<ILeaderboardView>().Enable();
             _popUp.Disable();
             ServiceLocator.Current.Get<IFXEmitter>().PlayButtonSound();
             ServiceLocator.Current.Get<IPlayerInputs>().EnableInputs();

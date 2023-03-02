@@ -4,7 +4,6 @@ using _Project.Scripts.Common;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Project.Scripts.AI
@@ -12,7 +11,7 @@ namespace _Project.Scripts.AI
     public class BotSystem : MonoBehaviour, IBotSystem
     {
         [SerializeField] private List<Bot> _bots = new List<Bot>();
-
+        
         private bool _enablePerTime;
 
         public void Register()
@@ -27,6 +26,7 @@ namespace _Project.Scripts.AI
                 if (team == friendlyTeam)
                 {
                     for (int i = 0; i < _bots.Count / 2; i++) InitializeData(_bots[i], team);
+                    
                 }
 
                 else

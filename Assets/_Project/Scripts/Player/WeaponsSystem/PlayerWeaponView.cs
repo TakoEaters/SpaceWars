@@ -14,12 +14,14 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [SerializeField] private ETFXProjectileScript _projectile;
 
         private Team _weaponTeam;
+        private string _nickName;
 
-        public override void InitializeData(Team preferredTeam, int damage)
+        public override void InitializeData(Team preferredTeam, int damage, string nickname)
         {
             _weaponTeam = preferredTeam;
             MainCamera = Camera.main;
             Damage = damage;
+            _nickName = nickname;
         }
 
         private void Update()
@@ -33,7 +35,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             ETFXProjectileScript projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
             projectile.OnKillTarget(OnKillTarget, () => Signal.Current.Fire<OnTakeDamageAtEnemy>(new OnTakeDamageAtEnemy {Damage = Damage}));
             projectile.transform.LookAt(Position());
-            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam, Damage);
+            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam, Damage, _nickName);
             projectile.Rigidbody.AddForce(projectile.transform.forward * _bulletSpeed); 
         }
 

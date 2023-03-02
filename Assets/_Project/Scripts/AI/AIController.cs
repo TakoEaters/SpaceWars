@@ -107,7 +107,7 @@ namespace _Project.Scripts.AI
         {
             _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().RandomWeapon;
             _currentWeapon = _views[_weaponEntity.ID];
-            _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage);
+            _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage, Nickname);
             _currentWeapon.Enable();
             _ammoCount = _weaponEntity.MagazineAmmo;
         }

@@ -14,10 +14,12 @@ namespace _Project.Scripts.Player.WeaponsSystem
         [SerializeField] private GameObject _projectile;
         
         private Team _weaponTeam;
+        private string _nickName;
         private int _damage;
         
-        public override void InitializeData(Team preferredTeam, int damage)
+        public override void InitializeData(Team preferredTeam, int damage, string nick)
         {
+            _nickName = nick;
             _damage = damage;
             _weaponTeam = preferredTeam;
             MainCamera = Camera.main;
@@ -31,7 +33,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
         {
             GameObject projectile = Instantiate(_projectile, Nozzle.position, Quaternion.identity); //Spawns the selected projectile
             projectile.transform.LookAt(damageable.Position.AddY(0.75f));
-            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam, _damage);
+            projectile.GetComponent<Projectile>().InitializeProjectileData(_weaponTeam, _damage, _nickName);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _bulletSpeed); //Set the speed of the projectile by applying force to the rigidbody   
         }
     }

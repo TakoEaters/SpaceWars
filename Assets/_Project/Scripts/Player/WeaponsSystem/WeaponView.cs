@@ -22,7 +22,7 @@ namespace _Project.Scripts.Player.WeaponsSystem
             LookAtPoint = FindObjectOfType<LookAtPoint>();
         }
 
-        public abstract void InitializeData(Team preferredTeam, int damage);
+        public abstract void InitializeData(Team preferredTeam, int damage, string nick);
         public abstract void ShootProjectile();
         public abstract void ShootProjectile(IDamageable damageable);
     }

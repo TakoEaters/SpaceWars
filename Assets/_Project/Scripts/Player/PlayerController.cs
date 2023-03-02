@@ -192,6 +192,7 @@ namespace _Project.Scripts.Player
         private List<WeaponView> _views;
         private WeaponEntity _weaponEntity;
         private WeaponView _currentWeapon;
+        private string _nick = "Player";
         private float _lastShootingTime;
         private bool _isReloading;
 
@@ -201,7 +202,7 @@ namespace _Project.Scripts.Player
 	        ServiceLocator.Current.Get<ICameraManager>().ToggleDistance(false);
             _weaponEntity = ServiceLocator.Current.Get<IWeaponHandler>().CurrentWeapon;
             _currentWeapon = _views[_weaponEntity.ID];
-            _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage);
+            _currentWeapon.InitializeData(_configs.Team, _weaponEntity.Damage, _nick);
             _currentWeapon.Enable();
             Count = _weaponEntity.MagazineAmmo;
             Remaining = _weaponEntity.TotalAmmo - Count;

@@ -1,6 +1,8 @@
+using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.General.DamageableCore;
 using _Project.Scripts.General.Signals;
 using _Project.Scripts.General.Utils;
+using _Project.Scripts.GUi.Gameplay;
 using _Project.Scripts.Player.SkinChanger;
 using UnityEngine;
 
@@ -27,6 +29,7 @@ namespace _Project.Scripts.AI
             FindServices();
             _viewer.Initialize(team);
             Nickname = _viewer.Nick;
+            ServiceLocator.Current.Get<ILeaderboardView>().AddView(team, Nickname);
         }
 
         private void OnAIRevive()

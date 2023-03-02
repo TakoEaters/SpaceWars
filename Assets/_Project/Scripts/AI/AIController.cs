@@ -114,11 +114,6 @@ namespace _Project.Scripts.AI
         private void OnDetectEnemy(IDamageable target)
         {
             if (target == null) return;
-            
-            if (_currentTarget != null && _currentTarget == target)
-            {
-                return;
-            }
             _currentTarget = target;
             States.SetTarget(target.Position);
         }
@@ -128,7 +123,7 @@ namespace _Project.Scripts.AI
         {
             if (_isDisabled) return;
             _isShooting = false;
-            if (_currentTarget != null && _currentTarget.IsAlive == false)
+            if (_currentTarget is { IsAlive: false })
             {
                 _currentTarget = null;
                 if (_isDisabled) return;

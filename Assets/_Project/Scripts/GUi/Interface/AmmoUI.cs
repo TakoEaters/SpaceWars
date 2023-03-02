@@ -2,6 +2,7 @@ using System;
 using _Project.Scripts.Core.LocatorServices;
 using _Project.Scripts.Core.SignalBus;
 using _Project.Scripts.General.Signals;
+using _Project.Scripts.General.Utils;
 using DG.Tweening;
 using Template.Scripts.General;
 using TMPro;
@@ -33,13 +34,13 @@ namespace _Project.Scripts.GUi.Interface
         {
             _isReloading = true;
             _ammoText.text = "RELOADING...";
-            _ammoText.DOFade(0.85f, duration).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
+            StartCoroutine(WaitUtils.WaitWithDelay(() =>
             {
                 _isReloading = false;
-            });
+            }, duration));
         }
 
-        private void LateUpdate()
+        private void Update()
         {
             if (_isReloading) return;
             _ammoText.text = _ammo.Count + "/" + _ammo.Remaining;

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scanRange: 25
-  _delay: 1.5
+  _delay: 0.75
 --- !u!1 &2040552430429910741
 GameObject:
   m_ObjectHideFlags: 0

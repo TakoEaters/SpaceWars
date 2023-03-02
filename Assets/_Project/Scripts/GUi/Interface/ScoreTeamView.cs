@@ -14,12 +14,12 @@ namespace _Project.Scripts.GUi.Interface
         public Team TeamView => _team;
         
         private int _maxSessionScore;
-        
+
         public void SetMaxScore(int maxScoreValue)
         {
             _maxSessionScore = maxScoreValue;
-            _amount.text = _maxSessionScore + "  <#afd9e9>/ " + maxScoreValue;
-            _slider.value = (float)_maxSessionScore / maxScoreValue;
+            _amount.text = 0 + "  <#afd9e9>/ " + maxScoreValue;
+            _slider.value = (float)0 / maxScoreValue;
         }
 
         public void SetCurrentScore(int score)

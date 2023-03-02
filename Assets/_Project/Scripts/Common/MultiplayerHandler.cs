@@ -9,14 +9,12 @@ using _Project.Scripts.General.Signals;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player;
 using UnityEngine;
-using Random = UnityEngine.Random;
-
 namespace _Project.Scripts.Common
 {
     public class MultiplayerHandler : MonoBehaviour
     {
-        [SerializeField, Range(5, 25)] private int _removeScore = 15;
-        [SerializeField, Range(100, 1000)] private int _necessaryWinScore = 500;
+        [SerializeField, Range(1, 10)] private int _removeScore = 1;
+        [SerializeField, Range(25, 150)] private int _necessaryWinScore = 500;
         [SerializeField, Range(1, 10)] private int _totalSessionMinutes = 5;
         
         private readonly List<TeamScore> _teams = new List<TeamScore>();
@@ -48,16 +46,20 @@ namespace _Project.Scripts.Common
         [Sub]
         private void OnReceiveScore(ScoreChanger reference)
         {
-            TeamScore currentTeam = _teams.Find(x => x.Team == reference.Team);
+            Team necessaryTeam = reference.Team;
+            necessaryTeam = necessaryTeam == Team.Blue ? Team.Red : Team.Blue;
+            
+            
+            TeamScore currentTeam = _teams.Find(x => x.Team == necessaryTeam);
             if (currentTeam == null)
             {
-                currentTeam = new TeamScore(reference.Team, _necessaryWinScore);
+                currentTeam = new TeamScore(necessaryTeam);
                 _teams.Add(currentTeam);
             }
 
-            currentTeam.TotalAmount -= _removeScore;
+            currentTeam.TotalAmount += _removeScore;
             currentTeam.TotalAmount = Mathf.Clamp(currentTeam.TotalAmount, 0, _necessaryWinScore);
-            _score.SetTeamScore(currentTeam);
+            _score.SetTeamScore(necessaryTeam,  currentTeam.TotalAmount);
         }
 
         [Sub]
@@ -68,14 +70,14 @@ namespace _Project.Scripts.Common
 
         private bool IsAnyWinner()
         {
-            TeamScore winner = _teams.Find(x => x.TotalAmount <= 0);
+            TeamScore winner = _teams.Find(x => x.TotalAmount == _necessaryWinScore);
             return winner != null;
         }
 
         private void SendWinner()
         {
             TeamScore necessaryTeam = _teams.Find(x => x.Team == _playerTeam);
-            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = necessaryTeam.TotalAmount > 0});
+            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = necessaryTeam.TotalAmount == 100});
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -98,7 +100,7 @@ namespace _Project.Scripts.Common
 
             
             List<TeamScore> ordered = _teams.OrderBy(x => x.TotalAmount).ToList();
-            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = ordered.First().Team != _playerTeam});
+            Signal.Current.Fire<FinishLevel>(new FinishLevel {IsWin = ordered.First().Team == _playerTeam});
         }
     }
     

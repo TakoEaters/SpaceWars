@@ -43,10 +43,10 @@ namespace _Project.Scripts.GUi.Interface
             _scoreViews.ForEach(x => x.SetMaxScore(maxScore));
         }
 
-        public void SetTeamScore(TeamScore currentTeam)
+        public void SetTeamScore(Team necessaryTeam, int reward)
         {
-            ScoreTeamView currentView = _scoreViews.Find(x => x.TeamView == currentTeam.Team);
-            currentView.SetCurrentScore(currentTeam.TotalAmount);
+            ScoreTeamView currentView = _scoreViews.Find(x => x.TeamView == necessaryTeam);
+            currentView.SetCurrentScore(reward);
         }
     }
 
@@ -55,6 +55,6 @@ namespace _Project.Scripts.GUi.Interface
         public void EnableScoreView();
         public void SetCounterTime(int time);
         public void SetMaxScore(int maxScore);
-        public void SetTeamScore(TeamScore currentTeam);
+        public void SetTeamScore(Team necessaryTeam, int reward);
     }
 }

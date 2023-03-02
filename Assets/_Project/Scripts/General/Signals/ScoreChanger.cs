@@ -13,10 +13,9 @@ namespace _Project.Scripts.General.Signals
         public int TotalAmount;
         public Team Team;
 
-        public TeamScore(Team team, int amount)
+        public TeamScore(Team team)
         {
             Team = team;
-            TotalAmount = amount;
         }
     }
     

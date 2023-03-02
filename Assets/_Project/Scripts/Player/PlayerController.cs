@@ -334,6 +334,7 @@ namespace _Project.Scripts.Player
         {
 	        if (_healthRoutine != null) StopCoroutine(_healthRoutine);
 	        PlayerAnimator.enabled = false;
+	        Signal.Current.Fire<ScoreChanger>(new ScoreChanger {Team = _configs.Team});
 	        Signal.Current.Fire<PlayerDeath>(new PlayerDeath());
 	        _effectsModifier.UpdateVignette(0);
         }

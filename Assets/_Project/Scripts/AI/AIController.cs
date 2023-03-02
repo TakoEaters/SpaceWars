@@ -60,6 +60,7 @@ namespace _Project.Scripts.AI
 
         public void DisableAtFinish()
         {
+            _isReloading = false;
             _isFinish = true;
             DisableController();
         }
@@ -156,6 +157,7 @@ namespace _Project.Scripts.AI
             StartCoroutine(WaitUtils.WaitWithDelay(() =>
             {
                 _ammoCount = _weaponEntity.MagazineAmmo;
+                _isReloading = false;
             }, _weaponEntity.ReloadingDuration));
         }
 

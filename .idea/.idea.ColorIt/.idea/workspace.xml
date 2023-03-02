@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Animations/Controllers/AnimatorController_Player.controller" afterDir="false" />
-    </list>
+    <list default="true" id="fdbbbf81-012d-403e-bb80-05a332e54f27" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +181,7 @@
       <workItem from="1677578999188" duration="2579000" />
       <workItem from="1677665108373" duration="6094000" />
       <workItem from="1677675796048" duration="3455000" />
-      <workItem from="1677745715763" duration="6536000" />
+      <workItem from="1677745715763" duration="6768000" />
     </task>
     <task id="LOCAL-00001" summary="Updated spawner">
       <created>1676560840391</created>

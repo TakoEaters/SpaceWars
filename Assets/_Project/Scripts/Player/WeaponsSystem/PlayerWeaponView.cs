@@ -48,8 +48,8 @@ namespace _Project.Scripts.Player.WeaponsSystem
         }
 
         private Vector3 Position()
-        {
-            var point = MainCamera.transform.forward * 20f + MainCamera.transform.position;
+        { 
+            var point = MainCamera.transform.forward * 50f + MainCamera.transform.position;
 
             if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out RaycastHit hit, 1000f, _necessaryLayer)) //Finds the point where you click with the mouse
             {

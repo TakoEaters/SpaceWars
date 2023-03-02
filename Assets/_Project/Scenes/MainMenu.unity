@@ -5283,6 +5283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1e4b806eabe1c4bafdf324f8a1b230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _headMaterial: {fileID: 0}
+  _bodyMaterial: {fileID: 0}
 --- !u!137 &1084910296907112152
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

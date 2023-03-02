@@ -15,11 +15,11 @@ MonoBehaviour:
   ID: 2
   Name: VG-177
   Description: Pulse machine gun
-  FireRate: 0.19
-  Damage: 15
+  FireRate: 0.1
+  Damage: 24
   WeaponPrice: 10000
-  Level: 1
-  UpgradePrice: 3500
+  Level: 10
+  UpgradePrice: 23750
   InitialUpgradePrice: 3500
   AdditiveUpgradePrice: 2250
   InitialDamage: 15
@@ -28,6 +28,6 @@ MonoBehaviour:
   AdditiveFireRate: 0.01
   MagazineAmmo: 50
   TotalAmmo: 250
-  InitialReloadingDuration: 2.25
-  ReloadingDuration: 1.25
+  InitialReloadingDuration: 1.25
+  ReloadingDuration: 1.8
   ReloadingAdditive: 0.05

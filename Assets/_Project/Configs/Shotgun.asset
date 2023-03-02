@@ -15,11 +15,11 @@ MonoBehaviour:
   ID: 1
   Name: CLK-2
   Description: Laser shotgun
-  FireRate: 0.84
-  Damage: 67
+  FireRate: 0.75
+  Damage: 85
   WeaponPrice: 7500
-  Level: 1
-  UpgradePrice: 2500
+  Level: 10
+  UpgradePrice: 13750
   InitialUpgradePrice: 2500
   AdditiveUpgradePrice: 1250
   InitialDamage: 67
@@ -28,6 +28,6 @@ MonoBehaviour:
   AdditiveFireRate: 0.01
   MagazineAmmo: 8
   TotalAmmo: 64
-  InitialReloadingDuration: 2.75
-  ReloadingDuration: 1
+  InitialReloadingDuration: 1.75
+  ReloadingDuration: 2.3
   ReloadingAdditive: 0.05

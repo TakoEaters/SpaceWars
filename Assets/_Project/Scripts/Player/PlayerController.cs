@@ -12,7 +12,6 @@ using _Project.Scripts.General.Utils;
 using _Project.Scripts.General.Utils.Audio;
 using _Project.Scripts.GUi.Interface;
 using _Project.Scripts.Player.WeaponsSystem;
-using MoreMountains.NiceVibrations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -261,6 +260,7 @@ namespace _Project.Scripts.Player
 	        }
 	        _isReloading = true;
 	        IsReloading?.Invoke(_weaponEntity.ReloadingDuration);
+	        CorePool.Current.Get(_reloadingClip).Play();
 	        StartCoroutine(WaitUtils.WaitWithDelay(() =>
 	        {
 		        if (Count > 0)

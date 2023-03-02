@@ -27803,7 +27803,7 @@ MonoBehaviour:
     HealthRestorationDelay: 0.5
     HealthRestorationAmount: 1
     Priority: 1
-  _reloadingClip: {fileID: 0}
+  _reloadingClip: {fileID: 6100403650778688710, guid: d463d84425492014a86ad1df3482a272, type: 3}
   StartAnimTime: 0.3
   StopAnimTime: 0.15
   _desiredRotationSpeed: 0.3
